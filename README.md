@@ -1,7 +1,7 @@
 simple_hrm
 ==========
 
-This will be a HRM solution in rails.
+This will be a HRM solution in rails based on Orange HRM. This is simple rails application at the moment and eventually will be available as mountable engine.
 
 
 Features this HRM application will have
@@ -17,4 +17,7 @@ Features this HRM application will have
 - Training
 - ESS – Employee Self Service
 - Asset Tracker
--
+
+
+Contributors are welcome
+========================
