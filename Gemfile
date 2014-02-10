@@ -41,12 +41,11 @@ end
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
 
-# Bootstrap sass
-gem 'bootstrap-sass', '~> 3.1.0'
-gem 'devise'
-
 group :development, :test do
   gem 'debugger'
   gem 'rspec-rails'
 end
 
+gem 'bootstrap-sass', '~> 3.1.0'
+gem 'devise'
+gem 'renum'
