@@ -49,3 +49,4 @@ end
 gem 'bootstrap-sass', '~> 3.1.0'
 gem 'devise'
 gem 'renum'
+gem 'will_paginate', '~> 3.0'
