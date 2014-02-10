@@ -17,5 +17,18 @@ class User < ActiveRecord::Base
   # Associations
   ###############
   belongs_to :role
-  has_one :profile, as: :profileable
+  has_one :profile, as: :profileable, dependent: :destroy
+
+  ###############
+  # Public Api
+  ###############
+
+  def disable(with: :inactive)
+    update_attribute(:status, STATUS[with])
+  end
+
+  ###############
+  # Private Api
+  ###############
+
 end
