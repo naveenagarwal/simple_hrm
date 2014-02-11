@@ -11,3 +11,8 @@ Admin.create!(
   email:    "admin@example.com",
   password: "admin@example.com"
 )
+
+# Create Roles
+AppEnumerables::Roles.each do |role|
+  Role.create(name: role.description)
+end

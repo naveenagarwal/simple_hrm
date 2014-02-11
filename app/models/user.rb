@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
   ###############
 
   def disable(with: :inactive)
-    update_attribute(:status, STATUS[with])
+    update_attribute :status, STATUS[with]
   end
 
   ###############
