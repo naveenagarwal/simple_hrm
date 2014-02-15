@@ -5,3 +5,14 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+# Create Admin
+Admin.create!(
+  email:    "admin@example.com",
+  password: "admin@example.com"
+)
+
+# Create Roles
+AppEnumerables::Roles.each do |role|
+  Role.create(name: role.description)
+end
