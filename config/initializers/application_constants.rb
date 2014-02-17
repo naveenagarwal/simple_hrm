@@ -64,7 +64,7 @@ DEFAULT_PERMISSIONS = {
     desc: "PIM - Emergency Contacts"
   },
   pim_emergency_contacts_attachments: {
-    desc; "PIM - Emergency Contacts - Attachments"
+    desc: "PIM - Emergency Contacts - Attachments"
   },
   pim_emergency_contacts_custom_fields: {
     desc: "PIM - Emergency Contacts - Custom Fields"
@@ -109,7 +109,7 @@ DEFAULT_PERMISSIONS = {
     desc: "PIM - Job - Terminate Employee"
   },
   pim_membership: {
-    desc; "PIM - Membership"
+    desc: "PIM - Membership"
   },
   pim_membership_attachments: {
     desc: 'PIM - Membership - Attachments'
