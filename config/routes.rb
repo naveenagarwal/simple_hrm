@@ -13,6 +13,10 @@ SimpleHrm::Application.routes.draw do
     end
   end
 
+  namespace :user_management do
+    resources :users
+  end
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

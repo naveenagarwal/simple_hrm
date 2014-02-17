@@ -47,7 +47,10 @@ group :development, :test do
   gem 'factory_girl_rails', '4.2.1'
 end
 
-gem 'bootstrap-sass', '~> 3.1.0'
+# gem 'bootstrap-sass', '~> 3.1.0'
+gem "twitter-bootstrap-rails"
+gem "less-rails"
+gem "therubyracer"
 gem 'devise'
 gem 'renum'
 gem 'will_paginate', '~> 3.0'

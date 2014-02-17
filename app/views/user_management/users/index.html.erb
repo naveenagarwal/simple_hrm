@@ -1,4 +1,4 @@
-<h1>Listing user_management_users</h1>
+<h1>Listing users</h1>
 
 <table>
   <thead>
@@ -10,10 +10,10 @@
   </thead>
 
   <tbody>
-    <% @user_management_users.each do |user_management_user| %>
+    <% @users.each do |user| %>
       <tr>
         <td><%= link_to 'Show', user_management_user %></td>
-        <td><%= link_to 'Edit', edit_user_management_user_path(user_management_user) %></td>
+        <td><%= link_to 'Edit', edit_user_management_user_path(user) %></td>
         <td><%= link_to 'Destroy', user_management_user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
