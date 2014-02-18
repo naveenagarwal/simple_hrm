@@ -14,6 +14,13 @@ class User < ActiveRecord::Base
   }
 
   ##############
+  # Scopes
+  ##############
+  scope :active, where(status: [STATUS[:active], nil])
+  scope :inactive, where(status: STATUS[:inactive])
+  scope :terminated, where(status: STATUS[:terminated])
+
+  ##############
   # Accessors
   ##############
   attr_accessor :send_email
@@ -23,6 +30,10 @@ class User < ActiveRecord::Base
   ###############
   belongs_to :role
   has_one :profile, as: :profileable, dependent: :destroy
+
+  ###############
+  # Class Methods
+  ###############
 
   ###############
   # Public Api

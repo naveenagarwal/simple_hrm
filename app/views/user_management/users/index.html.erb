@@ -1,5 +1,14 @@
 <h1>Listing users</h1>
-
+<div class="navbar container-fluid nav-collapse">
+  <ul class="nav">
+    <li><%= link_to "All", user_management_users_path(scope: "all"), id: "abc" %></li>
+    <% User::STATUS.each do |key, value| %>
+      <li>
+        <%= link_to key.to_s.capitalize, user_management_users_path(scope: key.to_s,) %>
+      </li>
+    <% end %>
+  </ul>
+</div><!--/.nav-collapse -->
 <table class="table table-bordered">
   <thead>
     <tr>

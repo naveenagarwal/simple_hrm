@@ -4,8 +4,13 @@ class UserManagement::UsersController < ApplicationController
   # GET /user_management/users
   # GET /user_management/users.json
   def index
+    relation_object = RelationObject.scoped_relation_object(
+                        scope_name: params[:scope],
+                        klass: User
+                      )
+
     @users = Paginate.get_records(
-      relation_object:  User,
+      relation_object:  relation_object,
       page:             params[:page] || DEFAULT_PAGE,
       per_page:         params[:per_page] || DEFAULT_PER_PAGE
     )
@@ -68,7 +73,7 @@ class UserManagement::UsersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
-      @user = User.find(params[:id])
+      @user = User.unscoped.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
