@@ -16,11 +16,6 @@ class UserManagement::UsersController < ApplicationController
     )
   end
 
-  # GET /user_management/users/1
-  # GET /user_management/users/1.json
-  def show
-  end
-
   # GET /user_management/users/new
   def new
     @user = User.new
@@ -37,11 +32,9 @@ class UserManagement::UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to [:user_management, @user], notice: t("model.create", kind: "User") }
-        format.json { render action: 'show', status: :created, location: @user }
+        format.html { redirect_to user_management_users_path(pagination_params), notice: t("model.create", kind: "User") }
       else
         format.html { render action: 'new' }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -51,11 +44,9 @@ class UserManagement::UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params_on_edit)
-        format.html { redirect_to [:user_management, @user], notice: t("model.update", kind: "User") }
-        format.json { head :no_content }
+        format.html { redirect_to user_management_users_path(pagination_params), notice: t("model.update", kind: "User") }
       else
         format.html { render action: 'edit' }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -65,8 +56,7 @@ class UserManagement::UsersController < ApplicationController
   def destroy
     @user.disable
     respond_to do |format|
-      format.html { redirect_to user_management_users_url }
-      format.json { head :no_content }
+      format.html { redirect_to user_management_users_path(pagination_params) }
     end
   end
 

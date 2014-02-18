@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  helper_method :current_user_type
+  helper_method :current_user_type, :pagination_params
 
   private
 
@@ -14,6 +14,14 @@ class ApplicationController < ActionController::Base
     end
 
     return "visitor"
+  end
+
+  def pagination_params
+    {
+      scope: params[:scope],
+      page: params[:page],
+      per_page: params[:per_page]
+    }
   end
 
 end
