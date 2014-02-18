@@ -16,9 +16,9 @@ class User < ActiveRecord::Base
   ##############
   # Scopes
   ##############
-  scope :active, where(status: [STATUS[:active], nil])
-  scope :inactive, where(status: STATUS[:inactive])
-  scope :terminated, where(status: STATUS[:terminated])
+  scope :active, -> { where(status: [STATUS[:active], nil]) }
+  scope :inactive, -> { where(status: STATUS[:inactive]) }
+  scope :terminated, -> { where(status: STATUS[:terminated]) }
 
   ##############
   # Accessors

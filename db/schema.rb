@@ -82,7 +82,7 @@ ActiveRecord::Schema.define(version: 20140210091716) do
     t.integer  "role_id"
     t.text     "permissions"
     t.string   "username"
-    t.integer  "status"
+    t.integer  "status",                 default: 0
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
