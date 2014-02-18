@@ -46,12 +46,11 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">SimpleHrm</a>
+          <a class="brand" href="/">SimpleHrm</a>
           <div class="container-fluid nav-collapse">
             <ul class="nav">
-              <li><%= link_to "Link1", "/path1"  %></li>
-              <li><%= link_to "Link2", "/path2"  %></li>
-              <li><%= link_to "Link3", "/path3"  %></li>
+              <%= render partial: "/layouts/sign_in_links" %>
+              <%= render partial: "/layouts/sign_out_links" %>
             </ul>
           </div><!--/.nav-collapse -->
         </div>

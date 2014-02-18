@@ -1,0 +1,4 @@
+<% if current_user_type == "visitor" %>
+  <li><%= link_to "Admin Login", new_admin_session_path %></li>
+  <li><%= link_to "User Login", new_user_session_path %></li>
+<% end %>
