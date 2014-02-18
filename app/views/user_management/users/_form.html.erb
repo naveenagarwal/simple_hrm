@@ -1,4 +1,5 @@
 <%= form_for([:user_management, @user]) do |f| %>
+
   <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -11,7 +12,37 @@
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <fieldset class="span4">
+    <%= f.label :username, "Username" %>
+    <%= f.text_field :username %>
+  </fieldset>
+
+  <fieldset class="span4">
+    <%= f.label :email, "Email" %>
+    <%= f.text_field :email %>
+  </fieldset>
+
+  <%= update_password_on_edit %>
+
+  <fieldset class="span4">
+    <%= f.label :password, "Password" %>
+    <%= f.password_field :password %>
+  </fieldset>
+
+  <fieldset class="span4">
+    <%= f.label :password_confirmation, "Confirm Password" %>
+    <%= f.password_field :password_confirmation %>
+  </fieldset>
+
+  <fieldset class="span9">
+    <%= f.check_box :send_email %>
+    <%= f.label :send_email, class: "checkbox inline" %>
+  </fieldset>
+
+  <fieldset class="span9">
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  </fieldset>
+
 <% end %>

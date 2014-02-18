@@ -13,6 +13,11 @@ class User < ActiveRecord::Base
     terminated: 2
   }
 
+  ##############
+  # Accessors
+  ##############
+  attr_accessor :send_email
+
   ###############
   # Associations
   ###############
@@ -22,9 +27,13 @@ class User < ActiveRecord::Base
   ###############
   # Public Api
   ###############
-
   def disable(with: :inactive)
     update_attribute :status, STATUS[with]
+  end
+
+  def send_email
+    return true if @send_email.nil?
+    @send_email
   end
 
   ###############

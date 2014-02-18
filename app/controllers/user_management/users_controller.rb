@@ -32,7 +32,7 @@ class UserManagement::UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: t("model.create", kind: "User") }
+        format.html { redirect_to [:user_management, @user], notice: t("model.create", kind: "User") }
         format.json { render action: 'show', status: :created, location: @user }
       else
         format.html { render action: 'new' }
@@ -45,8 +45,8 @@ class UserManagement::UsersController < ApplicationController
   # PATCH/PUT /user_management/users/1.json
   def update
     respond_to do |format|
-      if @user.update(user_params)
-        format.html { redirect_to @user, notice: t("model.update", kind: "User") }
+      if @user.update(user_params_on_edit)
+        format.html { redirect_to [:user_management, @user], notice: t("model.update", kind: "User") }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -77,5 +77,15 @@ class UserManagement::UsersController < ApplicationController
         :username, :email, :password,
         :password_confirmation
       )
+    end
+
+    def user_params_on_edit
+      if params[:update_password] == "yes"
+        user_params
+      else
+        params.require(:user).permit(
+        :username, :email
+      )
+      end
     end
 end

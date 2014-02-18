@@ -58,6 +58,10 @@
       </div>
     </div>
 
+    <div class="header">
+      <%= render partial: "/layouts/header" %>
+    </div>
+
     <div class="container-fluid">
       <div class="row-fluid">
         <div class="span3">
@@ -70,9 +74,6 @@
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
-        <div class="header">
-          <%= render partial: "/layouts/header" %>
-        </div>
         <div class="span9">
           <%= bootstrap_flash %>
           <%= yield %>
