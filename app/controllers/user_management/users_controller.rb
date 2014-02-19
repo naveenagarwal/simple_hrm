@@ -1,5 +1,5 @@
 class UserManagement::UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:edit, :update, :destroy]
 
   # GET /user_management/users
   # GET /user_management/users.json
@@ -56,7 +56,7 @@ class UserManagement::UsersController < ApplicationController
   def destroy
     @user.disable
     respond_to do |format|
-      format.html { redirect_to user_management_users_path(pagination_params) }
+      format.html { redirect_to user_management_users_path(pagination_params), notice: t("model.destroy", kind: "User") }
     end
   end
 

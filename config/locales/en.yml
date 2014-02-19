@@ -23,3 +23,4 @@ en:
   model:
     create: "%{kind} was successfully created."
     update: "%{kind} was successfully updated."
+    destroy: "%{kind} was successfully deleted."

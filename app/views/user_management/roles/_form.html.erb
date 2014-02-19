@@ -1,0 +1,24 @@
+<%= form_for([:user_management, @role]) do |f| %>
+  <% if @role.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@role.errors.count, "error") %> prohibited this role from being saved:</h2>
+
+      <ul>
+      <% @role.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <fieldset class="span9">
+    <%= f.label :name, "Role Name" %>
+    <%= f.text_field :name %>
+  </fieldset>
+
+  <fieldset class="span9">
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  </fieldset>
+<% end %>

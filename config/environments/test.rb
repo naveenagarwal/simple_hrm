@@ -33,6 +33,4 @@ SimpleHrm::Application.configure do
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
-
-  # config.include FactoryGirl::Syntax::Methods
 end

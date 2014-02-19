@@ -15,9 +15,7 @@
   </ul>
 </div><!--/.nav-collapse -->
 
-<div class="pull-right">
-  <%= will_paginate @users  %>
-</div>
+<%= render partial: '/shared/paginate_collection', locals: { records: @users } %>
 
 <table class="table table-bordered">
   <thead>
@@ -47,4 +45,4 @@
 
 <br>
 
-<%= link_to 'New User', new_user_management_user_path %>
+<%= link_to 'New User', new_user_management_user_path, class: "btn"  %>

@@ -15,6 +15,7 @@ SimpleHrm::Application.routes.draw do
 
   namespace :user_management do
     resources :users, except: [:show]
+    resources :roles, except: [:show]
   end
 
   # Example of regular route:

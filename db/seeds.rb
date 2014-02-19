@@ -14,5 +14,5 @@ Admin.create!(
 
 # Create Roles
 AppEnumerables::Roles.each do |role|
-  Role.create(name: role.description)
+  Role.where(name: role.description).first_or_create
 end

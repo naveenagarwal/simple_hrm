@@ -1,0 +1,27 @@
+<h1>Listing roles</h1>
+
+<%= render partial: '/shared/paginate_collection', locals: { records: @roles } %>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @roles.each do |role| %>
+      <tr>
+        <td><%= role.name %></td>
+        <td><%= link_to 'Edit', edit_user_management_role_path(role) %></td>
+        <td><%= link_to 'Destroy', user_management_role_path(role, pagination_params), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Role', new_user_management_role_path, class: "btn"  %>
