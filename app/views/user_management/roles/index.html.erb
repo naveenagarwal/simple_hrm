@@ -14,11 +14,12 @@
 
   <tbody>
     <% @roles.each do |role| %>
+      <% count = role.users_count || 0 %>
       <tr>
         <td><%= role.name %></td>
-        <td><%= role.users_count || 0 %></td>
+        <td><%= count %></td>
         <td><%= link_to 'Edit', edit_user_management_role_path(role) %></td>
-        <td><%= link_to 'Destroy', user_management_role_path(role, pagination_params), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= role_detroy_link(role, count) %></td>
       </tr>
     <% end %>
   </tbody>

@@ -31,6 +31,24 @@ describe Role do
       @role.save.should be_true
     end
 
+    it "should not delete a role when users are associated with it" do
+      role = create(:role)
+      user = User.new(
+                email: "testuser@example.com",
+                password: "12345678",
+                password_confirmation: "12345678"
+              )
+      user.role = role
+      user.save.should be_true
+      role.reload
+      role.destroy.should be_false
+    end
+
+    it "should delete a role when no user is associated with it" do
+      role = create(:role)
+      role.destroy.should be_true
+    end
+
   end
 
 end
