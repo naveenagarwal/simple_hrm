@@ -33,7 +33,7 @@ class User < ActiveRecord::Base
   ###############
   # Associations
   ###############
-  belongs_to :role
+  belongs_to :role, counter_cache: true
   has_one :profile, as: :profileable, dependent: :destroy
 
   ###############

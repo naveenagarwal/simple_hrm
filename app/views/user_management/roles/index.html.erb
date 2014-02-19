@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th>Name</th>
+      <th>Users In Role</th>
       <th></th>
       <th></th>
     </tr>
@@ -15,6 +16,7 @@
     <% @roles.each do |role| %>
       <tr>
         <td><%= role.name %></td>
+        <td><%= role.users_count || 0 %></td>
         <td><%= link_to 'Edit', edit_user_management_role_path(role) %></td>
         <td><%= link_to 'Destroy', user_management_role_path(role, pagination_params), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
