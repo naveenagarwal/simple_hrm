@@ -25,6 +25,11 @@ class User < ActiveRecord::Base
   ##############
   attr_accessor :send_email
 
+  ##############
+  # Validatons
+  ##############
+  validates :role_id, presence: true
+
   ###############
   # Associations
   ###############

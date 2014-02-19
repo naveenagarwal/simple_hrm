@@ -70,7 +70,8 @@ class UserManagement::UsersController < ApplicationController
     def user_params
       params.require(:user).permit(
         :username, :email, :password,
-        :password_confirmation
+        :password_confirmation,
+        :role_id
       )
     end
 
@@ -79,7 +80,7 @@ class UserManagement::UsersController < ApplicationController
         user_params
       else
         params.require(:user).permit(
-        :username, :email
+        :username, :email, :role_id
       )
       end
     end
