@@ -13,24 +13,31 @@
     </div>
   <% end %>
 
-  <fieldset>
-    <%= f.label :status, "Enable" %><br />
+
+  <fieldset class="span9">
     <%= f.check_box :status %>
+    <%= f.label :status, "Enable Authentication Settings" ,class: "checkbox inline" %>
   </fieldset>
-  <fieldset>
-    <%= f.label :reset_password %><br />
+
+  <fieldset class="span9">
     <%= f.check_box :reset_password %>
+    <%= f.label :reset_password, "User can reset the password" ,class: "checkbox inline" %>
   </fieldset>
-  <fieldset>
-    <%= f.label :enable_recaptcha %><br />
+
+  <fieldset class="span9">
     <%= f.check_box :enable_recaptcha %>
+    <%= f.label :enable_recaptcha, "Enable Recaptcha" ,class: "checkbox inline" %>
   </fieldset>
-  <fieldset>
-    <%= f.label :attempts_to_enable_recaptcha %><br />
+
+  <fieldset class="span9">
+    <%= f.label :attempts_to_enable_recaptcha %>
     <%= f.text_field :attempts_to_enable_recaptcha %>
   </fieldset>
-  <fieldset>
-    <%= f.submit %>
+
+  <fieldset class="span9">
+    <div class="actions">
+      <%= f.submit %>
+    </div>
   </fieldset>
 <% end %>
 

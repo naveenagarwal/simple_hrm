@@ -18,4 +18,9 @@ AppEnumerables::Roles.each do |role|
 end
 
 # Create User AuthenticationConfiguration
-AuthenticationConfiguration.create
+AuthenticationConfiguration.create!(
+  status: true,
+  reset_password: true,
+  enable_recaptcha: true,
+  attempts_to_enable_recaptcha: 3
+)

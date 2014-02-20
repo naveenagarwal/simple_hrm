@@ -4,7 +4,7 @@ module UserManagement::UsersHelper
 
     "<fieldset class='span9'>
       #{check_box_tag 'update_password', 'yes', params[:update_password]}
-      #{label_tag 'update_password', 'Update Passwors', class: 'checkbox inline'}
+      #{label_tag 'update_password', 'Update Password', class: 'checkbox inline'}
     </fieldset>".html_safe
   end
 
