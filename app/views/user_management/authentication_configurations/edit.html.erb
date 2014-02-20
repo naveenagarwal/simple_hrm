@@ -1,0 +1,37 @@
+<h1> Edit Authentication Configuration</h1>
+
+<%= form_for [:user_management, @authentication_configuration] do |f| %>
+  <% if @authentication_configuration.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@authentication_configuration.errors.count, "error") %> prohibited this authentication configuration from being saved:</h2>
+
+      <ul>
+      <% @authentication_configuration.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <fieldset>
+    <%= f.label :status, "Enable" %><br />
+    <%= f.check_box :status %>
+  </fieldset>
+  <fieldset>
+    <%= f.label :reset_password %><br />
+    <%= f.check_box :reset_password %>
+  </fieldset>
+  <fieldset>
+    <%= f.label :enable_recaptcha %><br />
+    <%= f.check_box :enable_recaptcha %>
+  </fieldset>
+  <fieldset>
+    <%= f.label :attempts_to_enable_recaptcha %><br />
+    <%= f.text_field :attempts_to_enable_recaptcha %>
+  </fieldset>
+  <fieldset>
+    <%= f.submit %>
+  </fieldset>
+<% end %>
+
+

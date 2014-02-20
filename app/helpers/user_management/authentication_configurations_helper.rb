@@ -1,0 +1,2 @@
+module UserManagement::AuthenticationConfigurationsHelper
+end

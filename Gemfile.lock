@@ -76,10 +76,14 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    metaclass (0.0.3)
     mime-types (1.25.1)
     minitest (4.7.5)
+    mocha (1.0.0)
+      metaclass (~> 0.0.1)
     multi_json (1.8.4)
     mysql2 (0.3.15)
+    nifty-generators (0.4.6)
     orm_adapter (0.5.0)
     polyglot (0.3.3)
     rack (1.5.2)
@@ -169,7 +173,9 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   less-rails
+  mocha
   mysql2
+  nifty-generators
   rails (= 4.0.2)
   recaptcha
   renum

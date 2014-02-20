@@ -16,9 +16,12 @@ SimpleHrm::Application.routes.draw do
   namespace :user_management do
     resources :users, except: [:show]
     resources :roles, except: [:show]
+    resources :authentication_configurations, only: [:update]
   end
 
   resources :user_dashboard, only: [:index]
+
+  get 'user_management/authentication_configurations/edit' => "user_management/authentication_configurations#edit", as: :edit_user_management_authentication_configuration
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

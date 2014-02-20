@@ -16,3 +16,6 @@ Admin.create!(
 AppEnumerables::Roles.each do |role|
   Role.where(name: role.description).first_or_create
 end
+
+# Create User AuthenticationConfiguration
+AuthenticationConfiguration.create

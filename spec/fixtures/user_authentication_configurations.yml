@@ -1,0 +1,11 @@
+one:
+  status: 
+  reset_password: 
+  enable_recaptcha: 
+  attempts_to_enable_recaptcha: 
+
+two:
+  status: 
+  reset_password: 
+  enable_recaptcha: 
+  attempts_to_enable_recaptcha: 

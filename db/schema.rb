@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140219113550) do
+ActiveRecord::Schema.define(version: 20140220085718) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -40,6 +40,15 @@ ActiveRecord::Schema.define(version: 20140219113550) do
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
   add_index "admins", ["unlock_token"], name: "index_admins_on_unlock_token", unique: true, using: :btree
 
+  create_table "authentication_configurations", force: true do |t|
+    t.boolean  "status"
+    t.boolean  "reset_password"
+    t.boolean  "enable_recaptcha"
+    t.integer  "attempts_to_enable_recaptcha"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "profiles", force: true do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -58,6 +67,15 @@ ActiveRecord::Schema.define(version: 20140219113550) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "users_count"
+  end
+
+  create_table "user_authentication_configurations", force: true do |t|
+    t.boolean  "status"
+    t.boolean  "reset_password"
+    t.boolean  "enable_recaptcha"
+    t.integer  "attempts_to_enable_recaptcha"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
@@ -83,7 +101,7 @@ ActiveRecord::Schema.define(version: 20140219113550) do
     t.integer  "role_id"
     t.text     "permissions"
     t.string   "username"
-    t.integer  "status",                 default: 0
+    t.integer  "status"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
