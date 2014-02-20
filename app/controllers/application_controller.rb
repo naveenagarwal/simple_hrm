@@ -3,7 +3,13 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  helper_method :current_user_type, :pagination_params
+  helper_method :current_user_type, :pagination_params,
+                :show_recaptcha?, :exceded_max_login_attempts?
+
+
+  def after_sign_in_path_for(resource)
+    root_url
+  end
 
   private
 
@@ -22,6 +28,30 @@ class ApplicationController < ActionController::Base
       page: params[:page],
       per_page: params[:per_page]
     }
+  end
+
+  def show_recaptcha?
+    if captacha_enabled? && exceded_max_login_attempts?
+      true
+    else
+      false
+    end
+  end
+
+  def exceded_max_login_attempts?
+    if cookies[:attempts].to_i > max_login_attempts
+      true
+    else
+      false
+    end
+  end
+
+  def captacha_enabled?
+    true
+  end
+
+  def max_login_attempts
+    3
   end
 
 end

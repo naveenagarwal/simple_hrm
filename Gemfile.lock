@@ -101,6 +101,7 @@ GEM
     rake (10.1.1)
     rdoc (4.1.1)
       json (~> 1.4)
+    recaptcha (0.3.6)
     ref (1.0.5)
     renum (1.4.0)
     rspec-core (2.14.7)
@@ -170,6 +171,7 @@ DEPENDENCIES
   less-rails
   mysql2
   rails (= 4.0.2)
+  recaptcha
   renum
   rspec-rails
   sass-rails (~> 4.0.0)

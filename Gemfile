@@ -54,3 +54,4 @@ gem "therubyracer"
 gem 'devise'
 gem 'renum'
 gem 'will_paginate', '~> 3.0'
+gem 'recaptcha', :require => 'recaptcha/rails'

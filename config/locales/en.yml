@@ -25,3 +25,5 @@ en:
     update: "%{kind} was successfully updated."
     destroy: "%{kind} was successfully deleted."
     destroy_fail: "%{kind} can't be deleted."
+  devise:
+    recaptcha_failed: "Captcha has wrong, try again."
