@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   helper_method :current_user_type, :pagination_params,
-                :show_recaptcha?, :exceded_max_login_attempts?
+                :show_recaptcha?, :exceded_max_login_attempts?, :can_reset_password?
 
 
   def after_sign_in_path_for(resource)
@@ -47,11 +47,19 @@ class ApplicationController < ActionController::Base
   end
 
   def captacha_enabled?
-    true
+    authentication_config.show_recaptcha?
   end
 
   def max_login_attempts
-    3
+    authentication_config.attempts
+  end
+
+  def authentication_config
+    @authentication_configuration ||= AuthenticationConfiguration.first
+  end
+
+  def can_reset_password?
+    authentication_config.can_reset_password?
   end
 
 end

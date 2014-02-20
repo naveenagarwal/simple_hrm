@@ -6,6 +6,7 @@ class Users::SessionsController < Devise::SessionsController
     if show_recaptcha?
       if verify_recaptcha
         super
+        cookies[:attempts] = 0
       else
         set_resource_and_sign_out
         render :new
@@ -21,7 +22,7 @@ class Users::SessionsController < Devise::SessionsController
     self.resource = resource_class.new(sign_in_params)
     clean_up_passwords(resource)
     Devise.sign_out_all_scopes ? sign_out : sign_out(resource_name)
-    flash[:error] = t("devise.recaptcha_failed")
+    flash.now[:error] = t("devise.recaptcha_failed")
   end
 
   def increment_login_attempts
