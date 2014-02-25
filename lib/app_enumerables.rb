@@ -14,4 +14,14 @@ module AppEnumerables
     Supervisor "Supervisor", 4, 4
   end
 
+  enum :MaritialStatus do
+    Married "Married", 1, 1
+    Unmarried "Unmarried", 2, 2
+  end
+
+  enum :Gender do
+    Male "Male", 1, 1
+    Female "Female", 2, 2
+  end
+
 end

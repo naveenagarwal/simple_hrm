@@ -1,0 +1,51 @@
+<h1>Edit Profile</h1>
+
+<%= form_for @profile do |f| %>
+
+  <% if @profile.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this role from being saved:</h2>
+
+      <ul>
+      <% @profile.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <fieldset class="span5">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name %>
+  </fieldset>
+  <fieldset class="span5">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name %>
+  </fieldset>
+
+  <p></p>
+
+  <fieldset class="span5">
+    <%= f.label :dob %><br />
+    <%= f.text_field :dob %>
+  </fieldset>
+
+  <fieldset class="span5">
+    <%= f.label :gender %><br />
+    <%= f.select :gender, collection_for(AppEnumerables::Gender), { include_blank: true } %>
+  </fieldset>
+
+  <p></p>
+
+  <fieldset class="span5">
+    <%= f.label :maritial_status %><br />
+    <%= f.select :maritial_status, collection_for(AppEnumerables::MaritialStatus), { include_blank: true } %>
+  </fieldset>
+
+  <fieldset class="span5">
+    <%= f.submit %>
+  </fieldset>
+
+<% end %>
+
+

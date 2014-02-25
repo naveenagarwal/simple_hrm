@@ -1,5 +1,8 @@
 <% unless current_user_type == "visitor" %>
   <li>
+    <%= link_to "My Profile", edit_profile_path(current_entity) %>
+  </li>
+  <li>
     <%= link_to "Sign Out", send("destroy_#{current_user_type}_session_path"), method: :delete, "data-no-turbolink" => true %>
   </li>
 <% end %>

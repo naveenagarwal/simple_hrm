@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  helper_method :current_user_type, :pagination_params,
+  helper_method :current_user_type, :pagination_params, :current_entity,
                 :show_recaptcha?, :exceded_max_login_attempts?, :can_reset_password?
 
 
@@ -60,6 +60,10 @@ class ApplicationController < ActionController::Base
 
   def can_reset_password?
     authentication_config.can_reset_password?
+  end
+
+  def current_entity
+    send("current_#{current_user_type}") unless current_user_type == "visitor"
   end
 
 end
