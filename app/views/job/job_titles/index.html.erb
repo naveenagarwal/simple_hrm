@@ -1,0 +1,33 @@
+<h1>Listing job_titles</h1>
+
+<%= render partial: '/shared/paginate_collection', locals: { records: @job_titles } %>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Specification</th>
+      <th>Note</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @job_titles.each do |job_title| %>
+      <tr>
+        <td><%= job_title.name %></td>
+        <td><%= job_title.description %></td>
+        <td><%= job_title.specification %></td>
+        <td><%= job_title.note %></td>
+        <td><%= link_to 'Edit', edit_job_job_title_path(job_title) %></td>
+        <td><%= link_to 'Destroy', job_job_title_path(job_title, pagination_params), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Job title', new_job_job_title_path, class: "btn" %>

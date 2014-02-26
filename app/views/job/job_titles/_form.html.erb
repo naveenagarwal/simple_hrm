@@ -1,0 +1,37 @@
+<%= form_for([:job, @job_title]) do |f| %>
+  <% if @job_title.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@job_title.errors.count, "error") %> prohibited this job_title from being saved:</h2>
+
+      <ul>
+      <% @job_title.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <fieldset>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </fieldset>
+  <fieldset>
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </fieldset>
+  <fieldset>
+    <%= f.label :specification %><br>
+    <%= f.text_field :specification %>
+  </fieldset>
+  <fieldset>
+    <%= f.label :note %><br>
+    <%= f.text_area :note %>
+  </fieldset>
+
+  <fieldset>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  </fieldset>
+
+<% end %>

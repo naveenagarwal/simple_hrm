@@ -1,0 +1,2 @@
+module Job::JobTitlesHelper
+end

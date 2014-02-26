@@ -1,4 +1,5 @@
 SimpleHrm::Application.routes.draw do
+
   devise_for :admins
   devise_for :users, controllers: { sessions: 'users/sessions' }
   # The priority is based upon order of creation: first created -> highest priority.
@@ -24,6 +25,10 @@ SimpleHrm::Application.routes.draw do
   get 'user_management/authentication_configurations/edit' => "user_management/authentication_configurations#edit", as: :edit_user_management_authentication_configuration
 
   resources :profiles, only: [:edit, :update]
+
+  namespace :job do
+    resources :job_titles
+  end
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

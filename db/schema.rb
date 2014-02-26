@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140220085718) do
+ActiveRecord::Schema.define(version: 20140226084743) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -45,6 +45,15 @@ ActiveRecord::Schema.define(version: 20140220085718) do
     t.boolean  "reset_password"
     t.boolean  "enable_recaptcha"
     t.integer  "attempts_to_enable_recaptcha"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "job_titles", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "specification"
+    t.text     "note"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
