@@ -1,4 +1,4 @@
-<%= form_for([:job, @job_title]) do |f| %>
+<%= form_for([:job, @job_title], multipart: true) do |f| %>
   <% if @job_title.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@job_title.errors.count, "error") %> prohibited this job_title from being saved:</h2>
@@ -20,8 +20,8 @@
     <%= f.text_area :description %>
   </fieldset>
   <fieldset>
-    <%= f.label :specification %><br>
-    <%= f.text_field :specification %>
+    <%= f.label :specification, specification_file_name(@job_title)  %><br>
+    <%= f.file_field :specification %>
   </fieldset>
   <fieldset>
     <%= f.label :note %><br>

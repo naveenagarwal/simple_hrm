@@ -7,7 +7,7 @@
     <tr>
       <th>Name</th>
       <th>Description</th>
-      <th>Specification</th>
+      <th>Specification File</th>
       <th>Note</th>
       <th></th>
       <th></th>
@@ -18,9 +18,14 @@
     <% @job_titles.each do |job_title| %>
       <tr>
         <td><%= job_title.name %></td>
-        <td><%= job_title.description %></td>
-        <td><%= job_title.specification %></td>
-        <td><%= job_title.note %></td>
+        <td>
+          <%= get_text_with_tooltip(job_title.description) %>
+        </td>
+        <td><%= specification_file_link(job_title) %></td>
+        <td>
+          <%= get_text_with_tooltip(job_title.note) %>
+        </td>
+
         <td><%= link_to 'Edit', edit_job_job_title_path(job_title) %></td>
         <td><%= link_to 'Destroy', job_job_title_path(job_title, pagination_params), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
