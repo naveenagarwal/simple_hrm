@@ -3,4 +3,10 @@ class Admin < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable, :registerable
   devise :database_authenticatable, :recoverable, :rememberable,
           :trackable, :validatable
+
+  ###############
+  # Associations
+  ###############
+  has_one :profile, as: :profileable, dependent: :destroy
+
 end
