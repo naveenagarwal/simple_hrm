@@ -10,4 +10,17 @@ module ApplicationHelper
     </span>
     ".html_safe
   end
+
+  def edit_icon(size = 16)
+    "<span>
+      <img src='/assets/edit-icon-#{size}.png' class='icon-list has-tooltip' title='Edit'>
+    </span>".html_safe
+  end
+
+  def delete_icon(size = 16)
+    "<span>
+      <img src='/assets/delete-icon-#{size}.png' class='icon-list has-tooltip' title='Destroy'>
+    </span>".html_safe
+  end
+
 end

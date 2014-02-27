@@ -1,5 +1,7 @@
 class Job::JobTitlesController < ApplicationController
-  before_action :set_job_title, only: [:show, :edit, :update, :destroy]
+  before_action :set_job_title, only: [:show, :edit, :update, :destroy, :destroy_specification]
+
+  before_filter :verify_xhr, only: [:destroy_specification]
 
   def index
     @job_titles = Paginate.get_records(
@@ -53,6 +55,11 @@ class Job::JobTitlesController < ApplicationController
     end
   end
 
+  def destroy_specification
+    @job_title.remove_specification!
+    @job_title.save
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_job_title
@@ -61,6 +68,6 @@ class Job::JobTitlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def job_title_params
-      params.require(:job_title).permit(:name, :description, :specification, :note)
+      params.require(:job_title).permit(:name, :description, :specification, :note, :remove_specification)
     end
 end

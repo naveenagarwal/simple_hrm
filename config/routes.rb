@@ -27,7 +27,11 @@ SimpleHrm::Application.routes.draw do
   resources :profiles, only: [:edit, :update]
 
   namespace :job do
-    resources :job_titles
+    resources :job_titles, except: [:show] do
+      member do
+        delete :destroy_specification
+      end
+    end
   end
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

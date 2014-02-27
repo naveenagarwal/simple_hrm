@@ -11,6 +11,14 @@ class ApplicationController < ActionController::Base
     root_url
   end
 
+  protected
+
+  def verify_xhr
+    unless request.xhr?
+      render text: "Invalid request!"
+    end
+  end
+
   private
 
   def current_user_type

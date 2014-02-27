@@ -2,7 +2,7 @@
 
 <%= render partial: '/shared/paginate_collection', locals: { records: @roles } %>
 
-<table class="table table-bordered">
+<table class="table table-bordered table-striped">
   <thead>
     <tr>
       <th>Name</th>
@@ -18,8 +18,8 @@
       <tr>
         <td><%= role.name %></td>
         <td><%= count %></td>
-        <td><%= link_to 'Edit', edit_user_management_role_path(role) %></td>
-        <td><%= role_detroy_link(role, count) %></td>
+        <td class='align-center'><%= link_to edit_icon, edit_user_management_role_path(role) %></td>
+        <td class='align-center'><%= role_detroy_link(role, count) %></td>
       </tr>
     <% end %>
   </tbody>

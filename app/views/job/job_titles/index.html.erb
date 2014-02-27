@@ -1,8 +1,8 @@
-<h1>Listing job_titles</h1>
+<h1>Listing job titles</h1>
 
 <%= render partial: '/shared/paginate_collection', locals: { records: @job_titles } %>
 
-<table class="table table-bordered">
+<table class="table table-bordered table-striped">
   <thead>
     <tr>
       <th>Name</th>
@@ -21,13 +21,15 @@
         <td>
           <%= get_text_with_tooltip(job_title.description) %>
         </td>
-        <td><%= specification_file_link(job_title) %></td>
+        <td id="specification-<%= job_title.id %>">
+          <%= specification_file_link(job_title) %>
+        </td>
         <td>
           <%= get_text_with_tooltip(job_title.note) %>
         </td>
 
-        <td><%= link_to 'Edit', edit_job_job_title_path(job_title) %></td>
-        <td><%= link_to 'Destroy', job_job_title_path(job_title, pagination_params), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class='align-center'><%= link_to edit_icon, edit_job_job_title_path(job_title) %></td>
+        <td class='align-center'><%= link_to delete_icon, job_job_title_path(job_title, pagination_params), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
