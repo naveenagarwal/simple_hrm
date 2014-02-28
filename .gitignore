@@ -15,5 +15,5 @@
 /log/*.log
 /tmp
 /db/schema.rb
-/piblic/uploads
+/public/uploads
 /config/database.yml
