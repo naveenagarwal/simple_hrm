@@ -32,6 +32,8 @@ SimpleHrm::Application.routes.draw do
         delete :destroy_specification
       end
     end
+
+    resources :salary_components, except: [:show]
   end
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

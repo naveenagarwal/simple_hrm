@@ -1,25 +1,34 @@
-<h1>Listing job_salary_components</h1>
+<h1>Listing Salary Components</h1>
 
-<table>
+<%= render partial: '/shared/paginate_collection', locals: { records: @salary_components } %>
+
+<table class="table table-bordered table-striped">
   <thead>
     <tr>
-      <th></th>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Cost To Company?</th>
       <th></th>
       <th></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @job_salary_components.each do |job_salary_component| %>
+    <% @salary_components.each do |salary_component| %>
       <tr>
-        <td><%= link_to 'Show', job_salary_component %></td>
-        <td><%= link_to 'Edit', edit_job_salary_component_path(job_salary_component) %></td>
-        <td><%= link_to 'Destroy', job_salary_component, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        <td><%= salary_component.name %></td>
+        <td></td>
+        <td></td>
+        <td class='align-center'>
+          <%= link_to edit_icon, edit_job_salary_component_path(salary_component) %>
+        </td>
+        <td class='align-center'>
+          <%= link_to delete_icon, job_salary_component_path(salary_component, pagination_params), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
     <% end %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Salary component', new_job_salary_component_path %>
+<%= link_to 'New Salary component', new_job_salary_component_path, class: "btn" %>

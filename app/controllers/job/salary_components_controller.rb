@@ -1,74 +1,60 @@
 class Job::SalaryComponentsController < ApplicationController
-  before_action :set_job_salary_component, only: [:show, :edit, :update, :destroy]
+  before_action :set_salary_component, only: [:show, :edit, :update, :destroy]
 
-  # GET /job/salary_components
-  # GET /job/salary_components.json
   def index
-    @job_salary_components = Job::SalaryComponent.all
+    @salary_components = Paginate.get_records(
+        relation_object:  SalaryComponent,
+        page:             params[:page] || DEFAULT_PAGE,
+        per_page:         params[:per_page] || DEFAULT_PER_PAGE
+      )
   end
 
-  # GET /job/salary_components/1
-  # GET /job/salary_components/1.json
-  def show
-  end
-
-  # GET /job/salary_components/new
   def new
-    @job_salary_component = Job::SalaryComponent.new
+    @salary_component = SalaryComponent.new
   end
 
-  # GET /job/salary_components/1/edit
   def edit
   end
 
-  # POST /job/salary_components
-  # POST /job/salary_components.json
   def create
-    @job_salary_component = Job::SalaryComponent.new(job_salary_component_params)
+    @salary_component = SalaryComponent.new(salary_component_params)
 
     respond_to do |format|
-      if @job_salary_component.save
-        format.html { redirect_to @job_salary_component, notice: 'Salary component was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @job_salary_component }
+      if @salary_component.save
+        format.html { redirect_to job_salary_components_path(pagination_params), notice: t("model.create", kind: "Salary Component") }
       else
         format.html { render action: 'new' }
-        format.json { render json: @job_salary_component.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PATCH/PUT /job/salary_components/1
-  # PATCH/PUT /job/salary_components/1.json
   def update
     respond_to do |format|
-      if @job_salary_component.update(job_salary_component_params)
-        format.html { redirect_to @job_salary_component, notice: 'Salary component was successfully updated.' }
-        format.json { head :no_content }
+      if @salary_component.update(salary_component_params)
+        format.html { redirect_to job_salary_components_path(pagination_params), notice: t("model.update", kind: "Salary Component") }
       else
         format.html { render action: 'edit' }
-        format.json { render json: @job_salary_component.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /job/salary_components/1
-  # DELETE /job/salary_components/1.json
   def destroy
-    @job_salary_component.destroy
+    @salary_component.destroy
     respond_to do |format|
-      format.html { redirect_to job_salary_components_url }
-      format.json { head :no_content }
+      format.html { redirect_to job_salary_components_path(pagination_params), notice: t("model.destroy", kind: "Salary Component") }
     end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_job_salary_component
-      @job_salary_component = Job::SalaryComponent.find(params[:id])
+    def set_salary_component
+      @salary_component = SalaryComponent.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def job_salary_component_params
-      params[:job_salary_component]
+    def salary_component_params
+      params.require(:salary_component).permit(
+          :name, :component_type, :only_ctc, :value_type
+        )
     end
 end
