@@ -1,7 +1,7 @@
 module ApplicationHelper
 
-  def collection_for(enum_object)
-    enum_object.collect {|r| [ r.description, r.value ] }
+  def collection_for(enum_collection)
+    enum_collection.collect {|e| [ e.description, e.value ] }
   end
 
   def get_text_with_tooltip(text)
