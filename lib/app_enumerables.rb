@@ -29,12 +29,12 @@ module AppEnumerables
     Deduction "Deduction", 2, 2
   end
 
-  enum :SalaryOnlyCTC do
+  enum :SalaryComponentOnlyCTC do
     Yes "Yes", true, 0
     No "No", false, 1
   end
 
-  enum :SalaryValueType do
+  enum :SalaryComponentValueType do
     Amount "Amount", 1, 1
     Percentage "Percentage", 2, 2
   end
