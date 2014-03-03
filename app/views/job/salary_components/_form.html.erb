@@ -10,11 +10,34 @@
       </ul>
     </div>
   <% end %>
+
   <fieldset>
     <%= f.label :name, "Component Name" %>
     <%= f.text_field :name %>
   </fieldset>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <p></p>
+
+  <fieldset>
+    <%= f.label :component_type, "Type" %>
+    <%= f.collection_radio_buttons :component_type, AppEnumerables::SalaryComponentType, :value, :description, {}, class: "checkbox inline" %>
+  </fieldset>
+  <p></p>
+
+  <fieldset>
+    <%= f.label :only_ctc, "Only CTC?" %>
+    <%= f.collection_radio_buttons :only_ctc, AppEnumerables::SalaryComponentOnlyCTC, :value, :description, {}, class: "checkbox inline" %>
+  </fieldset>
+  <p></p>
+
+  <fieldset>
+    <%= f.label :value_type, "Value Type" %>
+    <%= f.collection_radio_buttons :value_type, AppEnumerables::SalaryComponentValueType, :value, :description, {}, class: "checkbox inline" %>
+  </fieldset>
+  <p></p>
+
+  <fieldset>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  </fieldset>
 <% end %>
