@@ -4,7 +4,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   helper_method :current_user_type, :pagination_params, :current_entity,
-                :show_recaptcha?, :exceded_max_login_attempts?, :can_reset_password?
+                :show_recaptcha?, :exceded_max_login_attempts?, :can_reset_password?,
+                :description_for
 
 
   def after_sign_in_path_for(resource)
@@ -72,6 +73,12 @@ class ApplicationController < ActionController::Base
 
   def current_entity
     send("current_#{current_user_type}") unless current_user_type == "visitor"
+  end
+
+  def description_for(enum_object, value)
+    description = nil
+    enum_object.each { |e| description = e.description if value == e.value }
+    description
   end
 
 end

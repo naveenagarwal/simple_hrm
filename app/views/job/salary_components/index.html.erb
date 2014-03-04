@@ -17,8 +17,13 @@
     <% @salary_components.each do |salary_component| %>
       <tr>
         <td><%= salary_component.name %></td>
-        <td></td>
-        <td></td>
+        <td>
+          <%= description_for(AppEnumerables::SalaryComponentType, salary_component.component_type) %>
+        </td>
+        <td>
+          <%= description_for(AppEnumerables::SalaryComponentOnlyCTC, salary_component.only_ctc) %>
+        </td>
+
         <td class='align-center'>
           <%= link_to edit_icon, edit_job_salary_component_path(salary_component) %>
         </td>

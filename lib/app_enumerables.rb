@@ -24,4 +24,19 @@ module AppEnumerables
     Female "Female", 2, 2
   end
 
+  enum :SalaryComponentType do
+    Earning "Earning", 1, 1
+    Deduction "Deduction", 2, 2
+  end
+
+  enum :SalaryComponentOnlyCTC do
+    Yes "Yes", true, 0
+    No "No", false, 1
+  end
+
+  enum :SalaryComponentValueType do
+    Amount "Amount", 1, 1
+    Percentage "Percentage", 2, 2
+  end
+
 end
