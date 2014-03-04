@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :salary_component do
-    name "MyString"
+    name "Basic"
     component_type 1
     only_ctc false
     value_type 1
