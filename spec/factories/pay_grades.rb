@@ -2,9 +2,9 @@
 
 FactoryGirl.define do
   factory :pay_grade do
-    name "MyString"
+    name "Basic"
     currency 1
     min_salary 1
-    max_salary 1
+    max_salary 20000
   end
 end
