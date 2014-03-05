@@ -83,6 +83,7 @@ GEM
       treetop (~> 1.4.8)
     metaclass (0.0.3)
     mime-types (1.25.1)
+    min_max_validator (0.0.1)
     minitest (4.7.5)
     mocha (1.0.0)
       metaclass (~> 0.0.1)
@@ -180,6 +181,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   less-rails
+  min_max_validator
   mocha
   mysql2
   nifty-generators
