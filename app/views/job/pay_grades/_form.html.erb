@@ -1,17 +1,39 @@
-<%= form_for(@job_pay_grade) do |f| %>
-  <% if @job_pay_grade.errors.any? %>
+<%= form_for([:job, @pay_grade]) do |f| %>
+  <% if @pay_grade.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@job_pay_grade.errors.count, "error") %> prohibited this job_pay_grade from being saved:</h2>
+      <h2><%= pluralize(@pay_grade.errors.count, "error") %> prohibited this pay grade from being saved:</h2>
 
       <ul>
-      <% @job_pay_grade.errors.full_messages.each do |msg| %>
+      <% @pay_grade.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <fieldset>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </fieldset>
+
+  <fieldset>
+    <%= f.label :currency %>
+    <%= f.select :currency, collection_for(AppEnumerables::Currency), {} %>
+  </fieldset>
+
+  <fieldset>
+    <%= f.label :min_salary, "Minimum Salary" %>
+    <%= f.number_field :min_salary %>
+  </fieldset>
+
+  <fieldset>
+    <%= f.label :max_salary, "Maximum Salary" %>
+    <%= f.number_field :max_salary %>
+  </fieldset>
+
+  <fieldset>
+    <div class="actions">
+      <%= f.submit nil, class: "btn btn-primary" %>
+    </div>
+  </fieldset>
 <% end %>

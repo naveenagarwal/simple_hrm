@@ -39,4 +39,9 @@ module AppEnumerables
     Percentage "Percentage", 2, 2
   end
 
+  enum :Currency do
+    Dollar "Dollar", 1, 1
+    Rupee "Rupee", 2, 2
+  end
+
 end

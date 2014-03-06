@@ -1,20 +1,30 @@
-<h1>Listing job_pay_grades</h1>
+<h1>Listing pay grades</h1>
 
-<table>
+<%= render partial: '/shared/paginate_collection', locals: { records: @pay_grades } %>
+
+<table class="table table-bordered table-striped">
   <thead>
     <tr>
-      <th></th>
+      <th>Name</th>
+      <th>Currency</th>
       <th></th>
       <th></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @job_pay_grades.each do |job_pay_grade| %>
+    <% @pay_grades.each do |pay_grade| %>
       <tr>
-        <td><%= link_to 'Show', job_pay_grade %></td>
-        <td><%= link_to 'Edit', edit_job_pay_grade_path(job_pay_grade) %></td>
-        <td><%= link_to 'Destroy', job_pay_grade, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= pay_grade.name %></td>
+        <td>
+          <%= description_for(AppEnumerables::Currency, pay_grade.currency) %>
+        </td>
+        <td class='align-center'>
+          <%= link_to edit_icon, edit_job_pay_grade_path(pay_grade) %>
+        </td>
+        <td class='align-center'>
+          <%= link_to delete_icon, job_pay_grade_path(pay_grade, pagination_params), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
       </tr>
     <% end %>
   </tbody>
@@ -22,4 +32,4 @@
 
 <br>
 
-<%= link_to 'New Pay grade', new_job_pay_grade_path %>
+<%= link_to 'New Pay grade', new_job_pay_grade_path, class: "btn" %>
