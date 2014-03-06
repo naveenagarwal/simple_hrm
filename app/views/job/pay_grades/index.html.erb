@@ -1,0 +1,25 @@
+<h1>Listing job_pay_grades</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @job_pay_grades.each do |job_pay_grade| %>
+      <tr>
+        <td><%= link_to 'Show', job_pay_grade %></td>
+        <td><%= link_to 'Edit', edit_job_pay_grade_path(job_pay_grade) %></td>
+        <td><%= link_to 'Destroy', job_pay_grade, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Pay grade', new_job_pay_grade_path %>

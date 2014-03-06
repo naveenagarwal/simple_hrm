@@ -1,0 +1,17 @@
+<%= form_for(@job_pay_grade) do |f| %>
+  <% if @job_pay_grade.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@job_pay_grade.errors.count, "error") %> prohibited this job_pay_grade from being saved:</h2>
+
+      <ul>
+      <% @job_pay_grade.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
