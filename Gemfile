@@ -47,12 +47,13 @@ group :development, :test do
   gem 'factory_girl_rails', '4.2.1'
   gem 'nifty-generators'
   gem 'mocha'
+  gem 'annotate', '>=2.6.0'
 end
 
 # gem 'bootstrap-sass', '~> 3.1.0'
-gem "twitter-bootstrap-rails"
-gem "less-rails"
-gem "therubyracer"
+gem 'twitter-bootstrap-rails'
+gem 'less-rails'
+gem 'therubyracer'
 gem 'devise'
 gem 'renum'
 gem 'will_paginate', '~> 3.0'
@@ -60,3 +61,4 @@ gem 'recaptcha', :require => 'recaptcha/rails'
 gem 'american_date'
 gem 'carrierwave'
 gem 'min_max_validator', '~> 0.0.3'
+gem 'select2-rails'

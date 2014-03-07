@@ -26,6 +26,9 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
     american_date (1.1.0)
+    annotate (2.6.2)
+      activerecord (>= 2.3.0)
+      rake (>= 0.8.7)
     arel (4.0.2)
     atomic (1.1.14)
     bcrypt-ruby (3.1.2)
@@ -134,6 +137,8 @@ GEM
     sdoc (0.4.0)
       json (~> 1.8)
       rdoc (~> 4.0, < 5.0)
+    select2-rails (3.5.4)
+      thor (~> 0.14)
     sprockets (2.10.1)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -173,6 +178,7 @@ PLATFORMS
 
 DEPENDENCIES
   american_date
+  annotate (>= 2.6.0)
   carrierwave
   coffee-rails (~> 4.0.0)
   debugger
@@ -191,6 +197,7 @@ DEPENDENCIES
   rspec-rails
   sass-rails (~> 4.0.0)
   sdoc
+  select2-rails
   therubyracer
   turbolinks
   twitter-bootstrap-rails
