@@ -32,14 +32,14 @@
 
   <fieldset class="span5">
     <%= f.label :gender %><br />
-    <%= f.select :gender, collection_for(AppEnumerables::Gender), { include_blank: true } %>
+    <%= f.select :gender, collection_for(AppEnumerables::Gender), { include_blank: true }, class: "select2" %>
   </fieldset>
 
   <p></p>
 
   <fieldset class="span5">
     <%= f.label :maritial_status %><br />
-    <%= f.select :maritial_status, collection_for(AppEnumerables::MaritialStatus), { include_blank: true } %>
+    <%= f.select :maritial_status, collection_for(AppEnumerables::MaritialStatus), { include_blank: true }, class: "select2" %>
   </fieldset>
 
   <fieldset class="span5">

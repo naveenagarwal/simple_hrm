@@ -6,6 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+puts "Seeding data. Please wait, it may take a while."
 # Create Admin
 Admin.create!(
   email:    "admin@example.com",
@@ -24,3 +25,25 @@ AuthenticationConfiguration.create!(
   enable_recaptcha: true,
   attempts_to_enable_recaptcha: 3
 )
+
+#Inserting currency
+[
+  "aed", "afn", "amd", "ang", "aoa", "ars", "aud", "awg", "azn", "bam", "bbd",
+  "bdt", "bgn", "bhd", "bif", "bmd", "bnd", "bob", "brl", "btn", "bwp", "byr",
+  "bzd", "cad", "cdf", "chf", "clf", "clp", "cny", "cop", "crc", "cuc", "cup",
+  "cve", "czk", "djf", "dkk", "dop", "dzd", "egp", "ern", "etb", "eur", "fjd",
+  "fkp", "gbp", "gel", "ghs", "gip", "gmd", "gnf", "gtq", "gyd", "hkd", "hnl",
+  "hrk", "htg", "huf", "idr", "ils", "inr", "iqd", "irr", "isk", "jmd", "jod",
+  "jpy", "kes", "kgs", "khr", "kmf", "kpw", "krw", "kwd", "kyd", "kzt", "lak",
+  "lbp", "lkr", "lrd", "lsl", "ltl", "lvl", "lyd", "mad", "mdl", "mga", "mkd",
+  "mmk", "mnt", "mop", "mro", "mur", "mvr", "mwk", "mxn", "myr", "mzn", "nad",
+  "ngn", "nio", "nok", "npr", "nzd", "omr", "pab", "pen", "pgk", "php", "pkr",
+  "pln", "pyg", "qar", "ron", "rsd", "rub", "rwf", "sar", "sbd", "scr", "sdg",
+  "sek", "sgd", "shp", "skk", "sll", "sos", "srd", "ssp", "std", "svc", "syp",
+  "szl", "thb", "tjs", "tmt", "tnd", "top", "try", "ttd", "twd", "tzs", "uah",
+  "ugx", "usd", "uyu", "uzs", "vef", "vnd", "vuv", "wst", "xaf", "xag", "xau",
+  "xcd", "xdr", "xof", "xpf", "yen", "yer", "zar", "zmk", "zmw", "zwd", "zwl",
+  "zwn", "zwr", "eek", "ghc", "mtl", "tmm"
+].each do |x|
+    Currency.create(short_name: x.upcase)
+end

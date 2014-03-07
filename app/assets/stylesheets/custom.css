@@ -6,3 +6,11 @@
 .align-center, td.align-center {
   text-align: center;
 }
+
+.select2 {
+  width: 206px;
+}
+
+.span9 .select2 {
+  width: 220px;
+}

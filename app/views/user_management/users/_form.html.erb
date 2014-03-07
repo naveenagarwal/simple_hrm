@@ -14,7 +14,7 @@
 
   <fieldset class="span9">
     <%= f.label :role_id, "Role" %>
-    <%= f.select :role_id, Role.all.collect {|r| [ r.name, r.id ] }, { include_blank: true } %>
+    <%= f.select :role_id, Role.all.collect {|r| [ r.name, r.id ] }, { include_blank: true }, class: "select2" %>
   </fieldset>
 
   <fieldset class="span4">

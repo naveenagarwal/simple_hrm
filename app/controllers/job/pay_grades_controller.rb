@@ -3,7 +3,7 @@ class Job::PayGradesController < ApplicationController
 
   def index
     @pay_grades = Paginate.get_records(
-        relation_object:  PayGrade,
+        relation_object:  PayGrade.includes(:currency),
         page:             params[:page] || DEFAULT_PAGE,
         per_page:         params[:per_page] || DEFAULT_PER_PAGE
       )
@@ -55,7 +55,7 @@ class Job::PayGradesController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def pay_grade_params
     params.require(:pay_grade).permit(
-        :name, :currency, :min_salary, :max_salary
+        :name, :currency_id, :min_salary, :max_salary
       )
   end
 

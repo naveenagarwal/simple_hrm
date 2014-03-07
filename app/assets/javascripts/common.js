@@ -1,11 +1,13 @@
 $(document).on('page:load', function() {
   initializeDateFields();
   fadeOutFlashMessages();
+  initializeSelectOptions();
 });
 
 $(document).ready(function() {
   initializeDateFields();
   fadeOutFlashMessages();
+  initializeSelectOptions();
 });
 
 var initializeDateFields = function(){
@@ -19,4 +21,8 @@ var fadeOutFlashMessages = function(){
     $("div.alert").removeClass("in");
     $("div.alert button.close").trigger("click");
   }, 2000);
+}
+
+var initializeSelectOptions = function(){
+  $(".select2").select2();
 }

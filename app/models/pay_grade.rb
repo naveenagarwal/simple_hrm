@@ -9,4 +9,14 @@ class PayGrade < ActiveRecord::Base
   validates_with MinMaxValidator,
     fields: { min: :min_salary, max: :max_salary, msg: "Invalid" }
 
+
+  ###############
+  # Associations
+  ###############
+  belongs_to :currency
+
+  ##############
+  # Public API
+  ##############
+
 end

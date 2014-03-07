@@ -17,8 +17,8 @@
   </fieldset>
 
   <fieldset>
-    <%= f.label :currency %>
-    <%= f.select :currency, collection_for(AppEnumerables::Currency), {} %>
+    <%= f.label :currency_id %>
+    <%= f.select :currency_id, Currency.sorted_collection, { include_blank: true }, class: "select2" %>
   </fieldset>
 
   <fieldset>

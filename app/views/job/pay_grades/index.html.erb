@@ -17,7 +17,7 @@
       <tr>
         <td><%= pay_grade.name %></td>
         <td>
-          <%= description_for(AppEnumerables::Currency, pay_grade.currency) %>
+          <%= pay_grade.currency.short_name %>
         </td>
         <td class='align-center'>
           <%= link_to edit_icon, edit_job_pay_grade_path(pay_grade) %>
