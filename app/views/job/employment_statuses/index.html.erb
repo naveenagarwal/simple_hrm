@@ -1,20 +1,26 @@
-<h1>Listing job_employment_statuses</h1>
+<h1>Listing employment statuses</h1>
 
-<table>
+<%= render partial: '/shared/paginate_collection', locals: { records: @employment_statuses } %>
+
+<table class="table table-bordered table-striped">
   <thead>
     <tr>
-      <th></th>
+      <th>Name</th>
       <th></th>
       <th></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @job_employment_statuses.each do |job_employment_status| %>
+    <% @employment_statuses.each do |employment_status| %>
       <tr>
-        <td><%= link_to 'Show', job_employment_status %></td>
-        <td><%= link_to 'Edit', edit_job_employment_status_path(job_employment_status) %></td>
-        <td><%= link_to 'Destroy', job_employment_status, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= employment_status.name %></td>
+        <td class='align-center'>
+          <%= link_to edit_icon, edit_job_employment_status_path(employment_status) %>
+        </td>
+        <td class='align-center'>
+          <%= link_to delete_icon, job_employment_status_path(employment_status, pagination_params), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
       </tr>
     <% end %>
   </tbody>
@@ -22,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Employment status', new_job_employment_status_path %>
+<%= link_to 'New Employment status', new_job_employment_status_path, class: "btn" %>

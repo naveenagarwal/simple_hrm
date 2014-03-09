@@ -1,5 +1,5 @@
 class Job::JobTitlesController < ApplicationController
-  before_action :set_job_title, only: [:show, :edit, :update, :destroy, :destroy_specification]
+  before_action :set_job_title, only: [:edit, :update, :destroy, :destroy_specification]
 
   before_filter :verify_xhr, only: [:destroy_specification]
 

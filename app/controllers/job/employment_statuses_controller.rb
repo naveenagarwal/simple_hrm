@@ -1,74 +1,58 @@
 class Job::EmploymentStatusesController < ApplicationController
-  before_action :set_job_employment_status, only: [:show, :edit, :update, :destroy]
+  before_action :set_employment_status, only: [:edit, :update, :destroy]
 
-  # GET /job/employment_statuses
-  # GET /job/employment_statuses.json
   def index
-    @job_employment_statuses = Job::EmploymentStatus.all
+    @employment_statuses = Paginate.get_records(
+        relation_object:  EmploymentStatus,
+        page:             params[:page] || DEFAULT_PAGE,
+        per_page:         params[:per_page] || DEFAULT_PER_PAGE
+      )
   end
 
-  # GET /job/employment_statuses/1
-  # GET /job/employment_statuses/1.json
-  def show
-  end
-
-  # GET /job/employment_statuses/new
   def new
-    @job_employment_status = Job::EmploymentStatus.new
+    @employment_status = EmploymentStatus.new
   end
 
-  # GET /job/employment_statuses/1/edit
   def edit
   end
 
-  # POST /job/employment_statuses
-  # POST /job/employment_statuses.json
   def create
-    @job_employment_status = Job::EmploymentStatus.new(job_employment_status_params)
+    @employment_status = EmploymentStatus.new(employment_status_params)
 
     respond_to do |format|
-      if @job_employment_status.save
-        format.html { redirect_to @job_employment_status, notice: 'Employment status was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @job_employment_status }
+      if @employment_status.save
+        format.html { redirect_to job_employment_statuses_path(pagination_params), notice: t("model.create", kind: "Employment Status") }
       else
         format.html { render action: 'new' }
-        format.json { render json: @job_employment_status.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PATCH/PUT /job/employment_statuses/1
-  # PATCH/PUT /job/employment_statuses/1.json
   def update
     respond_to do |format|
-      if @job_employment_status.update(job_employment_status_params)
-        format.html { redirect_to @job_employment_status, notice: 'Employment status was successfully updated.' }
-        format.json { head :no_content }
+      if @employment_status.update(employment_status_params)
+        format.html { redirect_to job_employment_statuses_path(pagination_params), notice: t("model.update", kind: "Employment Status") }
       else
         format.html { render action: 'edit' }
-        format.json { render json: @job_employment_status.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /job/employment_statuses/1
-  # DELETE /job/employment_statuses/1.json
   def destroy
-    @job_employment_status.destroy
+    @employment_status.destroy
     respond_to do |format|
-      format.html { redirect_to job_employment_statuses_url }
-      format.json { head :no_content }
+      format.html { redirect_to job_employment_statuses_path(pagination_params), notice: t("model.destroy", kind: "Employment Status") }
     end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_job_employment_status
-      @job_employment_status = Job::EmploymentStatus.find(params[:id])
+    def set_employment_status
+      @employment_status = EmploymentStatus.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def job_employment_status_params
-      params[:job_employment_status]
+    def employment_status_params
+      params.require(:employment_status).permit(:name)
     end
 end
