@@ -35,6 +35,7 @@ SimpleHrm::Application.routes.draw do
 
     resources :salary_components, except: [:show]
     resources :pay_grades, except: [:show]
+    resources :employment_statuses, except: [:show]
   end
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
