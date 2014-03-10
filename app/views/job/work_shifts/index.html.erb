@@ -1,0 +1,35 @@
+<h1>Listing Job Work Shifts</h1>
+
+<%= render partial: '/shared/paginate_collection', locals: { records: @job_work_shifts } %>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>From</th>
+      <th>To</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @job_work_shifts.each do |job_work_shift| %>
+      <tr>
+        <td><%= job_work_shift.name %></td>
+        <td><%= job_work_shift.from %></td>
+        <td><%= job_work_shift.to %></td>
+        <td>
+          <%= link_to edit_icon, edit_job_work_shift_path(job_work_shift, pagination_params) %>
+        </td>
+        <td>
+          <%= link_to delete_icon, job_work_shift_path(job_work_shift, pagination_params), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Work shift', new_job_work_shift_path, class: "btn" %>

@@ -1,0 +1,2 @@
+module Job::WorkShiftsHelper
+end

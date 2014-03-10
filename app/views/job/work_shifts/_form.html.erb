@@ -1,0 +1,33 @@
+<%= form_for(@job_work_shift) do |f| %>
+  <% if @job_work_shift.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@job_work_shift.errors.count, "error") %> prohibited this job_work_shift from being saved:</h2>
+
+      <ul>
+      <% @job_work_shift.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <fieldset>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </fieldset>
+  <fieldset>
+    <%= f.label :from %><br>
+    <%= f.time_select :from %>
+  </fieldset>
+  <fieldset>
+    <%= f.label :to %><br>
+    <%= f.time_select :to %>
+  </fieldset>
+
+  <fieldset>
+    <div class="actions">
+      <%= f.submit nil, class: "btn btn-primary" %>
+    </div>
+  </fieldset>
+
+<% end %>
