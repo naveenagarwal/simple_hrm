@@ -4,8 +4,8 @@ class Job::CategoriesController < ApplicationController
   def index
     @job_categories = Paginate.get_records(
         relation_object:  JobCategory,
-        page:             params[:page] || DEFAULT_PAGE,
-        per_page:         params[:per_page] || DEFAULT_PER_PAGE
+        page:             params[:page],
+        per_page:         params[:per_page]
       )
   end
 

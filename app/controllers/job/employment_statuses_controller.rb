@@ -4,8 +4,8 @@ class Job::EmploymentStatusesController < ApplicationController
   def index
     @employment_statuses = Paginate.get_records(
         relation_object:  EmploymentStatus,
-        page:             params[:page] || DEFAULT_PAGE,
-        per_page:         params[:per_page] || DEFAULT_PER_PAGE
+        page:             params[:page],
+        per_page:         params[:per_page]
       )
   end
 

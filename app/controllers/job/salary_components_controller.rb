@@ -4,8 +4,8 @@ class Job::SalaryComponentsController < ApplicationController
   def index
     @salary_components = Paginate.get_records(
         relation_object:  SalaryComponent,
-        page:             params[:page] || DEFAULT_PAGE,
-        per_page:         params[:per_page] || DEFAULT_PER_PAGE
+        page:             params[:page],
+        per_page:         params[:per_page]
       )
   end
 

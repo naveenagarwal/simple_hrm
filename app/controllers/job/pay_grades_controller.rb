@@ -4,8 +4,8 @@ class Job::PayGradesController < ApplicationController
   def index
     @pay_grades = Paginate.get_records(
         relation_object:  PayGrade.includes(:currency),
-        page:             params[:page] || DEFAULT_PAGE,
-        per_page:         params[:per_page] || DEFAULT_PER_PAGE
+        page:             params[:page],
+        per_page:         params[:per_page]
       )
   end
 

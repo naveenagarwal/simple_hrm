@@ -6,8 +6,8 @@ class Job::JobTitlesController < ApplicationController
   def index
     @job_titles = Paginate.get_records(
         relation_object:  JobTitle,
-        page:             params[:page] || DEFAULT_PAGE,
-        per_page:         params[:per_page] || DEFAULT_PER_PAGE
+        page:             params[:page],
+        per_page:         params[:per_page]
       )
   end
 
