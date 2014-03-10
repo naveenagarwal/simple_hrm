@@ -2,10 +2,11 @@ class Job::WorkShiftsController < ApplicationController
   before_action :set_work_shift, only: [:edit, :update, :destroy]
 
   def index
-    @work_shifts = WorkShift.all
-  end
-
-  def show
+    @work_shifts = Paginate.get_records(
+        relation_object:  WorkShift,
+        page:             params[:page],
+        per_page:         params[:per_page]
+      )
   end
 
   def new
@@ -20,7 +21,7 @@ class Job::WorkShiftsController < ApplicationController
 
     respond_to do |format|
       if @work_shift.save
-        format.html { redirect_to @work_shift, notice: 'Work shift was successfully created.' }
+        format.html { redirect_to job_work_shifts_path, notice: 'Work shift was successfully created.' }
       else
         format.html { render action: 'new' }
       end
@@ -30,7 +31,7 @@ class Job::WorkShiftsController < ApplicationController
   def update
     respond_to do |format|
       if @work_shift.update(work_shift_params)
-        format.html { redirect_to @work_shift, notice: 'Work shift was successfully updated.' }
+        format.html { redirect_to job_work_shifts_path, notice: 'Work shift was successfully updated.' }
       else
         format.html { render action: 'edit' }
       end
@@ -40,7 +41,7 @@ class Job::WorkShiftsController < ApplicationController
   def destroy
     @work_shift.destroy
     respond_to do |format|
-      format.html { redirect_to work_shifts_url }
+      format.html { redirect_to job_work_shifts_path }
     end
   end
 
