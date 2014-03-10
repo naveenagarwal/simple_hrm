@@ -23,4 +23,9 @@ module ApplicationHelper
     </span>".html_safe
   end
 
+  def time_only(time)
+    time ||= Time.now
+    time.strftime("%H:%M")
+  end
+
 end

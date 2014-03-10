@@ -21,7 +21,7 @@ class Job::WorkShiftsController < ApplicationController
 
     respond_to do |format|
       if @work_shift.save
-        format.html { redirect_to job_work_shifts_path, notice: 'Work shift was successfully created.' }
+        format.html { redirect_to job_work_shifts_path(pagination_params), notice: t("model.create", kind: "Work Shift") }
       else
         format.html { render action: 'new' }
       end
@@ -31,7 +31,7 @@ class Job::WorkShiftsController < ApplicationController
   def update
     respond_to do |format|
       if @work_shift.update(work_shift_params)
-        format.html { redirect_to job_work_shifts_path, notice: 'Work shift was successfully updated.' }
+        format.html { redirect_to job_work_shifts_path(pagination_params), notice: t("model.update", kind: "Work Shift") }
       else
         format.html { render action: 'edit' }
       end
@@ -41,16 +41,18 @@ class Job::WorkShiftsController < ApplicationController
   def destroy
     @work_shift.destroy
     respond_to do |format|
-      format.html { redirect_to job_work_shifts_path }
+      format.html { redirect_to job_work_shifts_path(pagination_params), notice: t("model.destroy", kind: "Work Shift") }
     end
   end
 
   private
-    def set_work_shift
-      @work_shift = WorkShift.find(params[:id])
-    end
 
-    def work_shift_params
-      params.require(:work_shift).permit(:name, :from, :to)
-    end
+  def set_work_shift
+    @work_shift = WorkShift.find(params[:id])
+  end
+
+  def work_shift_params
+    params.require(:work_shift).permit(:name, :from, :to)
+  end
+
 end

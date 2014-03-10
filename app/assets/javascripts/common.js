@@ -12,8 +12,8 @@ $(document).ready(function() {
 
 var initializeDateFields = function(){
   $(".date").datepicker();
-  $(".datetime").datepicker({
-  });
+  $(".datetime").datepicker();
+  // $(".time").timepicker();
 }
 
 var fadeOutFlashMessages = function(){

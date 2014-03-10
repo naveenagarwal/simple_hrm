@@ -1,29 +1,31 @@
-<h1>Listing Job Work Shifts</h1>
+<h1>Listing Work Shifts</h1>
 
-<%= render partial: '/shared/paginate_collection', locals: { records: @job_work_shifts } %>
+<%= render partial: '/shared/paginate_collection', locals: { records: @work_shifts } %>
 
 <table class="table table-bordered table-striped">
   <thead>
     <tr>
-      <th>Name</th>
+      <th>Shift Name</th>
       <th>From</th>
       <th>To</th>
+      <th>Duration</th>
       <th></th>
       <th></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @job_work_shifts.each do |job_work_shift| %>
+    <% @work_shifts.each do |work_shift| %>
       <tr>
-        <td><%= job_work_shift.name %></td>
-        <td><%= job_work_shift.from %></td>
-        <td><%= job_work_shift.to %></td>
+        <td><%= work_shift.name %></td>
+        <td><%= time_only work_shift.from %></td>
+        <td><%= time_only work_shift.to %></td>
+        <td><%= work_shift.duration %></td>
         <td>
-          <%= link_to edit_icon, edit_job_work_shift_path(job_work_shift, pagination_params) %>
+          <%= link_to edit_icon, edit_job_work_shift_path(work_shift, pagination_params) %>
         </td>
         <td>
-          <%= link_to delete_icon, job_work_shift_path(job_work_shift, pagination_params), method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to delete_icon, job_work_shift_path(work_shift, pagination_params), method: :delete, data: { confirm: 'Are you sure?' } %>
         </td>
       </tr>
     <% end %>
