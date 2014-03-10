@@ -34,6 +34,8 @@ class User < ActiveRecord::Base
   ###############
   belongs_to :role, counter_cache: true
   has_one :profile, as: :profileable, dependent: :destroy
+  has_one :user_work_shift
+  has_one :work_shift, through: :user_work_shift, dependent: :destroy
 
   ###############
   # Class Methods

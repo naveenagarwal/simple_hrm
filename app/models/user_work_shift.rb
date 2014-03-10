@@ -14,6 +14,8 @@ class UserWorkShift < ActiveRecord::Base
   ###############
   # Validations
   ###############
+  validates :user_id, presence: true, uniqueness: true, allow_blank: false
+  validates :work_shift_id, presence: true, allow_blank: false
 
   ###############
   # Associations
