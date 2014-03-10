@@ -26,15 +26,16 @@ class WorkShift < ActiveRecord::Base
   has_many :users, through: :user_work_shifts
 
   ###############
-  # Nested Attr.
-  ###############
-  # accepts_nested_attributes_for :user_work_shifts,
-  #   allow_destroy: true,
-  #   reject_if: proc { |attributes| attributes['user_id'].blank? }
-
-  ###############
   # Class Methods
   ###############
+  class << self
+
+    def unassigned_users
+      user_ids = UserWorkShift.pluck(:user_id)
+      User.where.not(id: user_ids).select("id, username")
+    end
+
+  end
 
   ###############
   # Public API
@@ -43,8 +44,8 @@ class WorkShift < ActiveRecord::Base
     to.difference_in_hours from
   end
 
-  def unassigned_users
-    User.where.not(id: user_ids).select("id, username")
+  def remaining_users
+    assigned_users + WorkShift.unassigned_users
   end
 
   def assigned_users

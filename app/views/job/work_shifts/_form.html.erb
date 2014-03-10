@@ -26,7 +26,7 @@
 
   <fieldset>
     <%= f.label :user_ids, "Users" %><br>
-    <%= f.select :user_ids, User.all.collect { |user| [user.username, user.id]}, { include_blank: false }, class: "select2", multiple: true %>
+    <%= f.select :user_ids, @work_shift.remaining_users.collect { |user| [user.username, user.id]}, { include_blank: false }, class: "select2", multiple: true %>
   </fieldset>
 
   <p></p>
