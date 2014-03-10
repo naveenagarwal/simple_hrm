@@ -1,0 +1,25 @@
+<%= form_for(@job_category) do |f| %>
+  <% if @job_category.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@job_category.errors.count, "error") %> prohibited this job_category from being saved:</h2>
+
+      <ul>
+      <% @job_category.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <fieldset>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </fieldset>
+
+  <fieldset>
+    <div class="actions">
+      <%= f.submit nil, class: "btn btn-primary" %>
+    </div>
+  </fieldset>
+
+<% end %>
