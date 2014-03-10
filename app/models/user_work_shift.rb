@@ -18,6 +18,9 @@ class UserWorkShift < ActiveRecord::Base
   ###############
   # Associations
   ###############
+  belongs_to :user
+  belongs_to :work_shift
+
   ###############
   # Class Methods
   ###############

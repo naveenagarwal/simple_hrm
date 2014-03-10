@@ -52,7 +52,7 @@ class Job::WorkShiftsController < ApplicationController
   end
 
   def work_shift_params
-    params.require(:work_shift).permit(:name, :from, :to)
+    params.require(:work_shift).permit(:name, :from, :to, :user_ids => [])
   end
 
 end

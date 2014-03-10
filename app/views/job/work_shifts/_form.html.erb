@@ -25,6 +25,13 @@
   </fieldset>
 
   <fieldset>
+    <%= f.label :user_ids, "Users" %><br>
+    <%= f.select :user_ids, User.all.collect { |user| [user.username, user.id]}, { include_blank: false }, class: "select2", multiple: true %>
+  </fieldset>
+
+  <p></p>
+
+  <fieldset>
     <div class="actions">
       <%= f.submit nil, class: "btn btn-primary" %>
     </div>
