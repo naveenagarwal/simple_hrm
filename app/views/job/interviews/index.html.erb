@@ -1,0 +1,33 @@
+<h1>Listing Job Interviews</h1>
+
+<%= render partial: '/shared/paginate_collection', locals: { records: @job_interviews } %>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Job Interview Name</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @job_interviews.each do |job_interview| %>
+      <tr>
+        <td>
+          <%= job_interview.name %>
+        </td>
+        <td>
+          <%= link_to edit_icon, edit_job_interview_path(job_interview, pagination_params) %>
+        </td>
+        <td>
+          <%= link_to delete_icon, job_interview_path(job_interview, pagination_params), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Interview', new_job_interview_path, class: "btn" %>

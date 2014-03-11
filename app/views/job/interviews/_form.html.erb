@@ -1,6 +1,6 @@
-<%= form_for(@job_category) do |f| %>
+<%= form_for([:job, @job_interview]) do |f| %>
 
-  <%= render partial: "/shared/form_errors", locals: { obj: @job_category, name: "job category" } %>
+  <%= render partial: "/shared/form_errors", locals: { obj: @job_interview, name: "job interview" } %>
 
   <fieldset>
     <%= f.label :name %>
