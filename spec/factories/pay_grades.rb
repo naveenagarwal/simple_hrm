@@ -3,7 +3,7 @@
 FactoryGirl.define do
   factory :pay_grade do
     name "Basic"
-    currency 1
+    currency_id 1
     min_salary 1
     max_salary 20000
   end
