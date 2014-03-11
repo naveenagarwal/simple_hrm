@@ -2,6 +2,6 @@
 
 FactoryGirl.define do
   factory :interview do
-    name "MyString"
+    name "Interview - Admin"
   end
 end

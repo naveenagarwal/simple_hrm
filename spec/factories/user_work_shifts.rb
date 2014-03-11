@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :user_work_shift do
-    user_id 1
-    work_shift_id 1
+    user { User.first || create(:user) }
+    work_shift { WorkShift.first || create(:work_shift) }
   end
 end

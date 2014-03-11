@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :work_shift do
-    name "MyString"
-    from "2014-03-10 14:34:22"
-    to "2014-03-10 14:34:22"
+    name "Half Day"
+    from "2014-03-10 9:00:00"
+    to "2014-03-10 14:30:00"
   end
 end
