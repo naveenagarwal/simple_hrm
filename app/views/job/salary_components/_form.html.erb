@@ -1,15 +1,6 @@
 <%= form_for([:job, @salary_component]) do |f| %>
-  <% if @salary_component.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@salary_component.errors.count, "error") %> prohibited this salary component from being saved:</h2>
 
-      <ul>
-      <% @salary_component.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render partial: "/shared/form_errors", locals: { obj: @salary_component, name: "salary component" } %>
 
   <fieldset>
     <%= f.label :name, "Component Name" %>

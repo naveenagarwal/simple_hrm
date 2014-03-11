@@ -1,15 +1,6 @@
 <%= form_for([:job, @pay_grade]) do |f| %>
-  <% if @pay_grade.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@pay_grade.errors.count, "error") %> prohibited this pay grade from being saved:</h2>
 
-      <ul>
-      <% @pay_grade.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render partial: "/shared/form_errors", locals: { obj: @pay_grade, name: "pay grade" } %>
 
   <fieldset>
     <%= f.label :name %>

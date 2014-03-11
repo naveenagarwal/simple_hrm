@@ -1,18 +1,8 @@
 <h1> Edit Authentication Configuration</h1>
 
 <%= form_for [:user_management, @authentication_configuration] do |f| %>
-  <% if @authentication_configuration.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@authentication_configuration.errors.count, "error") %> prohibited this authentication configuration from being saved:</h2>
 
-      <ul>
-      <% @authentication_configuration.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+  <%= render partial: "/shared/form_errors", locals: { obj: @authentication_configuration, name: "authentication configuration" } %>
 
   <fieldset class="span9">
     <%= f.check_box :status %>
