@@ -27,13 +27,15 @@
 
   <p></p>
 
-  <fieldset class="span5">
+  <fieldset class="span9">
     <%= f.label :maritial_status %><br />
     <%= f.select :maritial_status, collection_for(AppEnumerables::MaritialStatus), { include_blank: true }, class: "select2" %>
   </fieldset>
 
-  <fieldset class="span5">
-    <%= f.submit %>
+
+  <fieldset class="span9">
+    <br />
+    <%= f.submit nil, class: "btn btn-primary" %>
   </fieldset>
 
 <% end %>
