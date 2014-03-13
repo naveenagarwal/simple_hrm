@@ -1,6 +1,6 @@
 <%%= form_for(@<%= singular_table_name %>) do |f| %>
 
-  <%%= render partial: "/shared/form_errors", locals: { obj: @<%= singular_table_name %>, name: <%= singular_table_name.gsub("_", " ") %> } %>
+  <%%= render partial: "/shared/form_errors", locals: { obj: @<%= singular_table_name %>, name: "<%= singular_table_name.gsub("_", " ") %>" } %>
 
 <% attributes.each do |attribute| -%>
   <fieldset>

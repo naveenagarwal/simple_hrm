@@ -1,0 +1,2 @@
+module Organization::OrganizationGeneralInformationsHelper
+end

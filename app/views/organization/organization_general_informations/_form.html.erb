@@ -1,0 +1,40 @@
+<%= form_for([:organization, @organization_general_information]) do |f| %>
+
+  <%= render partial: "/shared/form_errors", locals: { obj: @organization_general_information, name: "general information" } %>
+
+  <fieldset>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </fieldset>
+
+  <fieldset>
+    <%= f.label :tax_id, "Tax ID" %><br>
+    <%= f.text_field :tax_id %>
+  </fieldset>
+
+  <fieldset>
+    <%= f.label :number_of_employees %><br>
+    <%= f.number_field :number_of_employees %>
+  </fieldset>
+
+  <fieldset>
+    <%= f.label :registration_number %><br>
+    <%= f.text_field :registration_number %>
+  </fieldset>
+
+  <fieldset>
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </fieldset>
+
+  <%= f.fields_for :address_attributes, @organization_general_information.address do |address_fields| %>
+    <%= render partial: "/shared/address/form", locals: { f: address_fields } %>
+  <% end %>
+
+  <fieldset>
+    <div class="actions">
+      <%= f.submit nil, class: "btn btn-primary" %>
+    </div>
+  </fieldset>
+
+<% end %>

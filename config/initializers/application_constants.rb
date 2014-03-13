@@ -2,6 +2,7 @@ DEFAULT_PAGE = 1
 DEFAULT_PER_PAGE = 10
 YES = "yes"
 NO = "no"
+DEFAULT_ID = 1
 
 # Default Permissions
 DEFAULT_PERMISSIONS = {

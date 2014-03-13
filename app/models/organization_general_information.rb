@@ -1,4 +1,4 @@
-class Address < ActiveRecord::Base
+class OrganizationGeneralInformation < ActiveRecord::Base
 
   ###############
   # Includes
@@ -19,7 +19,13 @@ class Address < ActiveRecord::Base
   ###############
   # Associations
   ###############
-  belongs_to :addressable, polymorphic: true
+  has_one :address, as: :addressable
+
+  ####################
+  # Nested Attributes
+  ####################
+  accepts_nested_attributes_for :address,
+    reject_if: :all_blank
 
   ###############
   # Class Methods
