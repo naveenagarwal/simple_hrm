@@ -20,7 +20,7 @@
 
 <fieldset>
   <%= f.label :country %><br>
-  <%= f.text_field :country %>
+  <%= f.select :country, options_for_all_countries, { include_blank: true }, class: "select2" %>
 </fieldset>
 
 <fieldset>

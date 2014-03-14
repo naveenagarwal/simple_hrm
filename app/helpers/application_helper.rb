@@ -28,4 +28,12 @@ module ApplicationHelper
     time.strftime("%H:%M")
   end
 
+  def options_for_all_countries
+    Country.all.collect { |country|
+        [country.first, country.first ]
+      }.sort_by { |country|
+        country.first
+      }
+  end
+
 end
