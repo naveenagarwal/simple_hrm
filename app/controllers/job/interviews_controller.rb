@@ -2,11 +2,7 @@ class Job::InterviewsController < ApplicationController
   before_action :set_job_interview, only: [:edit, :update, :destroy]
 
   def index
-    @job_interviews = Paginate.get_records(
-        relation_object:  Interview,
-        page:             params[:page],
-        per_page:         params[:per_page]
-      )
+    @job_interviews = paginated_records_for Interview
   end
 
   def new

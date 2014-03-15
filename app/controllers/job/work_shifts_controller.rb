@@ -2,11 +2,7 @@ class Job::WorkShiftsController < ApplicationController
   before_action :set_work_shift, only: [:edit, :update, :destroy]
 
   def index
-    @work_shifts = Paginate.get_records(
-        relation_object:  WorkShift,
-        page:             params[:page],
-        per_page:         params[:per_page]
-      )
+    @work_shifts = paginated_records_for WorkShift
   end
 
   def new

@@ -2,11 +2,7 @@ class Organization::OrganizationLocationsController < ApplicationController
   before_action :set_organization_location, only: [:edit, :update, :destroy]
 
   def index
-    @organization_locations = Paginate.get_records(
-        relation_object:  OrganizationLocation,
-        page:             params[:page],
-        per_page:         params[:per_page]
-      )
+    @organization_locations = paginated_records_for OrganizationLocation
   end
 
   def new

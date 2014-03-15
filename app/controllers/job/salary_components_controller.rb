@@ -2,11 +2,7 @@ class Job::SalaryComponentsController < ApplicationController
   before_action :set_salary_component, only: [:show, :edit, :update, :destroy]
 
   def index
-    @salary_components = Paginate.get_records(
-        relation_object:  SalaryComponent,
-        page:             params[:page],
-        per_page:         params[:per_page]
-      )
+    @salary_components = paginated_records_for SalaryComponent
   end
 
   def new

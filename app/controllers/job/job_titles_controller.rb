@@ -4,11 +4,7 @@ class Job::JobTitlesController < ApplicationController
   before_filter :verify_xhr, only: [:destroy_specification]
 
   def index
-    @job_titles = Paginate.get_records(
-        relation_object:  JobTitle,
-        page:             params[:page],
-        per_page:         params[:per_page]
-      )
+    @job_titles = paginated_records_for JobTitle
   end
 
   # GET /job/job_titles/new

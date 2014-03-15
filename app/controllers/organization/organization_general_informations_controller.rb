@@ -8,15 +8,10 @@ class Organization::OrganizationGeneralInformationsController < ApplicationContr
 
   def update
     respond_to do |format|
-
-      build_address if @organization_general_information.address.blank?
-
       if @organization_general_information.update(organization_general_information_params)
         flash.now[:notice] = t("model.update", kind: "Organization General Information")
       end
-
       format.html { render action: 'edit' }
-
     end
   end
 

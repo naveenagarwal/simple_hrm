@@ -2,11 +2,7 @@ class Job::EmploymentStatusesController < ApplicationController
   before_action :set_employment_status, only: [:edit, :update, :destroy]
 
   def index
-    @employment_statuses = Paginate.get_records(
-        relation_object:  EmploymentStatus,
-        page:             params[:page],
-        per_page:         params[:per_page]
-      )
+    @employment_statuses = paginated_records_for EmploymentStatus
   end
 
   def new

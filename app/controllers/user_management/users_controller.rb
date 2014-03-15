@@ -7,11 +7,7 @@ class UserManagement::UsersController < ApplicationController
                         klass: User
                       )
 
-    @users = Paginate.get_records(
-      relation_object:  relation_object,
-      page:             params[:page],
-      per_page:         params[:per_page]
-    )
+    @users = paginated_records_for relation_object
   end
 
   def new

@@ -2,11 +2,7 @@ class Job::PayGradesController < ApplicationController
   before_action :set_pay_grade, only: [:show, :edit, :update, :destroy]
 
   def index
-    @pay_grades = Paginate.get_records(
-        relation_object:  PayGrade.includes(:currency),
-        page:             params[:page],
-        per_page:         params[:per_page]
-      )
+    @pay_grades = paginated_records_for PayGrade.includes(:currency)
   end
 
   def new

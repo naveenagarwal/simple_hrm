@@ -2,11 +2,7 @@ class UserManagement::RolesController < ApplicationController
   before_action :set_role, only: [:edit, :update, :destroy]
 
   def index
-    @roles = Paginate.get_records(
-      relation_object:  Role,
-      page:             params[:page],
-      per_page:         params[:per_page]
-    )
+    @roles = paginated_records_for Role
   end
 
   def new

@@ -20,6 +20,14 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def paginated_records_for(klass)
+    Paginate.get_records(
+        relation_object:  klass,
+        page:             params[:page],
+        per_page:         params[:per_page]
+      )
+  end
+
   private
 
   def current_user_type

@@ -2,11 +2,7 @@ class Job::CategoriesController < ApplicationController
   before_action :set_category, only: [:edit, :update, :destroy]
 
   def index
-    @job_categories = Paginate.get_records(
-        relation_object:  JobCategory,
-        page:             params[:page],
-        per_page:         params[:per_page]
-      )
+    @job_categories = paginated_records_for JobCategory
   end
 
   def new
