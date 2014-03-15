@@ -1,0 +1,33 @@
+<h1>Listing Organization Organization Locations</h1>
+
+<%= render partial: '/shared/paginate_collection', locals: { records: @organization_organization_locations } %>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Number of employees</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @organization_organization_locations.each do |organization_organization_location| %>
+      <tr>
+        <td><%= organization_organization_location.name %></td>
+        <td><%= organization_organization_location.number_of_employees %></td>
+        <td>
+          <%= link_to edit_icon, edit_organization_organization_location_path(organization_organization_location, pagination_params) %>
+        </td>
+        <td>
+          <%= link_to delete_icon, organization_organization_location_path(organization_organization_location, pagination_params), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Organization location', new_organization_organization_location_path, class: "btn" %>

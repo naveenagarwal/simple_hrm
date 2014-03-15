@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @organization_organization_location.name %>
+</p>
+
+<p>
+  <strong>Number of employees:</strong>
+  <%= @organization_organization_location.number_of_employees %>
+</p>
+
+<%= link_to 'Edit', edit_organization_organization_location_path(@organization_organization_location) %> |
+<%= link_to 'Back', organization_organization_locations_path %>
