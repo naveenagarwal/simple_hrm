@@ -1,8 +1,6 @@
 class UserManagement::RolesController < ApplicationController
   before_action :set_role, only: [:edit, :update, :destroy]
 
-  # GET /user_management/roles
-  # GET /user_management/roles.json
   def index
     @roles = Paginate.get_records(
       relation_object:  Role,
@@ -11,17 +9,13 @@ class UserManagement::RolesController < ApplicationController
     )
   end
 
-  # GET /user_management/roles/new
   def new
     @role = Role.new
   end
 
-  # GET /user_management/roles/1/edit
   def edit
   end
 
-  # POST /user_management/roles
-  # POST /user_management/roles.json
   def create
     @role = Role.new(role_params)
 
@@ -34,8 +28,6 @@ class UserManagement::RolesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /user_management/roles/1
-  # PATCH/PUT /user_management/roles/1.json
   def update
     respond_to do |format|
       if @role.update(role_params)
@@ -46,8 +38,6 @@ class UserManagement::RolesController < ApplicationController
     end
   end
 
-  # DELETE /user_management/roles/1
-  # DELETE /user_management/roles/1.json
   def destroy
     @role.destroy
     respond_to do |format|
@@ -56,12 +46,10 @@ class UserManagement::RolesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_role
       @role = Role.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def role_params
       params.require(:role).permit(
           :name, :permissions

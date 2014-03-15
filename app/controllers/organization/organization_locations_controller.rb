@@ -1,69 +1,62 @@
 class Organization::OrganizationLocationsController < ApplicationController
-  before_action :set_organization_organization_location, only: [:show, :edit, :update, :destroy]
+  before_action :set_organization_location, only: [:edit, :update, :destroy]
 
-  # GET /organization/organization_locations
-  # GET /organization/organization_locations.json
   def index
-    @organization_organization_locations = Organization::OrganizationLocation.all
+    @organization_locations = Paginate.get_records(
+        relation_object:  OrganizationLocation,
+        page:             params[:page],
+        per_page:         params[:per_page]
+      )
   end
 
-  # GET /organization/organization_locations/new
   def new
-    @organization_organization_location = Organization::OrganizationLocation.new
+    @organization_location = OrganizationLocation.new
   end
 
-  # GET /organization/organization_locations/1/edit
   def edit
   end
 
-  # POST /organization/organization_locations
-  # POST /organization/organization_locations.json
   def create
-    @organization_organization_location = Organization::OrganizationLocation.new(organization_organization_location_params)
+    @organization_location = OrganizationLocation.new(organization_location_params)
 
     respond_to do |format|
-      if @organization_organization_location.save
-        format.html { redirect_to @organization_organization_location, notice: 'Organization location was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @organization_organization_location }
+      if @organization_location.save
+        format.html { redirect_to organization_organization_locations_path(pagination_params), notice: t("model.create", kind: "Organization Location") }
       else
         format.html { render action: 'new' }
-        format.json { render json: @organization_organization_location.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PATCH/PUT /organization/organization_locations/1
-  # PATCH/PUT /organization/organization_locations/1.json
   def update
     respond_to do |format|
-      if @organization_organization_location.update(organization_organization_location_params)
-        format.html { redirect_to @organization_organization_location, notice: 'Organization location was successfully updated.' }
-        format.json { head :no_content }
+      if @organization_location.update(organization_location_params)
+        format.html { redirect_to organization_organization_locations_path(pagination_params), notice: t("model.update", kind: "Organization Location") }
       else
         format.html { render action: 'edit' }
-        format.json { render json: @organization_organization_location.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /organization/organization_locations/1
-  # DELETE /organization/organization_locations/1.json
   def destroy
-    @organization_organization_location.destroy
+    @organization_location.destroy
     respond_to do |format|
-      format.html { redirect_to organization_organization_locations_url }
-      format.json { head :no_content }
+      format.html { redirect_to organization_organization_locations_path(pagination_params), notice: t("model.destroy", kind: "Organization Location") }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_organization_organization_location
-      @organization_organization_location = Organization::OrganizationLocation.find(params[:id])
+    def set_organization_location
+      @organization_location = OrganizationLocation.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def organization_organization_location_params
-      params.require(:organization_organization_location).permit(:name, :number_of_employees)
+    def organization_location_params
+      params.require(:organization_location).
+        permit(
+            :name, :number_of_employees,
+            address_attributes: [
+              :id, :address, :city, :state, :zip, :country, :phone, :fax, :notes
+            ]
+          )
     end
 end
