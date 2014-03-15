@@ -7,11 +7,6 @@ class Organization::OrganizationLocationsController < ApplicationController
     @organization_organization_locations = Organization::OrganizationLocation.all
   end
 
-  # GET /organization/organization_locations/1
-  # GET /organization/organization_locations/1.json
-  def show
-  end
-
   # GET /organization/organization_locations/new
   def new
     @organization_organization_location = Organization::OrganizationLocation.new
