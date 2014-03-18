@@ -22,10 +22,8 @@ class Organization::OrganizationStructuresController < ApplicationController
     respond_to do |format|
       if @organization_structure.save
         format.html { redirect_to @organization_structure, notice: 'Organization structure was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @organization_structure }
       else
         format.html { render action: 'new' }
-        format.json { render json: @organization_structure.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -34,10 +32,8 @@ class Organization::OrganizationStructuresController < ApplicationController
     respond_to do |format|
       if @organization_structure.update(organization_organization_structure_params)
         format.html { redirect_to @organization_structure, notice: 'Organization structure was successfully updated.' }
-        format.json { head :no_content }
       else
         format.html { render action: 'edit' }
-        format.json { render json: @organization_structure.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -46,7 +42,6 @@ class Organization::OrganizationStructuresController < ApplicationController
     @organization_structure.destroy
     respond_to do |format|
       format.html { redirect_to organization_organization_structures_url }
-      format.json { head :no_content }
     end
   end
 
