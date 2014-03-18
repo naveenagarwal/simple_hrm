@@ -6,7 +6,11 @@ class Organization::OrganizationStructuresController < ApplicationController
 
   def show_structure
     @organization_structure = OrganizationStructure.get_organization_with_structure
-    render json: @organization_structure, except: [:created_at, :updated_at]
+    @parent_ids = @organization_structure.map(&:parent_id).uniq
+
+    render json: { structure: @organization_structure, except: [:created_at, :updated_at],
+        parent_ids: @parent_ids
+      }
   end
 
   def new
