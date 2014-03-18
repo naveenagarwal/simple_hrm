@@ -2,12 +2,14 @@ $(document).on('page:load', function() {
   initializeDateFields();
   fadeOutFlashMessages();
   initializeSelectOptions();
+  createTreeView();
 });
 
 $(document).ready(function() {
   initializeDateFields();
   fadeOutFlashMessages();
   initializeSelectOptions();
+  createTreeView();
 });
 
 var initializeDateFields = function(){
@@ -25,4 +27,12 @@ var fadeOutFlashMessages = function(){
 
 var initializeSelectOptions = function(){
   $(".select2").select2();
+}
+
+var createTreeView = function(){
+  var tree = $("#tree-view");
+
+  if(tree.length > 0 ){
+    treeView.create(tree.attr("data-treeUrl"));
+  }
 }

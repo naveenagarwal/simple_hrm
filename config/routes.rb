@@ -44,7 +44,13 @@ SimpleHrm::Application.routes.draw do
   namespace :organization do
     resources :organization_general_informations, only: [:edit, :update]
     resources :organization_locations,            except: [:show]
-    resources :organization_structures,           except: [:show]
+
+    resources :organization_structures,           except: [:show] do
+      collection do
+        get "show_structure"
+      end
+    end
+
   end
 
   # Example of regular route:

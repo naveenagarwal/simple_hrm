@@ -2,10 +2,11 @@ class Organization::OrganizationStructuresController < ApplicationController
   before_action :set_organization_structure, only: [:edit, :update, :destroy]
 
   def index
-    @organization_structure = OrganizationStructure.get_organization_with_structure
   end
 
-  def show
+  def show_structure
+    @organization_structure = OrganizationStructure.get_organization_with_structure
+    render json: @organization_structure, except: [:created_at, :updated_at]
   end
 
   def new

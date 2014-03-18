@@ -26,12 +26,16 @@ class OrganizationStructure < ActiveRecord::Base
   ###############
   # Class Methods
   ###############
-  def get_organization_with_structure
-    organization_structure = where( node_id: nil, parent_id: nil ).first
+  class << self
 
-    [organization_structure] << OrganizationStructure.includes(:childs).
-      where(node_id: organization_structure.id).
-      order(:parent_id).all
+    def get_organization_with_structure
+      organization_structure = where( node_id: nil, parent_id: nil ).first
+
+      [organization_structure] << OrganizationStructure.includes(:childs).
+        where(node_id: organization_structure.id).
+        order(:parent_id).all
+    end
+
   end
 
   ###############
@@ -43,6 +47,14 @@ class OrganizationStructure < ActiveRecord::Base
           node_id: node_id || id
         )
       )
+  end
+
+  def parent_id
+    read_attribute(:parent_id) || id
+  end
+
+  def node_id
+    read_attribute(:node_id) || id
   end
 
   ###############

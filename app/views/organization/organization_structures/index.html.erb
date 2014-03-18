@@ -1,35 +1,40 @@
-<h1>Listing Organization Organization Structures</h1>
+<h1>Organization Structures</h1>
 
-<%= render partial: '/shared/paginate_collection', locals: { records: @organization_organization_structures } %>
-
-<table class="table table-bordered table-striped">
-  <thead>
-    <tr>
-      <th>Unit</th>
-      <th>Name</th>
-      <th>Description</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @organization_organization_structures.each do |organization_organization_structure| %>
-      <tr>
-        <td><%= organization_organization_structure.unit_id %></td>
-        <td><%= organization_organization_structure.name %></td>
-        <td><%= organization_organization_structure.description %></td>
-        <td>
-          <%= link_to edit_icon, edit_organization_organization_structure_path(organization_organization_structure, pagination_params) %>
-        </td>
-        <td>
-          <%= link_to delete_icon, organization_organization_structure_path(organization_organization_structure, pagination_params), method: :delete, data: { confirm: 'Are you sure?' } %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Organization structure', new_organization_organization_structure_path, class: "btn" %>
+<div class="tree" id="tree-view" data-treeUrl="<%= show_structure_organization_organization_structures_path %>" >
+  <ul>
+    <li>
+      <a href="#">Parent</a>
+      <ul>
+        <li>
+          <a href="#">Child</a>
+          <ul>
+            <li>
+              <a href="#">Grand Child</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">Child</a>
+          <ul>
+            <li><a href="#">Grand Child</a></li>
+            <li>
+              <a href="#">Grand Child</a>
+              <ul>
+                <li>
+                  <a href="#">Great Grand Child</a>
+                </li>
+                <li>
+                  <a href="#">Great Grand Child</a>
+                </li>
+                <li>
+                  <a href="#">Great Grand Child</a>
+                </li>
+              </ul>
+            </li>
+            <li><a href="#">Grand Child</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
