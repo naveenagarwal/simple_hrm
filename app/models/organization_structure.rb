@@ -31,9 +31,11 @@ class OrganizationStructure < ActiveRecord::Base
     def get_organization_with_structure
       organization_structure = where( node_id: nil, parent_id: nil ).first
 
-      [organization_structure] << OrganizationStructure.includes(:childs).
-        where(node_id: organization_structure.id).
-        order(:parent_id).all
+      (
+       [organization_structure] << OrganizationStructure.includes(:childs).
+          where(node_id: organization_structure.id).
+          order(:parent_id).all
+      ).flatten
     end
 
   end
