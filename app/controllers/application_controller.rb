@@ -28,6 +28,10 @@ class ApplicationController < ActionController::Base
       )
   end
 
+  def build_address_for(object)
+    object.build_address
+  end
+
   private
 
   def current_user_type

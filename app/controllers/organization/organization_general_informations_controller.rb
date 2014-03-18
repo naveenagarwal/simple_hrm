@@ -3,7 +3,7 @@ class Organization::OrganizationGeneralInformationsController < ApplicationContr
   before_action :set_organization_general_information, only: [:edit, :update]
 
   def edit
-    build_address if @organization_general_information.address.blank?
+    build_address_for @organization_general_information if @organization_general_information.address.blank?
   end
 
   def update
@@ -30,10 +30,6 @@ class Organization::OrganizationGeneralInformationsController < ApplicationContr
             :id, :address, :city, :state, :zip, :country, :phone, :fax, :notes
           ]
         )
-  end
-
-  def build_address
-    @organization_general_information.build_address
   end
 
 end

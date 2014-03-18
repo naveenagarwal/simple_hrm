@@ -10,6 +10,7 @@ class Organization::OrganizationLocationsController < ApplicationController
   end
 
   def edit
+    build_address_for @organization_location if @organization_location.address.blank?
   end
 
   def create
