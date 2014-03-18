@@ -1,9 +1,5 @@
 SimpleHrm::Application.routes.draw do
 
-  namespace :organization do
-    resources :organization_structures
-  end
-
   devise_for :admins
   devise_for :users, controllers: { sessions: 'users/sessions' }
   # The priority is based upon order of creation: first created -> highest priority.
@@ -48,6 +44,7 @@ SimpleHrm::Application.routes.draw do
   namespace :organization do
     resources :organization_general_informations, only: [:edit, :update]
     resources :organization_locations,            except: [:show]
+    resources :organization_structures,           except: [:show]
   end
 
   # Example of regular route:

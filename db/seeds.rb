@@ -47,3 +47,27 @@ AuthenticationConfiguration.create!(
 ].each do |x|
     Currency.create(short_name: x.upcase)
 end
+
+organization_structure = OrganizationStructure.create(
+    unit_id: "001",
+    name: "Set the organization name here",
+    description: "Set the organization description here"
+  )
+
+child = organization_structure.create_child_with({
+    unit_id: "002",
+    name: "Set the organization name here",
+    description: "Set the organization description here"
+  })
+
+organization_structure.create_child_with({
+    unit_id: "006",
+    name: "Set the organization name here",
+    description: "Set the organization description here"
+  })
+
+child.create_child_with({
+    unit_id: "004",
+    name: "Set the organization name here",
+    description: "Set the organization description here"
+  })
