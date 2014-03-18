@@ -1,0 +1,24 @@
+<%= form_for(@organization_organization_structure) do |f| %>
+
+  <%= render partial: "/shared/form_errors", locals: { obj: @organization_organization_structure, name: "organization organization structure" } %>
+
+  <fieldset>
+    <%= f.label :unit_id %><br>
+    <%= f.text_field :unit_id %>
+  </fieldset>
+  <fieldset>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </fieldset>
+  <fieldset>
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </fieldset>
+
+  <fieldset>
+    <div class="actions">
+      <%= f.submit nil, class: "btn btn-primary" %>
+    </div>
+  </fieldset>
+
+<% end %>
