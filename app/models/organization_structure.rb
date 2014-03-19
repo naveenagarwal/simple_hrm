@@ -38,6 +38,10 @@ class OrganizationStructure < ActiveRecord::Base
       ).flatten
     end
 
+    def to_tree_view_data_from(organization_structure)
+      {}
+    end
+
   end
 
   ###############

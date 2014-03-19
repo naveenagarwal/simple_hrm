@@ -5,10 +5,13 @@ class Organization::OrganizationStructuresController < ApplicationController
   end
 
   def show_structure
-    @organization_structure = OrganizationStructure.get_organization_with_structure
-    @parent_ids = @organization_structure.map(&:parent_id).uniq
+    organization_structure = OrganizationStructure.get_organization_with_structure
+    parent_ids = organization_structure.map(&:parent_id).uniq
 
-    render json: { structure: @organization_structure, except: [:created_at, :updated_at],
+    tree_view_hash =  OrganizationStructure.to_tree_view_data_from organization_structure
+
+    render json: {
+        structure: tree_view_hash,
         parent_ids: @parent_ids
       }
   end
