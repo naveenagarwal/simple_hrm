@@ -11,8 +11,8 @@ class Organization::OrganizationStructuresController < ApplicationController
     tree_view_hash =  OrganizationStructure.to_tree_view_data_from organization_structure
 
     render json: {
-        structure: tree_view_hash,
-        parent_ids: @parent_ids
+        structure: organization_structure,
+        parent_ids: parent_ids
       }
   end
 
@@ -24,7 +24,7 @@ class Organization::OrganizationStructuresController < ApplicationController
   end
 
   def create
-    @organization_structure = OrganizationStructure.new(organization_organization_structure_params)
+    @organization_structure = OrganizationStructure.new(organization_structure_params)
 
     respond_to do |format|
       if @organization_structure.save
@@ -37,7 +37,7 @@ class Organization::OrganizationStructuresController < ApplicationController
 
   def update
     respond_to do |format|
-      if @organization_structure.update(organization_organization_structure_params)
+      if @organization_structure.update(organization_structure_params)
         format.html { redirect_to @organization_structure, notice: 'Organization structure was successfully updated.' }
       else
         format.html { render action: 'edit' }
@@ -53,11 +53,11 @@ class Organization::OrganizationStructuresController < ApplicationController
   end
 
   private
-    def set_organization_organization_structure
+    def set_organization_structure
       @organization_structure = OrganizationStructure.find(params[:id])
     end
 
-    def organization_organization_structure_params
+    def organization_structure_params
       params.require(:organization_organization_structure).permit(:unit_id, :name, :description)
     end
 end
