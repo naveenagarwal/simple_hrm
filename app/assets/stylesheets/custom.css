@@ -18,3 +18,7 @@
 .time {
   width: 103px;
 }
+
+.tree li a.tree-links-no-border {
+  border: none;
+}

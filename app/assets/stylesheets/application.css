@@ -12,5 +12,8 @@
  * require twitter/bootstrap
  *= require select2
  *= require select2-bootstrap
+ *= require tree
+ *= require custom
+
  *= require_tree .
  */
