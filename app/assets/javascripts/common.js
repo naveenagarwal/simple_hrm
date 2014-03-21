@@ -2,14 +2,14 @@ $(document).on('page:load', function() {
   initializeDateFields();
   fadeOutFlashMessages();
   initializeSelectOptions();
-  createTreeView();
+  createTreeViewForOrganizarionStructure();
 });
 
 $(document).ready(function() {
   initializeDateFields();
   fadeOutFlashMessages();
   initializeSelectOptions();
-  createTreeView();
+  createTreeViewForOrganizarionStructure();
 });
 
 var initializeDateFields = function(){
@@ -29,10 +29,10 @@ var initializeSelectOptions = function(){
   $(".select2").select2();
 }
 
-var createTreeView = function(){
+var createTreeViewForOrganizarionStructure = function(){
   var tree = $("#tree-view");
 
   if(tree.length > 0 ){
-    treeView.create(tree.attr("data-treeUrl"));
+    OrganizationStructureTreeView.create(tree.attr("data-treeUrl"));
   }
 }

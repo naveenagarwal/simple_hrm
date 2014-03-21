@@ -1,31 +1,31 @@
-function treeView(){
+function OrganizationStructureTreeView(){
 }
 
 // Expects the json data
-treeView.create = function(url){
+OrganizationStructureTreeView.create = function(url){
   $.ajax({
     dataType: "json",
     url: url
   })
-  .done(function(data){ treeView.success(data) })
-  .fail(function(error){ treeView.fail(error) });
+  .done(function(data){ OrganizationStructureTreeView.success(data) })
+  .fail(function(error){ OrganizationStructureTreeView.fail(error) });
 }
 
-treeView.success = function(data){
+OrganizationStructureTreeView.success = function(data){
 
   var html = "";
   var structure = data.structure;
   var parent_ids = data.parent_ids;
 
-  treeView.createParentNode(parent_ids[0], structure[0]);
+  OrganizationStructureTreeView.createParentNode(parent_ids[0], structure[0]);
 
   for(var i = 0; i < parent_ids.length; i++){
-    html = treeView.createHTML(parent_ids[i], structure);
-    treeView.insertHTML(parent_ids[i], html);
+    html = OrganizationStructureTreeView.createHTML(parent_ids[i], structure);
+    OrganizationStructureTreeView.insertHTML(parent_ids[i], html);
   }
 }
 
-treeView.createParentNode = function(parent_id, structure){
+OrganizationStructureTreeView.createParentNode = function(parent_id, structure){
 
   var html = "<ul>";
 
@@ -37,7 +37,7 @@ treeView.createParentNode = function(parent_id, structure){
   $("#tree-view").html(html);
 }
 
-treeView.createHTML = function(parent_id, structure){
+OrganizationStructureTreeView.createHTML = function(parent_id, structure){
 
   var html = "<ul>";
 
@@ -66,7 +66,7 @@ treeView.createHTML = function(parent_id, structure){
   return html;
 }
 
-treeView.insertHTML = function(parent_id, html){
+OrganizationStructureTreeView.insertHTML = function(parent_id, html){
 
   var liNode = $("li#node-" + parent_id);
 
@@ -77,7 +77,7 @@ treeView.insertHTML = function(parent_id, html){
   }
 }
 
-treeView.fail = function(data){
+OrganizationStructureTreeView.fail = function(data){
   alert("Error Getting Data");
 }
 
