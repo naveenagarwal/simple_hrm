@@ -1,6 +1,6 @@
 <% if @organization_structure.errors.blank? %>
   $('#organization-structure-modal').modal('hide');
-  createTreeViewForOrganizarionStructure();
+  updateTreeViewForOrganizarionStructure();
 <% else %>
   $("#organization-structure-modal .modal-body").html('<%= j(render partial: "form") %>');
 <% end %>

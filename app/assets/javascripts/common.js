@@ -36,3 +36,7 @@ var createTreeViewForOrganizarionStructure = function(){
     OrganizationStructureTreeView.create(tree.attr("data-treeUrl"));
   }
 }
+
+var updateTreeViewForOrganizarionStructure = function () {
+  createTreeViewForOrganizarionStructure();
+}
