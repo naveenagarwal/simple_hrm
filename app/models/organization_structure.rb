@@ -14,6 +14,7 @@ class OrganizationStructure < ActiveRecord::Base
   ###############
   # Validations
   ###############
+  validates :unit_id, presence: true, allow_baknk: false
 
   ###############
   # Associations

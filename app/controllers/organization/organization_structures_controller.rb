@@ -36,12 +36,8 @@ class Organization::OrganizationStructuresController < ApplicationController
   end
 
   def update
-    respond_to do |format|
-      if @organization_structure.update(organization_structure_params)
-        format.html { redirect_to @organization_structure, notice: 'Organization structure was successfully updated.' }
-      else
-        format.html { render action: 'edit' }
-      end
+    if @organization_structure.update(organization_structure_params)
+      flash.now[:notice] = t("model.update", kind: "Organization Structure")
     end
   end
 
@@ -58,6 +54,6 @@ class Organization::OrganizationStructuresController < ApplicationController
     end
 
     def organization_structure_params
-      params.require(:organization_organization_structure).permit(:unit_id, :name, :description)
+      params.require(:organization_structure).permit(:unit_id, :name, :description)
     end
 end
