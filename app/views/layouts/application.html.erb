@@ -74,7 +74,10 @@
           </div><!--/.well -->
         </div><!--/span-->
         <div class="span9">
-          <%= bootstrap_flash %>
+          <div id="flash-message">
+            <%= bootstrap_flash %>
+          </div>
+
           <%= yield %>
         </div>
       </div><!--/row-->

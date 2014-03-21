@@ -32,6 +32,15 @@ class ApplicationController < ActionController::Base
     object.build_address
   end
 
+  def set_flash_messages(type: "", message: "")
+    return unless request.xhr?
+
+    response.headers['X-Message'] = message
+    response.headers["X-Message-Type"] = type
+
+    flash.discard
+  end
+
   private
 
   def current_user_type

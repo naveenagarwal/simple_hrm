@@ -24,22 +24,24 @@ class Organization::OrganizationStructuresController < ApplicationController
   end
 
   def create
-    @organization_structure = OrganizationStructure.new(organization_structure_new_params)
+    @organization_structure = OrganizationStructure.new organization_structure_new_params
 
     if @organization_structure.save
-      flash.now[:notice] = t("model.create", kind: "Organization Structure")
+      set_flash_messages(type: "alert", message: t("model.create", kind: "Unit"))
     end
 
   end
 
   def update
-    if @organization_structure.update(organization_structure_update_params)
-      flash.now[:notice] = t("model.update", kind: "Organization Structure")
+    if @organization_structure.update organization_structure_update_params
+      set_flash_messages(type: "alert", message: t("model.update", kind: "Unit"))
     end
   end
 
   def destroy
-    @organization_structure.destroy
+    if @organization_structure.destroy
+      set_flash_messages(type: "alert", message: t("model.destroy", kind: "Unit"))
+    end
   end
 
   private
