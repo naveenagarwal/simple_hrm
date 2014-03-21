@@ -2,6 +2,13 @@
 
   <%= render partial: "/shared/form_errors", locals: { obj: @organization_structure, name: "organization structure" } %>
 
+  <% if @organization_structure.new_record? %>
+
+    <%= f.hidden_field :node_id, value: params[:node_id] %>
+    <%= f.hidden_field :parent_id, value: params[:parent_id] %>
+
+  <% end %>
+
   <fieldset>
     <%= f.label :unit_id %><br>
     <%= f.text_field :unit_id %>

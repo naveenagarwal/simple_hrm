@@ -24,19 +24,16 @@ class Organization::OrganizationStructuresController < ApplicationController
   end
 
   def create
-    @organization_structure = OrganizationStructure.new(organization_structure_params)
+    @organization_structure = OrganizationStructure.new(organization_structure_new_params)
 
-    respond_to do |format|
-      if @organization_structure.save
-        format.html { redirect_to @organization_structure, notice: 'Organization structure was successfully created.' }
-      else
-        format.html { render action: 'new' }
-      end
+    if @organization_structure.save
+      flash.now[:notice] = t("model.create", kind: "Organization Structure")
     end
+
   end
 
   def update
-    if @organization_structure.update(organization_structure_params)
+    if @organization_structure.update(organization_structure_update_params)
       flash.now[:notice] = t("model.update", kind: "Organization Structure")
     end
   end
@@ -51,8 +48,12 @@ class Organization::OrganizationStructuresController < ApplicationController
     @organization_structure = OrganizationStructure.find(params[:id])
   end
 
-  def organization_structure_params
+  def organization_structure_update_params
     params.require(:organization_structure).permit(:unit_id, :name, :description)
+  end
+
+  def organization_structure_new_params
+    params.require(:organization_structure).permit(:unit_id, :name, :description, :node_id, :parent_id)
   end
 
 end

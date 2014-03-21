@@ -1,0 +1,6 @@
+$("#modal-data-container").html('<%= j(render partial: "modal_form", locals: { action: "New" }) %>');
+
+$('#organization-structure-modal').modal({ keyboard: false });   // initialized with no keyboard
+$('#organization-structure-modal').modal('show');             // initializes and invokes show immediately
+
+
