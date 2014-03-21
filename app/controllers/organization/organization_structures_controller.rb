@@ -43,17 +43,16 @@ class Organization::OrganizationStructuresController < ApplicationController
 
   def destroy
     @organization_structure.destroy
-    respond_to do |format|
-      format.html { redirect_to organization_organization_structures_url }
-    end
   end
 
   private
-    def set_organization_structure
-      @organization_structure = OrganizationStructure.find(params[:id])
-    end
 
-    def organization_structure_params
-      params.require(:organization_structure).permit(:unit_id, :name, :description)
-    end
+  def set_organization_structure
+    @organization_structure = OrganizationStructure.find(params[:id])
+  end
+
+  def organization_structure_params
+    params.require(:organization_structure).permit(:unit_id, :name, :description)
+  end
+
 end
