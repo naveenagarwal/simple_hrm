@@ -51,7 +51,7 @@
 
 /*Time for some hover effects*/
 /*We will apply the hover effect the the lineage of the element also*/
-.tree li a:hover, .tree li a:hover+ul li a {
+.tree li a.highligh-on-hover:hover, .tree li a.highligh-on-hover:hover+ul li a.highligh-on-hover {
   background: #c8e4f8; color: #000; border: 1px solid #94a0b4;
 }
 /*Connector styles on hover*/

@@ -30,7 +30,7 @@ OrganizationStructureTreeView.createParentNode = function(parent_id, structure){
   var html = "<ul>";
 
   html += "<li id='node-" + structure.id + "'>";
-  html += "<a href='#'>" + structure.unit_id + "</a>";
+  html += "<a href='#' class='highligh-on-hover'>" + structure.unit_id + "</a>";
   html += "</li>";
   html += "</ul>";
 
@@ -46,7 +46,7 @@ OrganizationStructureTreeView.createHTML = function(parent_id, structure){
     if(parent_id == structure[i].parent_id){
 
       html += "<li id='node-" + structure[i].id + "'>";
-      html += "<a href='#'>" + structure[i].unit_id + "</a>";
+      html += "<a href='#' class='highligh-on-hover'>" + structure[i].unit_id + "</a>";
       html += "<span>";
       html += "<a class='tree-links-no-border' data-remote=true href='/organization/organization_structures/" + structure[i].id + "/edit'>";
       html += "<img src='/assets/edit-icon-16.png' class='icon-list has-tooltip' title='Edit' data-original-title='Edit'>";
