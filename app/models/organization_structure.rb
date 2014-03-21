@@ -40,7 +40,15 @@ class OrganizationStructure < ActiveRecord::Base
     end
 
     def to_tree_view_data_from(organization_structure)
-      {}
+      organization_structure.collect do |structure|
+        {
+          short_name:       structure.short_name,
+          node_id:    structure.node_id,
+          parent_id:  structure.parent_id,
+          title_text: structure.title_text,
+          id:         structure.id
+        }
+      end
     end
 
   end
@@ -62,6 +70,14 @@ class OrganizationStructure < ActiveRecord::Base
 
   def node_id
     read_attribute(:node_id) || id
+  end
+
+  def short_name
+    "#{unit_id} - #{name.truncate(10)}"
+  end
+
+  def title_text
+    "Unit: #{unit_id} - Name: #{name}"
   end
 
   ###############

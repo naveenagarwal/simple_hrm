@@ -30,7 +30,7 @@ OrganizationStructureTreeView.createParentNode = function(parent_id, structure){
   var html = "<ul>";
 
   html += "<li id='node-" + structure.id + "'>";
-  html += "<a href='#' class='highligh-on-hover has-tooltip' title='" + structure.unit_id + structure.name + "' data-original-title='" + structure.unit_id + structure.name + "'>" + structure.unit_id + "</a>";
+  html += "<a href='#' class='highligh-on-hover has-tooltip' title='" + structure.title_text + "' data-original-title='" + structure.title_text + "'>" + structure.short_name + "</a>";
   html += "<span>";
   html += "<a class='tree-links-no-border' data-remote=true href='/organization/organization_structures/new?node_id=" + structure.node_id  + "&parent_id=" + structure.id + "'>";
   html += "<img src='/assets/new-icon-16.png' class='icon-list has-tooltip' title='New' data-original-title='New'>";
@@ -54,7 +54,7 @@ OrganizationStructureTreeView.createHTML = function(parent_id, structure){
     if(parent_id == structure[i].parent_id){
 
       html += "<li id='node-" + structure[i].id + "'>";
-      html += "<a href='#' class='highligh-on-hover has-tooltip' title='" + structure[i].unit_id + structure[i].name + "' data-original-title='" + structure[i].unit_id + structure[i].name + "'>" + structure[i].unit_id + "</a>";
+      html += "<a href='#' class='highligh-on-hover has-tooltip' title='" + structure[i].title_text + "' data-original-title='" + structure[i].title_text + "'>" + structure[i].short_name + "</a>";
       html += "<span>";
       html += "<a class='tree-links-no-border' data-remote=true href='/organization/organization_structures/new?node_id=" + structure[i].node_id  + "&parent_id=" + structure[i].id + "'>";
       html += "<img src='/assets/new-icon-16.png' class='icon-list has-tooltip' title='New' data-original-title='New'>";

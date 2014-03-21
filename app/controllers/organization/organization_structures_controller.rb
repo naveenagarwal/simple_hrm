@@ -8,10 +8,10 @@ class Organization::OrganizationStructuresController < ApplicationController
     organization_structure = OrganizationStructure.get_organization_with_structure
     parent_ids = organization_structure.map(&:parent_id).uniq
 
-    tree_view_hash =  OrganizationStructure.to_tree_view_data_from organization_structure
+    tree_view_data =  OrganizationStructure.to_tree_view_data_from organization_structure
 
     render json: {
-        structure: organization_structure,
+        structure: tree_view_data,
         parent_ids: parent_ids
       }
   end
