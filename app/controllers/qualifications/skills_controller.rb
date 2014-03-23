@@ -1,74 +1,54 @@
 class Qualifications::SkillsController < ApplicationController
-  before_action :set_qualifications_skill, only: [:show, :edit, :update, :destroy]
+  before_action :set_skill, only: [:edit, :update, :destroy]
 
-  # GET /qualifications/skills
-  # GET /qualifications/skills.json
   def index
-    @qualifications_skills = Qualifications::Skill.all
+    @skills = paginated_records_for Skill
   end
 
-  # GET /qualifications/skills/1
-  # GET /qualifications/skills/1.json
-  def show
-  end
-
-  # GET /qualifications/skills/new
   def new
-    @qualifications_skill = Qualifications::Skill.new
+    @skill = Skill.new
   end
 
-  # GET /qualifications/skills/1/edit
   def edit
   end
 
-  # POST /qualifications/skills
-  # POST /qualifications/skills.json
   def create
-    @qualifications_skill = Qualifications::Skill.new(qualifications_skill_params)
+    @skill = Skill.new(skill_params)
 
     respond_to do |format|
-      if @qualifications_skill.save
-        format.html { redirect_to @qualifications_skill, notice: 'Skill was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @qualifications_skill }
+      if @skill.save
+        format.html { redirect_to qualifications_skills_path(pagination_params), notice: t("model.create", kind: "Skill") }
       else
         format.html { render action: 'new' }
-        format.json { render json: @qualifications_skill.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PATCH/PUT /qualifications/skills/1
-  # PATCH/PUT /qualifications/skills/1.json
   def update
     respond_to do |format|
-      if @qualifications_skill.update(qualifications_skill_params)
-        format.html { redirect_to @qualifications_skill, notice: 'Skill was successfully updated.' }
-        format.json { head :no_content }
+      if @skill.update(skill_params)
+        format.html { redirect_to qualifications_skills_path(pagination_params), notice: t("model.update", kind: "Skill") }
       else
         format.html { render action: 'edit' }
-        format.json { render json: @qualifications_skill.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /qualifications/skills/1
-  # DELETE /qualifications/skills/1.json
   def destroy
-    @qualifications_skill.destroy
+    @skill.destroy
     respond_to do |format|
-      format.html { redirect_to qualifications_skills_url }
-      format.json { head :no_content }
+      format.html { redirect_to qualifications_skills_path(pagination_params), notice: t("model.destroy", kind: "Skill") }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_qualifications_skill
-      @qualifications_skill = Qualifications::Skill.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def qualifications_skill_params
-      params.require(:qualifications_skill).permit(:name, :description)
-    end
+  def set_skill
+    @skill = Skill.find(params[:id])
+  end
+
+  def skill_params
+    params.require(:skill).permit(:name, :description)
+  end
+
 end

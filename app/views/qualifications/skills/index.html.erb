@@ -1,6 +1,6 @@
-<h1>Listing Qualifications Skills</h1>
+<h1>Listing Skills</h1>
 
-<%= render partial: '/shared/paginate_collection', locals: { records: @qualifications_skills } %>
+<%= render partial: '/shared/paginate_collection', locals: { records: @skills } %>
 
 <table class="table table-bordered table-striped">
   <thead>
@@ -13,15 +13,15 @@
   </thead>
 
   <tbody>
-    <% @qualifications_skills.each do |qualifications_skill| %>
+    <% @skills.each do |skill| %>
       <tr>
-        <td><%= qualifications_skill.name %></td>
-        <td><%= qualifications_skill.description %></td>
+        <td><%= skill.name %></td>
+        <td><%= skill.description.truncate 25 %></td>
         <td>
-          <%= link_to edit_icon, edit_qualifications_skill_path(qualifications_skill, pagination_params) %>
+          <%= link_to edit_icon, edit_qualifications_skill_path(skill, pagination_params) %>
         </td>
         <td>
-          <%= link_to delete_icon, qualifications_skill_path(qualifications_skill, pagination_params), method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to delete_icon, qualifications_skill_path(skill, pagination_params), method: :delete, data: { confirm: 'Are you sure?' } %>
         </td>
       </tr>
     <% end %>

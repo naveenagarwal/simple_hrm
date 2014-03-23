@@ -1,6 +1,6 @@
-<%= form_for(@qualifications_skill) do |f| %>
+<%= form_for([:qualifications, @skill]) do |f| %>
 
-  <%= render partial: "/shared/form_errors", locals: { obj: @qualifications_skill, name: "qualifications skill" } %>
+  <%= render partial: "/shared/form_errors", locals: { obj: @skill, name: "skill" } %>
 
   <fieldset>
     <%= f.label :name %><br>

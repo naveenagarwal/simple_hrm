@@ -1,9 +1,5 @@
 SimpleHrm::Application.routes.draw do
 
-  namespace :qualifications do
-    resources :skills
-  end
-
   devise_for :admins
   devise_for :users, controllers: { sessions: 'users/sessions' }
   # The priority is based upon order of creation: first created -> highest priority.
@@ -54,7 +50,10 @@ SimpleHrm::Application.routes.draw do
         get "show_structure"
       end
     end
+  end
 
+   namespace :qualifications do
+    resources :skills,            except: [:show]
   end
 
   # Example of regular route:
