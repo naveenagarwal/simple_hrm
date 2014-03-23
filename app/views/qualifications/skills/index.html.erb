@@ -1,0 +1,33 @@
+<h1>Listing Qualifications Skills</h1>
+
+<%= render partial: '/shared/paginate_collection', locals: { records: @qualifications_skills } %>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @qualifications_skills.each do |qualifications_skill| %>
+      <tr>
+        <td><%= qualifications_skill.name %></td>
+        <td><%= qualifications_skill.description %></td>
+        <td>
+          <%= link_to edit_icon, edit_qualifications_skill_path(qualifications_skill, pagination_params) %>
+        </td>
+        <td>
+          <%= link_to delete_icon, qualifications_skill_path(qualifications_skill, pagination_params), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Skill', new_qualifications_skill_path, class: "btn" %>
