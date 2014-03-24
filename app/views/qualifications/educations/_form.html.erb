@@ -1,0 +1,18 @@
+<%= form_for([:qualifications, @qualifications_education]) do |f| %>
+
+  <%= render partial: "/shared/form_errors", locals: { obj: @qualifications_education, name: "education" } %>
+
+  <fieldset>
+    <div class="actions">
+      <%= f.label :level %>
+      <%= f.text_field :level %>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <div class="actions">
+      <%= f.submit nil, class: "btn btn-primary" %>
+    </div>
+  </fieldset>
+
+<% end %>
