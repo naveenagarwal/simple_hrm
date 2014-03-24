@@ -1,0 +1,18 @@
+<%= form_for([:qualifications, @qualifications_language]) do |f| %>
+
+  <%= render partial: "/shared/form_errors", locals: { obj: @qualifications_language, name: "language" } %>
+
+  <fieldset>
+    <div class="actions">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <div class="actions">
+      <%= f.submit nil, class: "btn btn-primary" %>
+    </div>
+  </fieldset>
+
+<% end %>
