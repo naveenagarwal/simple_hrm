@@ -32,10 +32,11 @@ class User < ActiveRecord::Base
   ###############
   # Associations
   ###############
-  belongs_to :role, counter_cache: true
-  has_one :profile, as: :profileable, dependent: :destroy
-  has_one :user_work_shift
-  has_one :work_shift, through: :user_work_shift, dependent: :destroy
+  belongs_to  :role, counter_cache: true
+  has_one     :profile, as: :profileable, dependent: :destroy
+  has_one     :user_work_shift
+  has_one     :work_shift, through: :user_work_shift, dependent: :destroy
+  has_many    :documents, as: :creator, dependent: :destroy
 
   ###############
   # Class Methods
