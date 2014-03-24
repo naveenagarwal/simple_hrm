@@ -42,11 +42,13 @@ class Qualifications::EducationsController < ApplicationController
   end
 
   private
-    def set_education
-      @qualifications_education = Education.find(params[:id])
-    end
 
-    def education_params
-      params.require(:education).permit(:level)
-    end
+  def set_education
+    @qualifications_education = Education.find(params[:id])
+  end
+
+  def education_params
+    params.require(:education).permit(:level)
+  end
+
 end

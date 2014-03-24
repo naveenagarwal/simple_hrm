@@ -1,0 +1,33 @@
+<h1>Listing Nationalities</h1>
+
+<%= render partial: '/shared/paginate_collection', locals: { records: @nationalities } %>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @nationalities.each do |nationality| %>
+      <tr>
+      <td>
+        <%= nationality.name %>
+      </td>
+        <td>
+          <%= link_to edit_icon, edit_nationality_path(nationality, pagination_params) %>
+        </td>
+        <td>
+          <%= link_to delete_icon, nationality_path(nationality, pagination_params), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New nationality', new_nationality_path, class: "btn" %>

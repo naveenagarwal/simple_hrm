@@ -42,11 +42,13 @@ class Qualifications::LanguagesController < ApplicationController
   end
 
   private
-    def set_language
-      @qualifications_language = Language.find(params[:id])
-    end
 
-    def language_params
-      params.require(:language).permit(:name)
-    end
+  def set_language
+    @qualifications_language = Language.find(params[:id])
+  end
+
+  def language_params
+    params.require(:language).permit(:name)
+  end
+
 end

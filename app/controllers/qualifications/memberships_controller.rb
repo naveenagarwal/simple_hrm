@@ -42,11 +42,13 @@ class Qualifications::MembershipsController < ApplicationController
   end
 
   private
-    def set_membership
-      @qualifications_membership = Membership.find(params[:id])
-    end
 
-    def membership_params
-      params.require(:membership).permit(:name)
-    end
+  def set_membership
+    @qualifications_membership = Membership.find(params[:id])
+  end
+
+  def membership_params
+    params.require(:membership).permit(:name)
+  end
+
 end

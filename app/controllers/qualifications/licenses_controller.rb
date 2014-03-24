@@ -42,11 +42,13 @@ class Qualifications::LicensesController < ApplicationController
   end
 
   private
-    def set_license
-      @qualifications_license = License.find(params[:id])
-    end
 
-    def license_params
-      params.require(:license).permit(:name)
-    end
+  def set_license
+    @qualifications_license = License.find(params[:id])
+  end
+
+  def license_params
+    params.require(:license).permit(:name)
+  end
+
 end

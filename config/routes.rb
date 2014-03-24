@@ -52,13 +52,16 @@ SimpleHrm::Application.routes.draw do
     end
   end
 
-   namespace :qualifications do
+  namespace :qualifications do
     resources :skills,                except: [:show]
     resources :educations,            except: [:show]
     resources :licenses,              except: [:show]
     resources :languages,             except: [:show]
     resources :memberships,           except: [:show]
   end
+
+  resources :nationalities,           except: [:show]
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
