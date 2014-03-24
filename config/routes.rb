@@ -57,6 +57,7 @@ SimpleHrm::Application.routes.draw do
     resources :educations,            except: [:show]
     resources :licenses,              except: [:show]
     resources :languages,             except: [:show]
+    resources :memberships,           except: [:show]
   end
 
   # Example of regular route:

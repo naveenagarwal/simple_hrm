@@ -1,0 +1,33 @@
+<h1>Listing Memberships</h1>
+
+<%= render partial: '/shared/paginate_collection', locals: { records: @qualifications_memberships } %>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @qualifications_memberships.each do |qualifications_membership| %>
+      <tr>
+      <td>
+        <%= qualifications_membership.name %>
+      </td>
+        <td>
+          <%= link_to edit_icon, edit_qualifications_membership_path(qualifications_membership, pagination_params) %>
+        </td>
+        <td>
+          <%= link_to delete_icon, qualifications_membership_path(qualifications_membership, pagination_params), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Membership', new_qualifications_membership_path, class: "btn" %>
