@@ -55,6 +55,7 @@ SimpleHrm::Application.routes.draw do
    namespace :qualifications do
     resources :skills,                except: [:show]
     resources :educations,            except: [:show]
+    resources :licenses,            except: [:show]
   end
 
   # Example of regular route:

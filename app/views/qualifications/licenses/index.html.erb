@@ -1,0 +1,33 @@
+<h1>Listing Licenses</h1>
+
+<%= render partial: '/shared/paginate_collection', locals: { records: @qualifications_licenses } %>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @qualifications_licenses.each do |qualifications_license| %>
+      <tr>
+      <td>
+        <%= qualifications_license.name %>
+      </td>
+        <td>
+          <%= link_to edit_icon, edit_qualifications_license_path(qualifications_license, pagination_params) %>
+        </td>
+        <td>
+          <%= link_to delete_icon, qualifications_license_path(qualifications_license, pagination_params), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New license', new_qualifications_license_path, class: "btn" %>
