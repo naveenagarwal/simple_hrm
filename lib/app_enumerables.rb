@@ -39,4 +39,10 @@ module AppEnumerables
     Percentage "Percentage", 2, 2
   end
 
+  enum :PublishTo do
+    Admin "Admin", 1, 1
+    Supervisor "Supervisor", 2, 2
+    AllEmployees "All Employees", 3, 3
+  end
+
 end

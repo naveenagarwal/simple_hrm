@@ -1,0 +1,43 @@
+<h1>Listing News</h1>
+
+<%= render partial: '/shared/paginate_collection', locals: { records: @news } %>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Topic</th>
+      <th>Description</th>
+      <th>Published On</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @news.each do |news| %>
+      <tr>
+        <td>
+          <%= news.topic %>
+        </td>
+        <td>
+          <span class='has-tooltip' title="<%= news.description %>" >
+            <%= news.description.truncate 25 %>
+          </span>
+        </td>
+        <td>
+          <%= news.published_at %>
+        </td>
+        <td>
+          <%= link_to edit_icon, edit_manage_news_path(news, pagination_params) %>
+        </td>
+        <td>
+          <%= link_to delete_icon, manage_news_path(news, pagination_params), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New news', new_manage_news_path, class: "btn" %>

@@ -1,5 +1,7 @@
 SimpleHrm::Application.routes.draw do
 
+  resources :documents
+
   devise_for :admins
   devise_for :users, controllers: { sessions: 'users/sessions' }
   # The priority is based upon order of creation: first created -> highest priority.
@@ -61,6 +63,7 @@ SimpleHrm::Application.routes.draw do
   end
 
   resources :nationalities,           except: [:show]
+  resources :manage_news,             except: [:show]
 
 
   # Example of regular route:

@@ -5,4 +5,8 @@ class Publish < ActiveRecord::Base
   ################
   belongs_to :publisher, polymorphic: true
 
+  ################
+  # Class Methods
+  ################
+
 end

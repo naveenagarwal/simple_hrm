@@ -15,6 +15,7 @@
 //= require jquery.ui.core
 //= require jquery.ui.widget
 //= require jquery.ui.datepicker
+//= require jquery.remotipart
 //= require twitter/bootstrap
 //= require turbolinks
 //= require bootstrap

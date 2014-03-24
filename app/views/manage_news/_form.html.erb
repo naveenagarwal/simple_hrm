@@ -1,0 +1,25 @@
+<%= form_for(@news, url: url || manage_news_index_path ) do |f| %>
+
+  <%= render partial: "/shared/form_errors", locals: { obj: @news, name: "news" } %>
+
+  <fieldset>
+    <%= f.label :topic %>
+    <%= f.text_field :topic %>
+  </fieldset>
+
+  <fieldset>
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </fieldset>
+
+  <%= render partial: "/shared/publishes/form", locals: { publisher: @news } %>
+
+  <br>
+
+  <fieldset>
+    <div class="actions">
+      <%= f.submit nil, class: "btn btn-primary" %>
+    </div>
+  </fieldset>
+
+<% end %>

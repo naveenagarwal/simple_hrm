@@ -1,0 +1,14 @@
+<% publish_tos = publisher.publishes.map &:publish_to %>
+
+<fieldset>
+
+  <%= label_tag "Publish To", nil, class: "display-inline" %>
+
+
+  <% AppEnumerables::PublishTo.each_with_index do |publish, index| %>
+    <%= check_box_tag "#{publisher.class.name.downcase}[publishes_attributes][#{index}][publish_to]", publish.value, publish_tos.include?(publish.value) %>
+    <%= publish.description %>
+  <% end %>
+
+
+</fieldset>

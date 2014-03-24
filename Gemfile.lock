@@ -121,6 +121,7 @@ GEM
       json (~> 1.4)
     recaptcha (0.3.6)
     ref (1.0.5)
+    remotipart (1.2.1)
     renum (1.4.0)
     rspec-core (2.14.7)
     rspec-expectations (2.14.5)
@@ -200,6 +201,7 @@ DEPENDENCIES
   nifty-generators
   rails (= 4.0.2)
   recaptcha
+  remotipart (~> 1.0)
   renum
   rspec-rails
   sass-rails (~> 4.0.0)
