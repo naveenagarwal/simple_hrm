@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user_type, :pagination_params, :current_entity,
                 :show_recaptcha?, :exceded_max_login_attempts?, :can_reset_password?,
-                :description_for
+                :description_for, :paginated_records_for
 
 
   def after_sign_in_path_for(resource)

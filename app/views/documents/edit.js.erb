@@ -1,4 +1,6 @@
-<h1>Editing Document</h1>
+$("#modal-data-container").html('<%= j(render partial: "modal_form", locals: { action: "Editing" }) %>');
 
-<%= link_to 'Back', documents_path, class: "btn  pull-right" %>
-<%= render 'form' %>
+$('#document-modal').modal({ keyboard: false });   // initialized with no keyboard
+$('#document-modal').modal('show');                // initializes and invokes show immediately
+
+

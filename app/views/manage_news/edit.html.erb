@@ -3,5 +3,5 @@
 <%= link_to 'Back', manage_news_index_path, class: "btn  pull-right" %>
 <%= render 'form', { url: manage_news_path } %>
 
-<div id="modal-data-container"></div>
+<%= render partial: "/documents/list", locals: { documents: @documents, attachment_for: @news } %>
 

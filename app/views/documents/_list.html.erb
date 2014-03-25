@@ -1,0 +1,14 @@
+<h5>Listing Documents</h5>
+
+<div id="documents-list">
+  <%
+    documents ||= @documents
+  %>
+  <%= render partial: '/documents/documents_list_with_pagination', locals: { documents: documents } %>
+</div>
+<br>
+
+<%= link_to 'New document', new_document_path(document: { attachment_id: attachment_for.id, attachment_type: attachment_for.class.name }), class: "btn", remote: true %>
+
+
+<div id="modal-data-container"></div>

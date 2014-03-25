@@ -1,0 +1,37 @@
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>File Name</th>
+      <th>Description</th>
+      <th>File Size</th>
+      <th>Added By</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% documents.each do |document| %>
+      <tr>
+        <td>
+          <%= document.file_name %>
+        </td>
+        <td>
+          <%= get_text_with_tooltip(document.description) %>
+        </td>
+        <td>
+          <%= document.file_size_in_kb %>
+        </td>
+        <td>
+          <%= document.creator.email %>
+        </td>
+        <td>
+          <%= link_to edit_icon, edit_document_path(document, pagination_params), remote: true %>
+        </td>
+        <td>
+          <%= link_to delete_icon, document_path(document, pagination_params), remote: true, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

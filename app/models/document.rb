@@ -24,11 +24,23 @@ class Document < ActiveRecord::Base
   # Class Methods
   ################
   class << self
+  end
 
-    def add(attachment_for: nil, entity: nil, params: nil)
-
+  ################
+  # Public
+  ################
+  def file_name
+    if file.present?
+      File.basename file.url
     end
+  end
 
+  def file_size_in_kb
+    file_size / 10024 if file_size
+  end
+
+  def file_size_in_mb
+    file_size_in_kb / 1024 if file_size
   end
 
   ################

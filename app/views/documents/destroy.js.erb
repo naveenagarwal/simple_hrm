@@ -1,0 +1,6 @@
+<% if @document.errors.blank? %>
+  $('#document-modal').modal('hide');
+  $('#documents-list').html('<%= j(render partial: "/documents/documents_list_with_pagination", locals: { documents: @documents }) %>')
+<% else %>
+  $("#document-modal .modal-body").html('<%= j(render partial: "form") %>');
+<% end %>

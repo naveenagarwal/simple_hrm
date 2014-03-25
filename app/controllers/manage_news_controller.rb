@@ -10,6 +10,7 @@ class ManageNewsController < ApplicationController
   end
 
   def edit
+    @documents = paginated_records_for @news.documents.order("updated_at DESC")
   end
 
   def create

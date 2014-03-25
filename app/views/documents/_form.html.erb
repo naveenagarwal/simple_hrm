@@ -2,17 +2,22 @@
 
   <%= render partial: "/shared/form_errors", locals: { obj: @document, name: "document" } %>
 
+  <%= f.hidden_field :attachment_id %>
+  <%= f.hidden_field :attachment_type %>
+
   <fieldset>
-    <%= f.label :file %><br>
+    <%= f.label :file, @document.file_name %><br>
     <%= f.file_field :file %>
   </fieldset>
+
   <fieldset>
     <%= f.label :description %><br>
     <%= f.text_area :description %>
   </fieldset>
 
   <fieldset>
-    <div class="actions">
+    <div class="actions modal-footer">
+      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       <%= f.submit nil, class: "btn btn-primary" %>
     </div>
   </fieldset>
