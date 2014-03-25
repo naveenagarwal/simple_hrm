@@ -40,11 +40,11 @@ class DocumentsController < ApplicationController
   end
 
   def document_params
-    params.require(:document).permit(:file, :description, :attachment_id, :attachment_type)
+    params.require(:document).permit(:file, :description, :attachment_for_id, :attachment_for_type)
   end
 
   def get_all_documents
-    paginated_records_for @document.attachment.documents.order("updated_at DESC")
+    paginated_records_for @document.attachment_for.documents.order("updated_at DESC")
   end
 
 end

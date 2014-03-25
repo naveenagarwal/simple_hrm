@@ -4,7 +4,7 @@ class CreateDocuments < ActiveRecord::Migration
       t.string :file
       t.string :file_content_type
       t.integer :file_size
-      t.references :attachment, polymorphic: true, index: true
+      t.references :attachment_for, polymorphic: true, index: true
       t.references :creator, polymorphic: true, index: true
       t.text :description
 

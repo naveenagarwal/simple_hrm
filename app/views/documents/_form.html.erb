@@ -2,8 +2,8 @@
 
   <%= render partial: "/shared/form_errors", locals: { obj: @document, name: "document" } %>
 
-  <%= f.hidden_field :attachment_id %>
-  <%= f.hidden_field :attachment_type %>
+  <%= f.hidden_field :attachment_for_id %>
+  <%= f.hidden_field :attachment_for_type %>
 
   <fieldset>
     <%= f.label :file, @document.file_name %><br>

@@ -5,7 +5,7 @@ FactoryGirl.define do
     file "MyString"
     file_content_type "MyString"
     file_size 1
-    attachment nil
+    attachment_for nil
     creator nil
     description "MyText"
   end

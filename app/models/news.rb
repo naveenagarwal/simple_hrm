@@ -3,7 +3,7 @@ class News < ActiveRecord::Base
   ################
   # Associaitons
   ################
-  has_many :documents, as: :attachment, dependent: :destroy
+  has_many :documents, as: :attachment_for, dependent: :destroy
   has_many :publishes, as: :publisher, dependent: :destroy
 
   ####################

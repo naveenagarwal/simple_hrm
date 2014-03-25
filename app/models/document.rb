@@ -17,7 +17,7 @@ class Document < ActiveRecord::Base
   ################
   # Associaitons
   ################
-  belongs_to :attachment, polymorphic: true
+  belongs_to :attachment_for, polymorphic: true
   belongs_to :creator, polymorphic: true
 
   ################
