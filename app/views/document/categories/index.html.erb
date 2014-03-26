@@ -1,0 +1,33 @@
+<h1>Listing Document Categories</h1>
+
+<%= render partial: '/shared/paginate_collection', locals: { records: @document_categories } %>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Category Name</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @document_categories.each do |document_category| %>
+      <tr>
+        <td>
+          <%= document_category.name %>
+        </td>
+        <td>
+          <%= link_to edit_icon, edit_document_category_path(document_category, pagination_params) %>
+        </td>
+        <td>
+          <%= link_to delete_icon, document_category_path(document_category, pagination_params), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Category', new_document_category_path, class: "btn" %>

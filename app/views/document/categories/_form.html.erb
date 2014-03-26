@@ -1,0 +1,16 @@
+<%= form_for(@document_category) do |f| %>
+
+  <%= render partial: "/shared/form_errors", locals: { obj: @document_category, name: "document category" } %>
+
+  <fieldset>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </fieldset>
+
+  <fieldset>
+    <div class="actions">
+      <%= f.submit nil, class: "btn btn-primary" %>
+    </div>
+  </fieldset>
+
+<% end %>

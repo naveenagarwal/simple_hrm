@@ -1,8 +1,6 @@
 class DocumentsController < ApplicationController
   before_action :set_document, only: [:edit, :update, :destroy]
 
-  # before_action :set_creator
-
   def new
     @document = Document.new(document_params)
   end
