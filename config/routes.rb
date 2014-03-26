@@ -69,6 +69,14 @@ SimpleHrm::Application.routes.draw do
     resources :manage_documents,      except: [:show]
   end
 
+  namespace :configuration do
+    resources :email_configurations,  except: [:show] do
+      member do
+        get  :test_email
+      end
+    end
+  end
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

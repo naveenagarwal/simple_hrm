@@ -1,0 +1,44 @@
+<%= form_for([:configuration, @email_configuration]) do |f| %>
+
+  <%= render partial: "/shared/form_errors", locals: { obj: @email_configuration, name: "email configuration" } %>
+
+  <fieldset>
+    <%= f.label :address, "SMTP Host" %><br>
+    <%= f.text_field :address %>
+  </fieldset>
+  <fieldset>
+    <%= f.label :port %><br>
+    <%= f.number_field :port %>
+  </fieldset>
+  <fieldset>
+    <%= f.label :domain %><br>
+    <%= f.text_field :domain %>
+  </fieldset>
+  <fieldset>
+    <%= f.label :username %><br>
+    <%= f.text_field :username %>
+  </fieldset>
+  <fieldset>
+    <%= f.label :password %><br>
+    <%= f.text_field :password  %>
+  </fieldset>
+  <fieldset>
+    <%= f.label :authentication_type %><br>
+    <%= f.select :authentication_type, collection_for(AppEnumerables::EmailAuthenticationType), { include_blank: true }, class: "select2" %>
+  <fieldsetv>
+  <fieldset>
+    <%= f.check_box :enable_starttls_auto %>
+    <%= f.label :enable_starttls_auto, class: "checkbox inline" %><br>
+  </fieldset>
+  <fieldset>
+    <%= f.check_box :status %>
+    <%= f.label :status, "Enable", class: "checkbox inline" %><br>
+  </fieldset>
+  <br>
+  <fieldset>
+    <div class="actions">
+      <%= f.submit nil, class: "btn btn-primary" %>
+    </div>
+  </fieldset>
+
+<% end %>

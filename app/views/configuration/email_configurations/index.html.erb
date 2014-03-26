@@ -1,0 +1,74 @@
+<h1>Listing Email Configurations</h1>
+
+<%= render partial: '/shared/paginate_collection', locals: { records: @email_configurations } %>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>SMTP Host</th>
+      <th>Port</th>
+      <th>Domain</th>
+      <th>Username</th>
+      <th>Password</th>
+      <th>Type</th>
+      <th>TTLS</th>
+      <th>Enabled</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @email_configurations.each do |email_configuration| %>
+      <tr>
+        <td>
+          <%= email_configuration.address %>
+        </td>
+        <td>
+          <%= email_configuration.port %>
+        </td>
+        <td>
+          <%= email_configuration.domain %>
+        </td>
+        <td>
+          <%= email_configuration.username %>
+        </td>
+        <td>
+          <%= email_configuration.password %>
+        </td>
+        <td>
+          <%= description_for(AppEnumerables::EmailAuthenticationType, email_configuration.authentication_type)  %>
+        </td>
+        <td>
+          <%= email_configuration.enable_starttls_auto %>
+        </td>
+        <td>
+          <%= email_configuration.status %>
+        </td>
+        <td>
+          <div class="input-append">
+            <input class="width-180" type="email">
+            <span class="add-on">
+              <a href="javascript:void(0);" class="test-email-button button", id="test-email-<%= email_configuration.id %>" data-url= "<%= test_email_configuration_email_configuration_path(email_configuration) %>">
+                Fire Test Email
+              </a>
+            </span>
+          </div>
+
+
+        </td>
+        <td>
+          <%= link_to edit_icon, edit_configuration_email_configuration_path(email_configuration, pagination_params) %>
+        </td>
+        <td>
+          <%= link_to delete_icon, configuration_email_configuration_path(email_configuration, pagination_params), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Email configuration', new_configuration_email_configuration_path, class: "btn" %>

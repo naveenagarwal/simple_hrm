@@ -45,4 +45,10 @@ module AppEnumerables
     AllEmployees "All Employees", 3, 3
   end
 
+  enum :EmailAuthenticationType do
+    Plain :plain, 1, 1
+    Login :login, 2, 2
+    CramMD5 :cram_md5, 3, 3
+  end
+
 end

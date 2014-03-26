@@ -61,3 +61,20 @@ var flashMessageHTML = function(type, msg){
 
   return html
 }
+
+$(document).on("click", ".test-email-button", function(){
+  var thisLink = $(this);
+  var email = thisLink.parent().prev().val();
+  var url = thisLink.data("url");
+
+  if($.trim(email)){
+    thisLink.hide();
+    $.ajax({
+      data: { email: email },
+      dataType: "script",
+      url: url
+    });
+  }
+
+  return false;
+});
