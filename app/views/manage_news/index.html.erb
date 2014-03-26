@@ -23,7 +23,7 @@
           <%= get_text_with_tooltip(news.description) %>
         </td>
         <td>
-          <%= news.published_at %>
+          <%= get_date_in_format(news.published_at, "%m/%d/%Y") %>
         </td>
         <td>
           <%= link_to edit_icon, edit_manage_news_path(news, pagination_params) %>

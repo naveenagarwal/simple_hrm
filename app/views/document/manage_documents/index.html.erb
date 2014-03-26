@@ -1,0 +1,45 @@
+<h1>Listing Documents</h1>
+
+<%= render partial: '/shared/paginate_collection', locals: { records: @manage_documents } %>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Topic</th>
+      <th>Description</th>
+      <th>Published On</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @manage_documents.each do |manage_document| %>
+      <tr>
+        <td>
+          <%= manage_document.document_category.name %>
+        </td>
+        <td>
+          <%= manage_document.topic %>
+        </td>
+        <td>
+          <%= get_text_with_tooltip(manage_document.description) %>
+        </td>
+        <td>
+          <%= get_date_in_format(manage_document.published_at, "%m/%d/%Y") %>
+        </td>
+        <td>
+          <%= link_to edit_icon, edit_document_manage_document_path(manage_document, pagination_params) %>
+        </td>
+        <td>
+          <%= link_to delete_icon, document_manage_document_path(manage_document, pagination_params), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New document', new_document_manage_document_path, class: "btn" %>

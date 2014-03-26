@@ -1,0 +1,35 @@
+<%= form_for([:document, @manage_document]) do |f| %>
+
+  <%= render partial: "/shared/form_errors", locals: { obj: @manage_document, name: "document" } %>
+
+  <fieldset>
+    <%= f.label :topic %>
+    <%= f.text_field :topic %>
+  </fieldset>
+
+  <fieldset>
+    <%= f.label :document_category_id, "Category" %>
+    <%= f.select :document_category_id, DocumentCategory.all.collect { |r| [ r.name, r.id ] } , { include_blank: true }, class: "select2" %>
+  </fieldset>
+
+  <fieldset>
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </fieldset>
+
+  <fieldset>
+    <%= f.label :published_at, "Publish Date" %>
+    <%= f.text_field :published_at, value: get_date_in_format(@manage_document.published_at, "%m/%d/%Y"), class: "date" %>
+  </fieldset>
+
+  <%= render partial: "/shared/publishes/form", locals: { publisher: @manage_document } %>
+
+  <br>
+
+  <fieldset>
+    <div class="actions">
+      <%= f.submit "Save/Update", class: "btn btn-primary" %>
+    </div>
+  </fieldset>
+
+<% end %>

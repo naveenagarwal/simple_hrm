@@ -17,7 +17,7 @@
 
   <fieldset class="span5">
     <%= f.label :dob, "Date of Birth" %><br />
-    <%= f.text_field :dob, value: @profile.dob.try(:strftime,"%m/%d/%Y"), class: "date" %>
+    <%= f.text_field :dob, value: get_date_in_format(@profile.dob, "%m/%d/%Y"), class: "date" %>
   </fieldset>
 
   <fieldset class="span5">

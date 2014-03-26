@@ -1,0 +1,6 @@
+<h1>Editing Document</h1>
+
+<%= link_to 'Back', document_manage_documents_path, class: "btn  pull-right" %>
+<%= render 'form' %>
+
+<%= render partial: "/documents/list", locals: { documents: @documents, attachment_for: @manage_document } %>

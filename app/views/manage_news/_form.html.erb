@@ -12,6 +12,11 @@
     <%= f.text_area :description %>
   </fieldset>
 
+  <fieldset>
+    <%= f.label :published_at, "Publish Date" %>
+    <%= f.text_field :published_at, value: get_date_in_format(@news.published_at, "%m/%d/%Y"), class: "date" %>
+  </fieldset>
+
   <%= render partial: "/shared/publishes/form", locals: { publisher: @news } %>
 
   <br>

@@ -6,7 +6,7 @@
 
 
   <% AppEnumerables::PublishTo.each_with_index do |publish, index| %>
-    <%= check_box_tag "#{publisher.class.name.downcase}[publishes_attributes][#{index}][publish_to]", publish.value, publish_tos.include?(publish.value) %>
+    <%= check_box_tag "#{publisher.class.name.underscore}[publishes_attributes][#{index}][publish_to]", publish.value, publish_tos.include?(publish.value) %>
     <%= publish.description %>
   <% end %>
 

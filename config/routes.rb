@@ -66,6 +66,7 @@ SimpleHrm::Application.routes.draw do
 
   namespace :document do
     resources :categories,            except: [:show]
+    resources :manage_documents,      except: [:show]
   end
 
   # Example of regular route:

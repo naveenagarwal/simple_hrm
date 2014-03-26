@@ -36,4 +36,8 @@ module ApplicationHelper
       }
   end
 
+  def get_date_in_format(date, format)
+    date.try(:strftime, format)
+  end
+
 end
