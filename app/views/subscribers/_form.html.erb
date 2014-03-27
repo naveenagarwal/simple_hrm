@@ -1,0 +1,25 @@
+<%= form_for(@subscriber, html: {remote: true, multipart: true}) do |f| %>
+
+  <%= render partial: "/shared/form_errors", locals: { obj: @subscriber, name: "subscriber" } %>
+
+  <%= f.hidden_field :subscribable_id %>
+  <%= f.hidden_field :subscribable_type %>
+
+  <fieldset>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </fieldset>
+
+  <fieldset>
+    <%= f.label :email %><br>
+    <%= f.email_field :email %>
+  </fieldset>
+
+  <fieldset>
+    <div class="actions modal-footer">
+      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      <%= f.submit "Save/Update Subscriber", class: "btn btn-primary" %>
+    </div>
+  </fieldset>
+
+<% end %>

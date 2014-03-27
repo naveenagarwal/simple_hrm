@@ -71,3 +71,13 @@ child.create_child_with({
     name: "Set the organization name here",
     description: "Set the organization description here"
   })
+
+# Email subscriptions
+[
+  "Leave Applications",
+  "Leave Assignments",
+  "Leave Approvals",
+  "Leave Cancellations",
+  "Leave Rejections",
+  "Performance Review Submissions"
+].each { |name| EmailSubscription.create!(name: name) }

@@ -1,0 +1,6 @@
+$("#modal-data-container").html('<%= j(render partial: "modal_form", locals: { action: "Editing" }) %>');
+
+$('#subscriber-modal').modal({ keyboard: false });   // initialized with no keyboard
+$('#subscriber-modal').modal('show');                // initializes and invokes show immediately
+
+

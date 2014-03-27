@@ -1,0 +1,14 @@
+<h5>Listing Subscribers</h5>
+
+<div id="subscribers-list">
+  <%
+    subscribers ||= @subscribers
+  %>
+  <%= render partial: '/subscribers/subscribers_list_with_pagination', locals: { subscribers: subscribers } %>
+</div>
+<br>
+
+<%= link_to 'New Subscriber', new_subscriber_path(subscriber: { subscribable_id: subscribable.id, subscribable_type: subscribable.class.name }), class: "btn", remote: true %>
+
+
+<div id="modal-data-container"></div>

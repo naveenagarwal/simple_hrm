@@ -1,0 +1,6 @@
+<% if @subscriber.errors.blank? %>
+  $('#subscriber-modal').modal('hide');
+  $('#subscribers-list').html('<%= j(render partial: "/subscribers/subscribers_list_with_pagination", locals: { subscribers: @subscribers }) %>')
+<% else %>
+  $("#subscriber-modal .modal-body").html('<%= j(render partial: "form") %>');
+<% end %>

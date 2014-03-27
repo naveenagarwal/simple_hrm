@@ -1,0 +1,7 @@
+<h1>Editing Email Subscription</h1>
+
+<%= link_to 'Back', configuration_email_subscriptions_path, class: "btn  pull-right" %>
+<%= render 'form' %>
+
+<%= render partial: "/subscribers/list", locals: { subscribers: @subscribers, subscribable: @email_subscription } %>
+

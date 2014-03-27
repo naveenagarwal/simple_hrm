@@ -1,0 +1,29 @@
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% subscribers.each do |subscriber| %>
+      <tr>
+        <td>
+          <%= subscriber.name %>
+        </td>
+        <td>
+          <%= subscriber.email %>
+        </td>
+        <td>
+          <%= link_to edit_icon, edit_subscriber_path(subscriber, pagination_params), remote: true %>
+        </td>
+        <td>
+          <%= link_to delete_icon, subscriber_path(subscriber, pagination_params), remote: true, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

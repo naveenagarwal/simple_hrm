@@ -1,0 +1,40 @@
+<h1>Listing Email Subscriptions</h1>
+
+<%= render partial: '/shared/paginate_collection', locals: { records: @email_subscriptions } %>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Subscribers</th>
+      <th>Enabled</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @email_subscriptions.each do |email_subscription| %>
+      <tr>
+        <td>
+          <%= email_subscription.name %>
+        </td>
+        <td>
+          <%= get_text_with_tooltip(email_subscription.subscribers_to_s) %>
+        </td>
+        <td>
+          <%= email_subscription.enabled? %>
+        </td>
+        <td>
+          <%= link_to edit_icon, edit_configuration_email_subscription_path(email_subscription, pagination_params) %>
+        </td>
+        <td>
+          <%= link_to delete_icon, configuration_email_subscription_path(email_subscription, pagination_params), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Email subscriber', new_configuration_email_subscription_path, class: "btn" %>

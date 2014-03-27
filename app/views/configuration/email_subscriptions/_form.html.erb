@@ -1,0 +1,23 @@
+<%= form_for([:configuration, @email_subscription]) do |f| %>
+
+  <%= render partial: "/shared/form_errors", locals: { obj: @email_subscription, name: "email subscription" } %>
+
+  <fieldset>
+    <%= f.label :name, "Name" %>
+    <%= f.text_field :name %>
+  </fieldset>
+
+  <fieldset>
+    <%= f.check_box :enabled %>
+    <%= f.label :enabled, class: "checkbox inline" %><br>
+  </fieldset>
+
+  <br>
+
+  <fieldset>
+    <div class="actions">
+      <%= f.submit nil, class: "btn btn-primary" %>
+    </div>
+  </fieldset>
+
+<% end %>

@@ -75,7 +75,11 @@ SimpleHrm::Application.routes.draw do
         get  :test_email
       end
     end
+
+    resources :email_subscriptions,     except: [:show]
   end
+
+  resources :subscribers,             except: [:show]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
