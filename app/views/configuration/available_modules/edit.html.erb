@@ -1,0 +1,30 @@
+<h1>Module Configuration</h1>
+
+<%= form_tag(configuration_available_module_path(DEFAULT_ID), method: "PUT") do %>
+
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Enabled</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @available_modules.each do |available_module| %>
+        <tr>
+          <td>
+            <%= "Enable #{available_module.name} module" %>
+          </td>
+          <td>
+            <%= hidden_field_tag "available_modules[#{available_module.id}][enabled]", false %>
+            <%= check_box_tag("available_modules[#{available_module.id}][enabled]", "true", available_module.enabled?) if available_module.editable?  %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= submit_tag "Save", id: "submit", name: "submit", class: "btn btn-primary", disabled: false, disable_with: "Please wait..." %>
+
+<% end %>

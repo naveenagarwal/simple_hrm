@@ -81,3 +81,13 @@ child.create_child_with({
   "Leave Rejections",
   "Performance Review Submissions"
 ].each { |name| EmailSubscription.create!(name: name) }
+
+# Available Moudules
+[
+  { name: "Admin", enabled: true },
+  { name: "PIM", enabled: true },
+  { name: "Leave", enabled: false },
+  { name: "Time", enabled: false },
+  { name: "Recruitment", enabled: false },
+  { name: "Performance", enabled: false }
+].each { |available_module| AvailableModule.create!(available_module) }

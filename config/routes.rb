@@ -77,6 +77,7 @@ SimpleHrm::Application.routes.draw do
     end
 
     resources :email_subscriptions,     except: [:show]
+    resources :available_modules,       only: [:edit, :update]
   end
 
   resources :subscribers,             except: [:show]

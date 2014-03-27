@@ -1,0 +1,2 @@
+module Configuration::AvailableModulesHelper
+end
