@@ -48,7 +48,7 @@ class AvailableModule < ActiveRecord::Base
   private
 
   def uneditable?
-    id && (UNEDITABLE_MODULES.map(&:downcase).include? name.to_s.downcase)
+    changes[:name] && (UNEDITABLE_MODULES.map(&:downcase).include? changes[:name].first.to_s.downcase)
   end
 
   def ensure_editable
