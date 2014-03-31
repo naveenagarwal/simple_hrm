@@ -1,0 +1,35 @@
+<h1>Listing Notifications</h1>
+
+<%= render partial: '/shared/paginate_collection', locals: { records: @notifications } %>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Event name</th>
+      <th>Event</th>
+      <th>Notified before</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @notifications.each do |notification| %>
+      <tr>
+        <td><%= notification.event_name %></td>
+        <td><%= notification.event.name %></td>
+        <td><%= description_for(AppEnumerables::NotificationPeriod, notification.notified_before) %></td>
+        <td>
+          <%= link_to edit_icon, edit_notification_path(notification, pagination_params) %>
+        </td>
+        <td>
+          <%= link_to delete_icon, notification_path(notification, pagination_params), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Notification', new_notification_path, class: "btn" %>

@@ -51,4 +51,14 @@ module AppEnumerables
     CramMD5 :cram_md5, 3, 3
   end
 
+  enum :NotificationPeriod do
+    DAY1 "1 Day", 1, 1
+    DAYS2 "2 Days", 2, 2
+    DAYS3 "3 Days", 3, 3
+    MONTH1 "1 Month", 4, 4
+    MONTHS2 "2 Months", 5, 5
+    MONTHS3 "3 Months", 6, 6
+    MONTHS4 "6 Months", 7, 7
+  end
+
 end

@@ -91,3 +91,14 @@ child.create_child_with({
   { name: "Recruitment", enabled: false },
   { name: "Performance", enabled: false }
 ].each { |available_module| AvailableModule.create!(available_module) }
+
+# Default events
+[
+  "DOB Notification",
+  "Driving License Expiry Date",
+  "Employee Contracts Notification",
+  "Immigration Expiry Notification",
+  "Licenses Expiry Notification",
+  "Memberships Expiry Notification",
+  "Retirement Notification"
+].each { |name| Event.create!(name: name) }

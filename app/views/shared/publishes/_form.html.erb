@@ -1,12 +1,17 @@
-<% publish_tos = publisher.publishes.map &:publish_to %>
+<%
+  lable_name ||= "Publish To"
+  attributes_name ||= "publishes_attributes"
+  association_name ||= "publishes"
+
+  publish_tos = publisher.send(association_name).map &:publish_to
+%>
 
 <fieldset>
 
-  <%= label_tag "Publish To", nil, class: "display-inline" %>
-
+  <%= label_tag lable_name, nil, class: "display-inline" %>
 
   <% AppEnumerables::PublishTo.each_with_index do |publish, index| %>
-    <%= check_box_tag "#{publisher.class.name.underscore}[publishes_attributes][#{index}][publish_to]", publish.value, publish_tos.include?(publish.value) %>
+    <%= check_box_tag "#{publisher.class.name.underscore}[#{attributes_name}][#{index}][publish_to]", publish.value, publish_tos.include?(publish.value) %>
     <%= publish.description %>
   <% end %>
 

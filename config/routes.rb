@@ -1,5 +1,6 @@
 SimpleHrm::Application.routes.draw do
 
+
   devise_for :admins
   devise_for :users, controllers: { sessions: 'users/sessions' }
   # The priority is based upon order of creation: first created -> highest priority.
@@ -81,6 +82,7 @@ SimpleHrm::Application.routes.draw do
   end
 
   resources :subscribers,             except: [:show]
+  resources :notifications,           except: [:show]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
