@@ -86,6 +86,7 @@ SimpleHrm::Application.routes.draw do
 
   namespace :authentication do
     resources :openid_providers,      except: [:show]
+    resources :ldap_configurations,   except: [:show]
   end
 
   # Example of regular route:

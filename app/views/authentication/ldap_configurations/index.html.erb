@@ -1,0 +1,57 @@
+<h1>Listing Ldap Configurations</h1>
+
+<%= render partial: '/shared/paginate_collection', locals: { records: @ldap_configurations } %>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Server</th>
+      <th>port</th>
+      <th>Implementation</th>
+      <th>Protocol</th>
+      <th>User Suffix</th>
+      <th>Authentication Enabled</th>
+      <th>Active</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ldap_configurations.each do |ldap_configuration| %>
+      <tr>
+        <td>
+          <%= ldap_configuration.server %>
+        </td>
+        <td>
+          <%= ldap_configuration.port %>
+        </td>
+        <td>
+          <%= ldap_configuration.implementation %>
+        </td>
+        <td>
+          <%= ldap_configuration.protocol %>
+        </td>
+        <td>
+          <%= ldap_configuration.user_suffix %>
+        </td>
+        <td>
+          <%= ldap_configuration.enable_authentication %>
+        </td>
+        <td>
+          <%= ldap_configuration.status %>
+        </td>
+        <td>
+          <%= link_to edit_icon, edit_authentication_ldap_configuration_path(ldap_configuration, pagination_params) %>
+        </td>
+        <td>
+          <%= link_to delete_icon, authentication_ldap_configuration_path(ldap_configuration, pagination_params), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ldap configuration', new_authentication_ldap_configuration_path, class: "btn" %>

@@ -1,0 +1,50 @@
+<%= form_for([:authentication, @ldap_configuration]) do |f| %>
+
+  <%= render partial: "/shared/form_errors", locals: { obj: @ldap_configuration, name: "LDAP configuration" } %>
+
+  <fieldset>
+    <%= f.label :server, "LDAP Server" %>
+    <%= f.text_field :server %>
+  </fieldset>
+
+  <fieldset>
+    <%= f.label :port, "LDAP Port" %>
+    <%= f.text_field :port %>
+  </fieldset>
+
+  <fieldset>
+    <%= f.label :implementation, "LDAP Iplementation" %>
+    <%= f.text_field :implementation %>
+  </fieldset>
+
+  <fieldset>
+    <%= f.label :protocol, "LDAP Protocol" %>
+    <%= f.text_field :protocol %>
+  </fieldset>
+
+  <fieldset>
+    <%= f.label :user_suffix, "LDAP User Suffix" %>
+    <%= f.text_field :user_suffix %>
+  </fieldset>
+
+  <fieldset>
+    <%= f.check_box :enable_authentication %>
+    <%= f.label :enable_authentication, "Enable LDAP Authentication", class: "checkbox inline" %>
+  </fieldset>
+
+  <br>
+
+  <fieldset>
+    <%= f.check_box :status %>
+    <%= f.label :status, "Activate LDAP Configuration", class: "checkbox inline" %>
+  </fieldset>
+
+  <br>
+
+  <fieldset>
+    <div class="actions">
+      <%= f.submit nil, class: "btn btn-primary" %>
+    </div>
+  </fieldset>
+
+<% end %>

@@ -1,0 +1,2 @@
+module Authentication::LdapConfigurationsHelper
+end
