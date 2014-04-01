@@ -61,4 +61,14 @@ module AppEnumerables
     MONTHS4 "6 Months", 7, 7
   end
 
+  enum :LDAPImplementation do
+    OpenLDAP "OpenLDAP", 1, 1
+    MSActiveDirectory "MS Active Directory", 2, 2
+  end
+
+  enum :LDAPProtocol do
+    LDAP "LDAP", 1, 1
+    LDAPS "LDAPS", 2, 2
+  end
+
 end

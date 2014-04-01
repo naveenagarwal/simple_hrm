@@ -4,27 +4,27 @@
 
   <fieldset>
     <%= f.label :server, "LDAP Server" %>
-    <%= f.text_field :server %>
+    <%= f.text_field :server %> Ex: 192.168.1.200
   </fieldset>
 
   <fieldset>
     <%= f.label :port, "LDAP Port" %>
-    <%= f.text_field :port %>
+    <%= f.number_field :port %> Ex: 389
   </fieldset>
 
   <fieldset>
     <%= f.label :implementation, "LDAP Iplementation" %>
-    <%= f.text_field :implementation %>
+    <%= f.select :implementation, collection_for(AppEnumerables::LDAPImplementation), { include_blank: true }, class: "select2" %>
   </fieldset>
 
   <fieldset>
     <%= f.label :protocol, "LDAP Protocol" %>
-    <%= f.text_field :protocol %>
+    <%= f.select :protocol, collection_for(AppEnumerables::LDAPProtocol), { include_blank: true }, class: "select2" %>
   </fieldset>
 
   <fieldset>
     <%= f.label :user_suffix, "LDAP User Suffix" %>
-    <%= f.text_field :user_suffix %>
+    <%= f.text_field :user_suffix %> Ex: u=john,dc=orangehrm,dc=com
   </fieldset>
 
   <fieldset>

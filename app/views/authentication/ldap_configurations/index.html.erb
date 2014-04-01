@@ -27,10 +27,10 @@
           <%= ldap_configuration.port %>
         </td>
         <td>
-          <%= ldap_configuration.implementation %>
+          <%= description_for(AppEnumerables::LDAPImplementation, ldap_configuration.implementation) %>
         </td>
         <td>
-          <%= ldap_configuration.protocol %>
+          <%= description_for(AppEnumerables::LDAPProtocol, ldap_configuration.protocol) %>
         </td>
         <td>
           <%= ldap_configuration.user_suffix %>
