@@ -3,23 +3,23 @@
   <%= render partial: "/shared/form_errors", locals: { obj: @notification, name: "notification" } %>
 
   <fieldset>
-    <%= f.label :event_name %><br>
+    <%= f.label :event_name, required_span_with("Event Name") %><br>
     <%= f.text_field :event_name %>
   </fieldset>
 
   <fieldset>
-    <%= f.label :employee_ids, "Emplopyee names" %><br>
+    <%= f.label :employee_ids, required_span_with("Emplopyee names") %><br>
     <%= f.select :employee_ids, User.all.collect {|r| [r.email, r.id] }, {include_blank: true}, class: "select2", multiple: true %>
   </fieldset>
 
   <fieldset>
-    <%= f.label :event_id %><br>
-    <%= f.select :event_id, Event.all.collect {|r| [r.name, r.id] }, include_blank: true, class: "select2" %>
+    <%= f.label :event_id, required_span_with("Event") %><br>
+    <%= f.select :event_id, Event.all.collect {|r| [r.name, r.id] }, {include_blank: true}, class: "select2" %>
   </fieldset>
 
   <fieldset>
     <%= f.label :notified_before %><br>
-    <%= f.select :event_id, collection_for(AppEnumerables::NotificationPeriod), include_blank: true, class: "select2" %>
+    <%= f.select :notified_before, collection_for(AppEnumerables::NotificationPeriod), {include_blank: true}, class: "select2" %>
   </fieldset>
 
   <%= render partial: "/shared/publishes/form", locals: @notification.recepients_default_hash.merge({ publisher: @notification}) %>
