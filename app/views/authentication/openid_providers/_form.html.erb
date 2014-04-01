@@ -3,12 +3,12 @@
   <%= render partial: "/shared/form_errors", locals: { obj: @openid_provider, name: "openid provider" } %>
 
   <fieldset>
-    <%= f.label :name %>
+    <%= f.label :name, required_span_with("Name") %>
     <%= f.text_field :name %>
   </fieldset>
 
   <fieldset>
-    <%= f.label :url %>
+    <%= f.label :url, required_span_with("URL") %>
     <%= f.url_field :url %>
   </fieldset>
 
