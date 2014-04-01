@@ -31,3 +31,7 @@ div.modal.modal-width-800 {
 .width-180 {
   width: 180px;
 }
+
+span.required {
+  color: #d9534f;
+}
