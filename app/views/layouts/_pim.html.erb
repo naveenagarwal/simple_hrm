@@ -1,0 +1,19 @@
+PIM
+<ul class="nav nav-pills">
+
+  <li class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#">User Management <b class="caret"></b></a>
+    <ul class="dropdown-menu">
+      <li>
+        <%= link_to "Users", user_management_users_path %>
+      </li>
+      <li>
+        <%= link_to "User Roles", user_management_roles_path %>
+      </li>
+      <li>
+        <%= link_to "Authentication Configuration",
+          edit_user_management_authentication_configuration_path %>
+      </li>
+    </ul>
+  </li>
+</ul>
