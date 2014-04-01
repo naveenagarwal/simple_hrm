@@ -17,7 +17,7 @@
     <% @notifications.each do |notification| %>
       <tr>
         <td><%= notification.event_name %></td>
-        <td><%= notification.event.name %></td>
+        <td><%= notification.event.try(:name) %></td>
         <td><%= description_for(AppEnumerables::NotificationPeriod, notification.notified_before) %></td>
         <td>
           <%= link_to edit_icon, edit_notification_path(notification, pagination_params) %>

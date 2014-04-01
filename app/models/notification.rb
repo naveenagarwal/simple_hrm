@@ -19,6 +19,14 @@ class Notification < ActiveRecord::Base
   ###############
   # Validations
   ###############
+  validates :event_name, presence: true, allow_blank: false
+  validates :employee_ids, presence: { message: "~Employee names can't be blank"}, allow_blank: false
+  validates :event_id, presence: true
+
+  ###############
+  # Callbacks
+  ###############
+  before_validation :remove_blank_employee_names
 
   ###############
   # Associations
@@ -55,5 +63,9 @@ class Notification < ActiveRecord::Base
   # Private
   ###############
   private
+
+  def remove_blank_employee_names
+    self.employee_ids = employee_ids.reject(&:blank?)
+  end
 
 end
