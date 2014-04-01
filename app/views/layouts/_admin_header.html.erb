@@ -119,5 +119,20 @@
     <a class="dropdown-toggle" href="<%= notifications_path %>" >Notifications</a>
   </li>
 
+  <li class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Authentication<b class="caret"></b></a>
+    <ul class="dropdown-menu">
+      <li>
+        <%= link_to "OpenID Configuration", authentication_openid_providers_path %>
+      </li>
+      <li>
+        <%#= link_to "Email Subscription", configuration_email_subscriptions_path %>
+      </li>
+      <li>
+        <%#= link_to "Modules", edit_configuration_available_module_path(DEFAULT_ID) %>
+      </li>
+    </ul>
+  </li>
+
 
 </ul>

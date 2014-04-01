@@ -1,0 +1,22 @@
+<%= form_for([:authentication, @openid_provider]) do |f| %>
+
+  <%= render partial: "/shared/form_errors", locals: { obj: @openid_provider, name: "openid provider" } %>
+
+  <fieldset>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </fieldset>
+
+  <fieldset>
+    <%= f.label :url %>
+    <%= f.url_field :url %>
+  </fieldset>
+
+
+  <fieldset>
+    <div class="actions">
+      <%= f.submit nil, class: "btn btn-primary" %>
+    </div>
+  </fieldset>
+
+<% end %>

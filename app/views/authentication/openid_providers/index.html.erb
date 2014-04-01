@@ -1,0 +1,35 @@
+<h1>Listing OpenID Providers</h1>
+
+<%= render partial: '/shared/paginate_collection', locals: { records: @openid_providers } %>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @openid_providers.each do |openid_provider| %>
+      <tr>
+        <td>
+          <%= openid_provider.name %>
+        </td>
+        <td>
+          <%= openid_provider.url %>
+        </td>
+        <td>
+          <%= link_to edit_icon, edit_authentication_openid_provider_path(openid_provider, pagination_params) %>
+        </td>
+        <td>
+          <%= link_to delete_icon, authentication_openid_provider_path(openid_provider, pagination_params), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New OpenID provider', new_authentication_openid_provider_path, class: "btn" %>

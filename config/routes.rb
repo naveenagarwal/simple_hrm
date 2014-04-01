@@ -84,6 +84,10 @@ SimpleHrm::Application.routes.draw do
   resources :subscribers,             except: [:show]
   resources :notifications,           except: [:show]
 
+  namespace :authentication do
+    resources :openid_providers,      except: [:show]
+  end
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
