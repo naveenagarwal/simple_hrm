@@ -1,0 +1,41 @@
+<h1>Listing Custom Fields</h1>
+
+<%= render partial: '/shared/paginate_collection', locals: { records: @custom_fields } %>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Field Name</th>
+      <th>Screen</th>
+      <th>Field Type</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @custom_fields.each do |custom_field| %>
+      <tr>
+        <td>
+          <%= custom_field.name %>
+        </td>
+        <td>
+          <%= description_for(AppEnumerables::CustomFieldScreen, custom_field.screen) %>
+        </td>
+        <td>
+          <%= description_for(AppEnumerables::CustomFieldType, custom_field.field_type) %>
+        </td>
+        <td>
+          <%= link_to edit_icon, edit_configuration_custom_field_path(custom_field, pagination_params) %>
+        </td>
+        <td>
+          <%= link_to delete_icon, configuration_custom_field_path(custom_field, pagination_params), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Custom field', new_configuration_custom_field_path, class: "btn" %>

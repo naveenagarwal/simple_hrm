@@ -14,11 +14,13 @@ class CustomField < ActiveRecord::Base
   ###############
   # Validations
   ###############
+  validates :name, :screen, :field_type, presence: true
 
   ###############
   # Associations
   ###############
   belongs_to :custom_fieldable, polymorphic: true
+
   ###############
   # Class Methods
   ###############

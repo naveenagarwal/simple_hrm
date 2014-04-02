@@ -1,0 +1,28 @@
+<%= form_for([:configuration, @custom_field]) do |f| %>
+
+  <%= render partial: "/shared/form_errors", locals: { obj: @custom_field, name: "custom field" } %>
+
+  <fieldset>
+    <%= f.label :name, required_span_with("Name") %>
+    <%= f.text_field :name %>
+  </fieldset>
+
+  <fieldset>
+    <%= f.label :screen, required_span_with("Screen") %>
+    <%= f.select :screen, collection_for(AppEnumerables::CustomFieldScreen), {include_blank: true}, class: "select2" %>
+  </fieldset>
+
+  <fieldset>
+    <%= f.label :field_type, required_span_with("Field Type") %>
+    <%= f.select :field_type, collection_for(AppEnumerables::CustomFieldType), {include_blank: true}, class: "select2" %>
+  </fieldset>
+
+  <br>
+
+  <fieldset>
+    <div class="actions">
+      <%= f.submit nil, class: "btn btn-primary" %>
+    </div>
+  </fieldset>
+
+<% end %>

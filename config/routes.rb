@@ -71,6 +71,7 @@ SimpleHrm::Application.routes.draw do
   end
 
   namespace :configuration do
+    # Admin Module configuration routes
     resources :email_configurations,  except: [:show] do
       member do
         get  :test_email
@@ -79,6 +80,9 @@ SimpleHrm::Application.routes.draw do
 
     resources :email_subscriptions,     except: [:show]
     resources :available_modules,       only: [:edit, :update]
+
+    # PIM Module configuration routes
+    resources :custom_fields,           except: [:show]
   end
 
   resources :subscribers,             except: [:show]
