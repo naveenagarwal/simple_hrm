@@ -1,0 +1,134 @@
+<ul>
+  <li>
+    <a href="#">User Management </a>
+    <ul>
+      <li>
+        <%= link_to "Users", user_management_users_path %>
+      </li>
+      <li>
+        <%= link_to "User Roles", user_management_roles_path %>
+      </li>
+      <li>
+        <%= link_to "Authentication Configuration",
+          edit_user_management_authentication_configuration_path %>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <a href="#">Job</a>
+    <ul>
+      <li>
+        <%= link_to "Job Titles", job_job_titles_path %>
+      </li>
+      <li>
+        <%= link_to "Salary Components", job_salary_components_path %>
+      </li>
+      <li>
+        <%= link_to "Pay Grades", job_pay_grades_path %>
+      </li>
+      <li>
+        <%= link_to "Employment Status", job_employment_statuses_path %>
+      </li>
+      <li>
+        <%= link_to "Job Category", job_categories_path %>
+      </li>
+      <li>
+        <%= link_to "Work Shifts", job_work_shifts_path %>
+      </li>
+      <li>
+        <%= link_to "Interviews", job_interviews_path %>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <a href="#">Organization</a>
+    <ul>
+      <li>
+        <%= link_to "General Information", edit_organization_organization_general_information_path(DEFAULT_ID) %>
+      </li>
+      <li>
+        <%= link_to "Locations", organization_organization_locations_path %>
+      </li>
+      <li>
+        <%= link_to "Structure", organization_organization_structures_path %>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <a href="#">Qualifications</a>
+    <ul>
+      <li>
+        <%= link_to "Skills", qualifications_skills_path %>
+      </li>
+      <li>
+        <%= link_to "Education", qualifications_educations_path %>
+      </li>
+      <li>
+        <%= link_to "Licenses", qualifications_licenses_path %>
+      </li>
+      <li>
+        <%= link_to "Languages", qualifications_languages_path %>
+      </li>
+      <li>
+        <%= link_to "Memberships", qualifications_memberships_path %>
+      </li>
+
+    </ul>
+  </li>
+
+  <li>
+    <a href="<%= nationalities_path %>" >Nationalities</a>
+  </li>
+
+  <li>
+    <a href="<%= manage_news_index_path %>" >Manage News</a>
+  </li>
+
+  <li>
+    <a href="#">Documents</a>
+    <ul>
+      <li>
+        <%= link_to "Manage", document_manage_documents_path %>
+      </li>
+      <li>
+        <%= link_to "Manage Categories", document_categories_path %>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <a href="#">Configuration</a>
+    <ul>
+      <li>
+        <%= link_to "Email Configuration", configuration_email_configurations_path %>
+      </li>
+      <li>
+        <%= link_to "Email Subscription", configuration_email_subscriptions_path %>
+      </li>
+      <li>
+        <%= link_to "Modules", edit_configuration_available_module_path(DEFAULT_ID) %>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <a href="<%= notifications_path %>" >Notifications</a>
+  </li>
+
+  <li>
+    <a href="#">Authentication</a>
+    <ul>
+      <li>
+        <%= link_to "OpenID Configuration", authentication_openid_providers_path %>
+      </li>
+      <li>
+        <%= link_to "LDAP Configuration", authentication_ldap_configurations_path %>
+      </li>
+    </ul>
+  </li>
+
+
+</ul>
