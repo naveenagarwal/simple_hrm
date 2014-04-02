@@ -71,4 +71,25 @@ module AppEnumerables
     LDAPS "LDAPS", 2, 2
   end
 
+  enum :CustomFieldScreen do
+    PersonalDetails "Personal Details", 1, 1
+    ContactDetails  "Contact Details", 2, 2
+    EmergencyContacts "Emergency Contacts", 3, 3
+    Dependents "Dependents", 4, 4
+    Immigration "Immigration", 5, 5
+    Job "Job", 6, 6
+    Salary "Salary", 7, 7
+    TaxExemptions, "Tax Exemptions", 8, 8
+    ReportTo, "Report To", 9, 9
+    Qualifications "Qualifications", 10, 10
+    Memberships "Memberships", 11, 11
+  end
+
+  enum :CustomFieldType do
+    Text "Text", 1, 1
+    Number "Number", 2, 2
+    SelectOption "Drop Down", 3, 3
+    Email "Email", 4, 4
+  end
+
 end
