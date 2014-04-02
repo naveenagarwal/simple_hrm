@@ -79,8 +79,8 @@ module AppEnumerables
     Immigration "Immigration", 5, 5
     Job "Job", 6, 6
     Salary "Salary", 7, 7
-    TaxExemptions, "Tax Exemptions", 8, 8
-    ReportTo, "Report To", 9, 9
+    TaxExemptions "Tax Exemptions", 8, 8
+    ReportTo "Report To", 9, 9
     Qualifications "Qualifications", 10, 10
     Memberships "Memberships", 11, 11
   end
