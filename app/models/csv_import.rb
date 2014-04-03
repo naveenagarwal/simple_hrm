@@ -4,6 +4,11 @@ class CsvImport < ActiveRecord::Base
   ###############
 
   ###############
+  # Uploaders
+  ###############
+  mount_uploader :attachment, CsvImportUploader
+
+  ###############
   # Constants
   ###############
 
@@ -18,6 +23,7 @@ class CsvImport < ActiveRecord::Base
   ###############
   # Associations
   ###############
+
   ###############
   # Class Methods
   ###############
