@@ -3,7 +3,7 @@ class Document < ActiveRecord::Base
   ################
   # Uploaders
   ################
-  mount_uploader :file, NewsAttachmentsUploader
+  mount_uploader :file, AttachmentUploader
 
   ################
   # Validations
