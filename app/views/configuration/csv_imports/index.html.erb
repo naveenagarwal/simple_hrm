@@ -1,0 +1,37 @@
+<h1>Listing CSV Files</h1>
+
+<%= render partial: '/shared/paginate_collection', locals: { records: @configuration_csv_imports } %>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>File Name</th>
+      <th>Data Imported</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @csv_imports.each do |csv_import| %>
+      <tr>
+        <td>
+          <%= file_link(csv_import.attachment) %>
+        </td>
+        <td>
+          <%= csv_import.file_imported %>
+        </td>
+        <td>
+          <%= link_to edit_icon, edit_configuration_csv_import_path(csv_import, pagination_params) %>
+        </td>
+        <td>
+          <%= link_to delete_icon, configuration_csv_import_path(csv_import, pagination_params), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Csv import', new_configuration_csv_import_path, class: "btn" %>

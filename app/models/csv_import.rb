@@ -31,7 +31,9 @@ class CsvImport < ActiveRecord::Base
   ###############
   # Public API
   ###############
-
+  def file_imported
+    imported? ? "Yes" : "No"
+  end
   ###############
   # Protected
   ###############

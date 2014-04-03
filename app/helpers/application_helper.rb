@@ -43,4 +43,12 @@ module ApplicationHelper
   def required_span_with(text)
     "#{text} <span class='required'>*</span>".html_safe
   end
+
+  def file_link(attachment)
+    link_to file_name(attachment), attachment.url
+  end
+
+  def file_name(attachment)
+    File.basename attachment.url if attachment.url
+  end
 end

@@ -83,6 +83,7 @@ SimpleHrm::Application.routes.draw do
 
     # PIM Module configuration routes
     resources :custom_fields,           except: [:show]
+    resources :csv_imports,             except: [:show]
   end
 
   resources :subscribers,             except: [:show]

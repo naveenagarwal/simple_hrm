@@ -1,0 +1,18 @@
+<%= form_for([:configuration, @csv_import], html: { multipart: true }) do |f| %>
+
+  <%= render partial: "/shared/form_errors", locals: { obj: @csv_import, name: "configuration csv import" } %>
+  <fieldset>
+    <%= f.label :attachment, required_span_with("Attachment") %>
+    <%= f.file_field :attachment %>
+    <%= file_name @csv_import.attachment %>
+  </fieldset>
+
+  <br>
+
+  <fieldset>
+    <div class="actions">
+      <%= f.submit "Save", class: "btn btn-primary" %>
+    </div>
+  </fieldset>
+
+<% end %>
