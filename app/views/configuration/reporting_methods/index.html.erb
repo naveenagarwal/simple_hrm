@@ -1,0 +1,33 @@
+<h1>Listing Reporting Methods</h1>
+
+<%= render partial: '/shared/paginate_collection', locals: { records: @nationalities } %>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reporting_methods.each do |reporting_method| %>
+      <tr>
+      <td>
+        <%= reporting_method.name %>
+      </td>
+        <td>
+          <%= link_to edit_icon, edit_configuration_reporting_method_path(reporting_method, pagination_params) %>
+        </td>
+        <td>
+          <%= link_to delete_icon, configuration_reporting_method_path(reporting_method, pagination_params), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Reporting Method', new_configuration_reporting_method_path, class: "btn" %>

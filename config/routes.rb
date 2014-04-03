@@ -78,12 +78,13 @@ SimpleHrm::Application.routes.draw do
       end
     end
 
-    resources :email_subscriptions,     except: [:show]
-    resources :available_modules,       only: [:edit, :update]
+    resources :email_subscriptions,   except: [:show]
+    resources :available_modules,     only: [:edit, :update]
 
     # PIM Module configuration routes
-    resources :custom_fields,           except: [:show]
-    resources :csv_imports,             except: [:show]
+    resources :custom_fields,         except: [:show]
+    resources :csv_imports,           except: [:show]
+    resources :reporting_methods,     except: [:show]
   end
 
   resources :subscribers,             except: [:show]
