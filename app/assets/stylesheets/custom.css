@@ -70,7 +70,7 @@ span.required {
 }
 .menu li a:hover, .menu ul li:hover a{
 
- background: #ca9875 url("menu_images/hover.gif") bottom center no-repeat;
+ background: #ca9875;
  color:#6D6D6D;
  text-decoration:none;
 }
@@ -96,7 +96,7 @@ span.required {
 
 }
 .menu li li {
-  background:url('menu_images/sub_sep.gif') bottom left no-repeat;
+  /*background:url('menu_images/sub_sep.gif') bottom left no-repeat;*/
   display:block;
   float:none;
   margin:0px;
@@ -118,7 +118,7 @@ span.required {
   text-align:left;
 }
 .menu li ul a:hover, .menu li ul li:hover a{
-  background:#ca9875 url('menu_images/hover_sub.gif') center left no-repeat;
+  background:#ca9875;
   border:0px;
   color:#ffffff;
   text-decoration:none;
@@ -135,4 +135,7 @@ span.required {
   top: 0;
 }
 .menu ul li ul li:hover ul li a { background: none; color: #6d6d6d; }
-.menu ul li ul li:hover ul li a:hover { background:#ca9875 url('menu_images/hover_sub.gif') center left no-repeat; color: #fff; }
+.menu ul li ul li:hover ul li a:hover {
+  background:#ca9875;
+  color: #fff;
+}
