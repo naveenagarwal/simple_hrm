@@ -1,6 +1,6 @@
-<%= form_for([:configuration, @reporting_method]) do |f| %>
+<%= form_for([:configuration, @termination_reason]) do |f| %>
 
-  <%= render partial: "/shared/form_errors", locals: { obj: @reporting_method, name: "reporting method" } %>
+  <%= render partial: "/shared/form_errors", locals: { obj: @termination_reason, name: "termination reason" } %>
 
   <fieldset>
     <div class="actions">

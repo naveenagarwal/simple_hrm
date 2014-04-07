@@ -85,6 +85,7 @@ SimpleHrm::Application.routes.draw do
     resources :custom_fields,         except: [:show]
     resources :csv_imports,           except: [:show]
     resources :reporting_methods,     except: [:show]
+    resources :termination_reasons,   except: [:show]
   end
 
   resources :subscribers,             except: [:show]

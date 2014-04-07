@@ -1,0 +1,33 @@
+<h1>Listing Termination Reasons</h1>
+
+<%= render partial: '/shared/paginate_collection', locals: { records: @termination_reasons } %>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @termination_reasons.each do |termination_reason| %>
+      <tr>
+      <td>
+        <%= termination_reason.name %>
+      </td>
+        <td>
+          <%= link_to edit_icon, edit_configuration_termination_reason_path(termination_reason, pagination_params) %>
+        </td>
+        <td>
+          <%= link_to delete_icon, configuration_termination_reason_path(termination_reason, pagination_params), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Termination Reason', new_configuration_termination_reason_path, class: "btn" %>
