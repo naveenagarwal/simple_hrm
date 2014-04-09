@@ -102,3 +102,20 @@ child.create_child_with({
   "Memberships Expiry Notification",
   "Retirement Notification"
 ].each { |name| Event.create!(name: name) }
+
+# Leave Types
+
+[
+  { name: "Annual", country: "United States" },
+  { name: "Casual - Probation", country: "United States" },
+  { name: "Casual leave", country: "United States" },
+  { name: "FMLA leave", country: "United States" },
+  { name: "Lieu leave", country: "United States" },
+  { name: "Maternity Leave", country: "United States" },
+  { name: "Paternity", country: "United States" },
+  { name: "PTO leave", country: "United States" },
+  { name: "Sick leave", country: "United States" },
+  { name: "Vacation Leave", country: "United States" },
+  { name: "Working from home", country: "United States" }
+
+].each { |leave_type| LeaveType.create! leave_type }
