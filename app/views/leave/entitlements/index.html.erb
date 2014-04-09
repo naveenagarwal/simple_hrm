@@ -1,0 +1,49 @@
+<h1>Listing Leave Entitlements</h1>
+
+<%= render partial: '/shared/paginate_collection', locals: { records: @leave_entitlements } %>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Location</th>
+      <th>Leave Type</th>
+      <th>Leave Period</th>
+      <th>Days</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @leave_entitlements.each do |leave_entitlement| %>
+      <tr>
+        <td>
+          <%= leave_entitlement.user.email %>
+        </td>
+        <td>
+          <%= leave_entitlement.organization_location.name %>
+        </td>
+        <td>
+          <%= leave_entitlement.leave_type.name %>
+        </td>
+        <td>
+          <%= leave_entitlement.leave_period(format: "%m/%d/%Y") %>
+        </td>
+        <td>
+          <%= leave_entitlement.leave_period_in_days %>
+        </td>
+        <td>
+          <%= link_to edit_icon, edit_leave_entitlement_path(leave_entitlement, pagination_params) %>
+        </td>
+        <td>
+          <%= link_to delete_icon, leave_entitlement_path(leave_entitlement, pagination_params), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Entitlement', new_leave_entitlement_path, class: "btn" %>

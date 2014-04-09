@@ -14,7 +14,7 @@ class LeaveEntitlement < ActiveRecord::Base
   ###############
   # Validations
   ###############
-  validates :user, :leave_type, :location, :from, :to, presence: true
+  validates :user, :leave_type, :organization_location, :from, :to, presence: true
 
   validates_with MinMaxValidator,
     fields: { min: :from, max: :to, msg: "can't be before \"From\"" }
@@ -24,7 +24,7 @@ class LeaveEntitlement < ActiveRecord::Base
   ###############
   belongs_to :user
   belongs_to :leave_type
-  belongs_to :location
+  belongs_to :organization_location
 
   ###############
   # Class Methods
@@ -33,7 +33,13 @@ class LeaveEntitlement < ActiveRecord::Base
   ###############
   # Public API
   ###############
+  def leave_period_in_days
+   (to - from + 1).to_i
+  end
 
+  def leave_period(format: "%m/%d/%Y")
+    "#{from.strftime(format)} - #{to.strftime(format)}"
+  end
   ###############
   # Protected
   ###############

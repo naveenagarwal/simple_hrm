@@ -5,7 +5,7 @@ class CreateLeaveEntitlements < ActiveRecord::Migration
       t.integer :leave_type_id
       t.date :from
       t.date :to
-      t.integer :location_id
+      t.integer :organization_location_id
 
       t.timestamps
     end

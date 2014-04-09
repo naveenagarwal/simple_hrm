@@ -1,0 +1,2 @@
+module Leave::EntitlementsHelper
+end
