@@ -96,6 +96,10 @@ SimpleHrm::Application.routes.draw do
     resources :ldap_configurations,   except: [:show]
   end
 
+  namespace :leave do
+    resources :entitlements,    except: [:show]
+  end
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
