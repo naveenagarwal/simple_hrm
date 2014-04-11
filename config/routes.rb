@@ -86,6 +86,9 @@ SimpleHrm::Application.routes.draw do
     resources :csv_imports,           except: [:show]
     resources :reporting_methods,     except: [:show]
     resources :termination_reasons,   except: [:show]
+
+    # Leave Moudle Configuration routes
+    resources :leave_periods,         except: [:show]
   end
 
   resources :subscribers,             except: [:show]
