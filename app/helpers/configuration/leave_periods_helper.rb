@@ -1,0 +1,2 @@
+module Configuration::LeavePeriodsHelper
+end

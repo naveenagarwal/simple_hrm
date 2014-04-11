@@ -51,4 +51,17 @@ module ApplicationHelper
   def file_name(attachment)
     File.basename attachment.url if attachment.url
   end
+
+  def collection_for_months(enum_collection)
+    options_html = []
+
+    enum_collection.each do |e|
+      options_html << "<option value=#{ e.value } data-childrenoptions=\
+        #{ (1..e.options[:number_of_days]).to_a.join(",") } >#{ e.description }\
+        </option>"
+    end
+
+    options_html.join.html_safe
+  end
+
 end

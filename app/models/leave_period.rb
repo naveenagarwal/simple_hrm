@@ -8,6 +8,11 @@ class LeavePeriod < ActiveRecord::Base
   ###############
 
   ###############
+  # Scopes
+  ###############
+  scope :current_leave_period, -> { where(active: true).first }
+
+  ###############
   # Accessors
   ###############
 
@@ -18,6 +23,12 @@ class LeavePeriod < ActiveRecord::Base
   ###############
   # Associations
   ###############
+
+  ###############
+  # CallBacks
+  ###############
+  before_save :ensure_only_one_is_active
+
   ###############
   # Class Methods
   ###############
@@ -25,6 +36,9 @@ class LeavePeriod < ActiveRecord::Base
   ###############
   # Public API
   ###############
+  def end_date
+    "Calculate End Date"
+  end
 
   ###############
   # Protected
@@ -35,5 +49,12 @@ class LeavePeriod < ActiveRecord::Base
   # Private
   ###############
   private
+
+  def ensure_only_one_is_active
+    if active?
+      self.class.update_all(:active, true)
+      self.active = true
+    end
+  end
 
 end

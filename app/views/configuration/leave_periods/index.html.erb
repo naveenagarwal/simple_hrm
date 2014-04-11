@@ -1,0 +1,45 @@
+<h1>Listing Leave Periods</h1>
+
+<%= render partial: '/shared/paginate_collection', locals: { records: @leave_periods } %>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Start Month</th>
+      <th>Start Date</th>
+      <th>Ends Date</th>
+      <th>Active</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @leave_periods.each do |leave_period| %>
+      <tr>
+        <td>
+          <%= leave_period.start_month %>
+        </td>
+        <td>
+          <%= leave_period.start_date %>
+        </td>
+        <td>
+          <%= leave_period.end_date %>
+        </td>
+        <td>
+          <%= leave_period.active? %>
+        </td>
+        <td>
+          <%= link_to edit_icon, edit_configuration_leave_period_path(leave_period, pagination_params) %>
+        </td>
+        <td>
+          <%= link_to delete_icon, configuration_leave_period_path(leave_period, pagination_params), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Leave period', new_configuration_leave_period_path, class: "btn" %>

@@ -1,0 +1,29 @@
+<%= form_for([:configuration, @leave_period]) do |f| %>
+
+  <%= render partial: "/shared/form_errors", locals: { obj: @leave_period, name: "leave period" } %>
+
+  <fieldset>
+    <%= f.label :start_month, required_span_with("Start Month") %>
+    <%= f.select :start_month, collection_for_months(AppEnumerables::Months), { include_blank: true }, class: "parent-select" %>
+
+  </fieldset>
+
+  <fieldset>
+    <%= f.label :start_date, required_span_with("Start Date") %>
+    <%= f.select :start_date, [], { include_blank: true }, class: "children-select" %>
+  </fieldset>
+
+  <fieldset>
+    <%= f.check_box :active %>
+    <%= f.label :active, required_span_with("Activate") ,class: "checkbox inline" %><br>
+  </fieldset>
+
+  <br>
+
+  <fieldset>
+    <div class="actions">
+      <%= f.submit nil, class: "btn btn-primary" %>
+    </div>
+  </fieldset>
+
+<% end %>
