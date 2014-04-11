@@ -92,4 +92,19 @@ module AppEnumerables
     Email "Email", 4, 4
   end
 
+  enum :Months do
+    January "January", 1, 1, { number_of_days: 31 }
+    February "February", 2, 2, { number_of_days: 28 }
+    March "March", 3, 3, { number_of_days: 31 }
+    April "April", 4, 4, { number_of_days: 30 }
+    May "May", 5, 5, { number_of_days: 31 }
+    June "June", 6, 6, { number_of_days: 30 }
+    July "July", 7, 7, { number_of_days: 31 }
+    August "August", 8, 8, { number_of_days: 31 }
+    September "September", 9, 9, { number_of_days: 30 }
+    October "October", 10, 10, { number_of_days: 31 }
+    November "November", 11, 11, { number_of_days: 30 }
+    December "December", 12, 12, { number_of_days: 31 }
+  end
+
 end
