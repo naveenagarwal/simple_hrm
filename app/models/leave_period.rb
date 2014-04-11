@@ -52,7 +52,7 @@ class LeavePeriod < ActiveRecord::Base
 
   def ensure_only_one_is_active
     if active?
-      self.class.update_all(:active, true)
+      self.class.update_all(active: true)
       self.active = true
     end
   end
