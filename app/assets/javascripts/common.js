@@ -4,6 +4,7 @@ $(document).on('page:load', function() {
   initializeSelectOptions();
   createTreeViewForOrganizarionStructure();
   showAjaxCompleteNotification();
+  parentChildrenSelectCombo();
 });
 
 $(document).ready(function() {
@@ -12,6 +13,7 @@ $(document).ready(function() {
   initializeSelectOptions();
   createTreeViewForOrganizarionStructure();
   showAjaxCompleteNotification();
+  parentChildrenSelectCombo();
 });
 
 var initializeDateFields = function(){
@@ -78,3 +80,20 @@ $(document).on("click", ".test-email-button", function(){
 
   return false;
 });
+
+var parentChildrenSelectCombo = function(){
+  $("select.parent-select").change(function(){
+    var html = "<option value></option>";
+    var childrenOptions = $("select.parent-select option:selected").data("childrenoptions");
+
+    if(childrenOptions){
+      childrenOptions = childrenOptions.split(",");
+
+      for(var i=0; i < childrenOptions.length; i++){
+        html += "<option value=" + childrenOptions[i] + ">" + childrenOptions[i] + "</option>";
+      }
+    }
+    console.log(html);
+    $("select.children-select").html(html);
+  });
+}
