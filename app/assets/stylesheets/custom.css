@@ -52,11 +52,13 @@ span.required {
   background-color: floralwhite;
   width: 90%;
   margin: auto;
+  display: table;
 }
 
 .menu li{
   float:left;
   padding:0px;
+  display: table-cell;
 }
 .menu li a{
   color:#6D6D6D;
@@ -92,7 +94,7 @@ span.required {
     /*left:0;*/
   }
 .menu li:hover ul{
-  display:block;
+  display:table;
 
 }
 .menu li li {
