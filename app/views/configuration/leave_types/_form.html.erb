@@ -1,0 +1,23 @@
+<%= form_for([:configuration, @leave_type]) do |f| %>
+
+  <%= render partial: "/shared/form_errors", locals: { obj: @leave_type, name: "Leave Type" } %>
+
+  <fieldset>
+    <%= f.label :name, required_span_with("Name") %>
+    <%= f.text_field :name %>
+  </fieldset>
+
+  <fieldset>
+    <%= f.label :country, required_span_with("Country") %>
+    <%= f.select :country, options_for_all_countries, { include_blank: true }, class: "select2" %>
+  </fieldset>
+
+  <br>
+
+  <fieldset>
+    <div class="actions">
+      <%= f.submit nil, class: "btn btn-primary" %>
+    </div>
+  </fieldset>
+
+<% end %>

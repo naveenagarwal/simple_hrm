@@ -1,0 +1,42 @@
+<h1>Listing Leave Types</h1>
+
+<%= render partial: '/shared/paginate_collection', locals: { records: @leave_types } %>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Country</th>
+      <th>Leave Rules</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @leave_types.each do |leave_type| %>
+      <tr>
+        <td>
+          <%= leave_type.name %>
+        </td>
+        <td>
+          <%= leave_type.name %>
+        </td>
+        <td>
+          <%= link_to "Leave Rules", configuration_leave_type_path(leave_type) %>
+        </td>
+
+        <td>
+          <%= link_to edit_icon, edit_configuration_leave_type_path(leave_type, pagination_params) %>
+        </td>
+        <td>
+          <%= link_to delete_icon, configuration_leave_type_path(leave_type, pagination_params), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Leave type', new_configuration_leave_type_path, class: "btn" %>

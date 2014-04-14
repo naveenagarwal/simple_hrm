@@ -89,6 +89,7 @@ SimpleHrm::Application.routes.draw do
 
     # Leave Moudle Configuration routes
     resources :leave_periods,         except: [:show]
+    resources :leave_types
   end
 
   resources :subscribers,             except: [:show]
