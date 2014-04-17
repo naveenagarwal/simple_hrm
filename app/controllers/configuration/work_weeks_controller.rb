@@ -49,7 +49,7 @@ class Configuration::WorkWeeksController < ApplicationController
 
   def work_week_params
     params.require(:work_week).permit(
-      :country, weekdays_info: [:monday, :tuesday, :wednesday, :thursday, :friday, :saturday, :sunday]
+      :country, weekdays_info: [:Monday, :Tuesday, :Wednesday, :Thursday, :Friday, :Saturday, :Sunday]
     )
   end
 

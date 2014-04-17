@@ -1,0 +1,5 @@
+<fieldset>
+  <%= label "work_week[weekdays_info]", day_name %>
+  <%= select "work_week[weekdays_info]", day_name, collection_for(AppEnumerables::WeekdaysInfo), selected: @work_week.weekdays_info[day_name] %>
+</fieldset>
+<br>
