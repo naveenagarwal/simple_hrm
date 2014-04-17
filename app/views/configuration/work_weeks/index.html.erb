@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th>Country</th>
+      <th>Work week</th>
       <th></th>
       <th></th>
     </tr>
@@ -16,6 +17,9 @@
       <tr>
         <td>
           <%= work_week.country %>
+        </td>
+        <td>
+          <%= format_weekday_info work_week.weekdays_info %>
         </td>
         <td>
           <%= link_to edit_icon, edit_configuration_work_week_path(work_week, pagination_params) %>
