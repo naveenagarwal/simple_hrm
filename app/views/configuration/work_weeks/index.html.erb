@@ -1,23 +1,27 @@
-<h1>Listing Configuration Work Weeks</h1>
+<h1>Listing Work Weeks</h1>
 
-<%= render partial: '/shared/paginate_collection', locals: { records: @configuration_work_weeks } %>
+<%= render partial: '/shared/paginate_collection', locals: { records: @work_weeks } %>
 
 <table class="table table-bordered table-striped">
   <thead>
     <tr>
+      <th>Country</th>
       <th></th>
       <th></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @configuration_work_weeks.each do |configuration_work_week| %>
+    <% @work_weeks.each do |work_week| %>
       <tr>
         <td>
-          <%= link_to edit_icon, edit_configuration_work_week_path(configuration_work_week, pagination_params) %>
+          <%= work_week.country %>
         </td>
         <td>
-          <%= link_to delete_icon, configuration_work_week_path(configuration_work_week, pagination_params), method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to edit_icon, edit_configuration_work_week_path(work_week, pagination_params) %>
+        </td>
+        <td>
+          <%= link_to delete_icon, configuration_work_week_path(work_week, pagination_params), method: :delete, data: { confirm: 'Are you sure?' } %>
         </td>
       </tr>
     <% end %>

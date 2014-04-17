@@ -1,7 +1,13 @@
-<%= form_for(@configuration_work_week) do |f| %>
+<%= form_for([:configuration, @work_week]) do |f| %>
 
-  <%= render partial: "/shared/form_errors", locals: { obj: @configuration_work_week, name: "configuration work week" } %>
+  <%= render partial: "/shared/form_errors", locals: { obj: @work_week, name: "Work week" } %>
 
+  <fieldset>
+    <%= f.label :country, required_span_with("Country") %>
+    <%= f.select :country, options_for_all_countries, { include_blank: true }, class: "select2" %>
+  </fieldset>
+
+  <br>
 
   <fieldset>
     <div class="actions">

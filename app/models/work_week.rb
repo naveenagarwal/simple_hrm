@@ -3,6 +3,11 @@ class WorkWeek < ActiveRecord::Base
   # Includes
   ###############
 
+  ###################
+  # serialized attr.
+  ###################
+  serialize :weekdays_info, Hash
+
   ###############
   # Constants
   ###############
@@ -14,10 +19,12 @@ class WorkWeek < ActiveRecord::Base
   ###############
   # Validations
   ###############
+  validates :country, presence: true, uniqueness: { case_sensitive: false }
 
   ###############
   # Associations
   ###############
+
   ###############
   # Class Methods
   ###############
