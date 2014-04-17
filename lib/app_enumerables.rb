@@ -107,4 +107,10 @@ module AppEnumerables
     December "December", 12, 12, { number_of_days: 31 }
   end
 
+  enum :WeekdaysInfo do
+    FullDay "Full Day", 1, 1
+    HalfDay "Half Day", 2, 2
+    NonWorkingDay "Non-working Day", 3, 3
+  end
+
 end
