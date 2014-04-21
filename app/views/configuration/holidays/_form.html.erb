@@ -21,7 +21,7 @@
   </fieldset>
   <fieldset>
     <%= f.label :country, required_span_with("Country") %>
-    <%= f.select :country, options_for_all_countries, {}, class: "select" %>
+    <%= f.select :country, options_for_all_countries, { include_blank: true }, class: "select" %>
   </fieldset>
 
   <fieldset>

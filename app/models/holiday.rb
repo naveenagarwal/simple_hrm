@@ -14,10 +14,13 @@ class Holiday < ActiveRecord::Base
   ###############
   # Validations
   ###############
+  validates :name, :on, presence: true, uniqueness: true
+  validates :country, presence: true
 
   ###############
   # Associations
   ###############
+
   ###############
   # Class Methods
   ###############
