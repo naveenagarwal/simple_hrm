@@ -1,0 +1,51 @@
+<h1>Listing Holidays</h1>
+
+<%= render partial: '/shared/paginate_collection', locals: { records: @holidays } %>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Date</th>
+      <th>Repeat Annually</th>
+      <th>Full Day/Half Day</th>
+      <th>Country</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @holidays.each do |holiday| %>
+      <tr>
+
+        <td>
+          <%= holiday.name %>
+        </td>
+        <td>
+          <%= get_date_in_format holiday.on, "%m/%d/%Y" %>
+        </td>
+        <td>
+          <%= holiday.repeat_annually? %>
+        </td>
+        <td>
+          <%= description_for AppEnumerables::HolidayType, holiday.period %>
+        </td>
+        <td>
+          <%= holiday.country %>
+        </td>
+
+        <td>
+          <%= link_to edit_icon, edit_configuration_holiday_path(holiday, pagination_params) %>
+        </td>
+        <td>
+          <%= link_to delete_icon, configuration_holiday_path(holiday, pagination_params), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Holiday', new_configuration_holiday_path, class: "btn" %>

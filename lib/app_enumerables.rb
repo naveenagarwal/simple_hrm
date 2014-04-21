@@ -113,4 +113,9 @@ module AppEnumerables
     NonWorkingDay "Non-working Day", 3, 3
   end
 
+  enum :HolidayType do
+    FullDay "Full Day", 1, 1
+    HalfDay "Half Day", 2, 2
+  end
+
 end

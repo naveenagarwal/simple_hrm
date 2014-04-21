@@ -1,4 +1,4 @@
-class Hoilday < ActiveRecord::Base
+class Holiday < ActiveRecord::Base
   ###############
   # Includes
   ###############

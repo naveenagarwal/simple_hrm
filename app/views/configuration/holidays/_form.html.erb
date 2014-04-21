@@ -1,0 +1,33 @@
+<%= form_for([:configuration, @holiday]) do |f| %>
+
+  <%= render partial: "/shared/form_errors", locals: { obj: @holiday, name: "Holiday" } %>
+
+  <fieldset>
+    <%= f.label :name, required_span_with("Name") %>
+    <%= f.text_field :name %>
+  </fieldset>
+  <fieldset>
+    <%= f.label :on, required_span_with("Date") %>
+    <%= f.text_field :on, class: "date" %>
+  </fieldset>
+  <fieldset>
+    <%= f.check_box :repeat_annually %>
+    <%= f.label :repeat_annually, class: "checkbox inline" %>
+  </fieldset>
+  <br>
+  <fieldset>
+    <%= f.label :period, "Full Day/Half Day" %>
+    <%= f.select :period, collection_for(AppEnumerables::HolidayType), {}, class: "select" %>
+  </fieldset>
+  <fieldset>
+    <%= f.label :country, required_span_with("Country") %>
+    <%= f.select :country, options_for_all_countries, {}, class: "select" %>
+  </fieldset>
+
+  <fieldset>
+    <div class="actions">
+      <%= f.submit nil, class: "btn btn-primary" %>
+    </div>
+  </fieldset>
+
+<% end %>

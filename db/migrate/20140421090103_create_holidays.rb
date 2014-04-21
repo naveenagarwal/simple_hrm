@@ -1,6 +1,6 @@
-class CreateHoildays < ActiveRecord::Migration
+class CreateHolidays < ActiveRecord::Migration
   def change
-    create_table :hoildays do |t|
+    create_table :holidays do |t|
       t.string :name
       t.date :on
       t.boolean :repeat_annually

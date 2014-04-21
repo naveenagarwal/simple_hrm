@@ -1,7 +1,7 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
-  factory :hoilday do
+  factory :holiday do
     name "MyString"
     on "2014-04-21"
     repeat_annually false

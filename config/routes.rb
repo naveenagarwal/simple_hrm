@@ -91,6 +91,7 @@ SimpleHrm::Application.routes.draw do
     resources :leave_periods,         except: [:show]
     resources :leave_types
     resources :work_weeks,            except: [:show]
+    resources :holidays,              except: [:show]
   end
 
   resources :subscribers,             except: [:show]
