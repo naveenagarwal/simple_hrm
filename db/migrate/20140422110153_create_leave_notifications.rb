@@ -5,6 +5,7 @@ class CreateLeaveNotifications < ActiveRecord::Migration
       t.date :send_on
       t.integer :for_days
       t.string :mail_subject
+      t.integer :status
 
       t.timestamps
     end
