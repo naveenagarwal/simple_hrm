@@ -22,7 +22,7 @@
           <%= leave_notification.name %>
         </td>
         <td>
-          <%= get_date_in_format leave_notification.send_on, "m/%d%/%Y" %>
+          <%= get_date_in_format leave_notification.send_on, "%m/%d/%Y" %>
         </td>
         <td>
           <%= leave_notification.for_days %>
@@ -33,12 +33,14 @@
         <td>
           <%= description_for(AppEnumerables::LeaveNotificationStatus,leave_notification.status) %>
         </td>
+
         <td>
-          <%= link_to edit_icon, edit_configuration_leave_notification_path(leave_notification, pagination_params) %>
+          <%= link_to edit_icon, edit_configuration_leave_notification_path(leave_notification, pagination_params) if leave_notification.editable? %>
         </td>
         <td>
-          <%= link_to delete_icon, configuration_leave_notification_path(leave_notification, pagination_params), method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to delete_icon, configuration_leave_notification_path(leave_notification, pagination_params), method: :delete, data: { confirm: 'Are you sure?' } if leave_notification.destroyble? %>
         </td>
+
       </tr>
     <% end %>
   </tbody>

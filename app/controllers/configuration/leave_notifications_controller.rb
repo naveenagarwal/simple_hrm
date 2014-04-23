@@ -13,7 +13,8 @@ class Configuration::LeaveNotificationsController < ApplicationController
   end
 
   def create
-    @leave_notification = LeaveNotification.new(leave_notification_params)
+    @leave_notification         = LeaveNotification.new(leave_notification_params)
+    @leave_notification.status  = AppEnumerables::LeaveNotificationStatus::Pending.value
 
     respond_to do |format|
       if @leave_notification.save

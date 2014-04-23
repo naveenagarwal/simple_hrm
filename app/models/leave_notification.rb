@@ -29,12 +29,22 @@ class LeaveNotification < ActiveRecord::Base
   ###############
   # Class Methods
   ###############
+  before_save :editable?
+  before_destroy :destroyble?
 
   ###############
   # Public API
   ###############
   def todays_date
     Date.today
+  end
+
+  def editable?
+    AppEnumerables::LeaveNotificationStatus::Sent.value != status
+  end
+
+  def destroyble?
+    AppEnumerables::LeaveNotificationStatus::Sent.value != status
   end
   ###############
   # Protected
@@ -45,5 +55,6 @@ class LeaveNotification < ActiveRecord::Base
   # Private
   ###############
   private
+
 
 end
