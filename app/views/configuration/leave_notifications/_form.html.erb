@@ -2,6 +2,25 @@
 
   <%= render partial: "/shared/form_errors", locals: { obj: @leave_notification, name: "Leave Notification" } %>
 
+  <fieldset>
+    <%= f.label :name, required_span_with("Name") %>
+    <%= f.text_field :name %>
+  </fieldset>
+
+  <fieldset>
+    <%= f.label :send_on, required_span_with("Send On") %>
+    <%= f.text_field :send_on, class: "date" %>
+  </fieldset>
+
+  <fieldset>
+    <%= f.label :for_days, required_span_with("Leave for next") %>
+    <%= f.number_field :for_days %>
+  </fieldset>
+
+  <fieldset>
+    <%= f.label :mail_subject, required_span_with("Mail Subject") %>
+    <%= f.text_field :mail_subject %>
+  </fieldset>
 
   <fieldset>
     <div class="actions">
