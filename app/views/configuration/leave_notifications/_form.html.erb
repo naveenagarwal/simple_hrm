@@ -1,6 +1,6 @@
-<%= form_for(@configuration_leave_notification) do |f| %>
+<%= form_for([:configuration, @leave_notification]) do |f| %>
 
-  <%= render partial: "/shared/form_errors", locals: { obj: @configuration_leave_notification, name: "configuration leave notification" } %>
+  <%= render partial: "/shared/form_errors", locals: { obj: @leave_notification, name: "Leave Notification" } %>
 
 
   <fieldset>

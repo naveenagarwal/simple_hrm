@@ -1,23 +1,43 @@
-<h1>Listing Configuration Leave Notifications</h1>
+<h1>Listing Leave Notifications</h1>
 
-<%= render partial: '/shared/paginate_collection', locals: { records: @configuration_leave_notifications } %>
+<%= render partial: '/shared/paginate_collection', locals: { records: @leave_notifications } %>
 
 <table class="table table-bordered table-striped">
   <thead>
     <tr>
+      <th>Name</th>
+      <th>Send On</th>
+      <th>Leave for next(days)</th>
+      <th>Mail Subject</th>
+      <th>Status</th>
       <th></th>
       <th></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @configuration_leave_notifications.each do |configuration_leave_notification| %>
+    <% @leave_notifications.each do |leave_notification| %>
       <tr>
         <td>
-          <%= link_to edit_icon, edit_configuration_leave_notification_path(configuration_leave_notification, pagination_params) %>
+          <%= leave_notification.name %>
         </td>
         <td>
-          <%= link_to delete_icon, configuration_leave_notification_path(configuration_leave_notification, pagination_params), method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= get_date_in_format leave_notification.send_on, "m/%d%/%Y" %>
+        </td>
+        <td>
+          <%= leave_notification.for_days %>
+        </td>
+        <td>
+          <%= leave_notification.mail_subject %>
+        </td>
+        <td>
+          <%= description_for(AppEnumerables::LeaveNotificationStatus,leave_notification.status) %>
+        </td>
+        <td>
+          <%= link_to edit_icon, edit_configuration_leave_notification_path(leave_notification, pagination_params) %>
+        </td>
+        <td>
+          <%= link_to delete_icon, configuration_leave_notification_path(leave_notification, pagination_params), method: :delete, data: { confirm: 'Are you sure?' } %>
         </td>
       </tr>
     <% end %>
