@@ -118,4 +118,10 @@ module AppEnumerables
     HalfDay "Half Day", 2, 2
   end
 
+  enum :LeaveNotificationStatus do
+    Sent "Sent", 1, 1
+    Pending "Pending", 2, 2
+    Failed "Failed", 3, 3
+  end
+
 end
