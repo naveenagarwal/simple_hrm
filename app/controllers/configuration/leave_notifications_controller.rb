@@ -13,7 +13,7 @@ class Configuration::LeaveNotificationsController < ApplicationController
   end
 
   def create
-    @leave_notification = LeaveNotification.new(configuration_leave_notification_params)
+    @leave_notification = LeaveNotification.new(leave_notification_params)
 
     respond_to do |format|
       if @leave_notification.save
@@ -26,7 +26,7 @@ class Configuration::LeaveNotificationsController < ApplicationController
 
   def update
     respond_to do |format|
-      if @leave_notification.update(configuration_leave_notification_params)
+      if @leave_notification.update(leave_notification_params)
         format.html { redirect_to configuration_leave_notifications_path(pagination_params), notice: t("model.update", kind: "Leave Notification") }
       else
         format.html { render action: 'edit' }
@@ -47,8 +47,8 @@ class Configuration::LeaveNotificationsController < ApplicationController
     @leave_notification = LeaveNotification.find(params[:id])
   end
 
-  def configuration_leave_notification_params
-    params[:configuration_leave_notification]
+  def leave_notification_params
+    params.require(:leave_notification).permit(:name, :mail_subject, :send_on, :for_days)
   end
 
 end
