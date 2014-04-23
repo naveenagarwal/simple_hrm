@@ -1,74 +1,54 @@
 class Configuration::LeaveNotificationsController < ApplicationController
-  before_action :set_configuration_leave_notification, only: [:show, :edit, :update, :destroy]
+  before_action :set_leave_notification, only: [:edit, :update, :destroy]
 
-  # GET /configuration/leave_notifications
-  # GET /configuration/leave_notifications.json
   def index
-    @configuration_leave_notifications = Configuration::LeaveNotification.all
+    @leave_notifications = paginated_records_for LeaveNotification.order("send_on DESC")
   end
 
-  # GET /configuration/leave_notifications/1
-  # GET /configuration/leave_notifications/1.json
-  def show
-  end
-
-  # GET /configuration/leave_notifications/new
   def new
-    @configuration_leave_notification = Configuration::LeaveNotification.new
+    @leave_notification = LeaveNotification.new
   end
 
-  # GET /configuration/leave_notifications/1/edit
   def edit
   end
 
-  # POST /configuration/leave_notifications
-  # POST /configuration/leave_notifications.json
   def create
-    @configuration_leave_notification = Configuration::LeaveNotification.new(configuration_leave_notification_params)
+    @leave_notification = LeaveNotification.new(configuration_leave_notification_params)
 
     respond_to do |format|
-      if @configuration_leave_notification.save
-        format.html { redirect_to @configuration_leave_notification, notice: 'Leave notification was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @configuration_leave_notification }
+      if @leave_notification.save
+        format.html { redirect_to configuration_leave_notifications_path(pagination_params), notice: t("model.create", kind: "Leave Notification") }
       else
         format.html { render action: 'new' }
-        format.json { render json: @configuration_leave_notification.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PATCH/PUT /configuration/leave_notifications/1
-  # PATCH/PUT /configuration/leave_notifications/1.json
   def update
     respond_to do |format|
-      if @configuration_leave_notification.update(configuration_leave_notification_params)
-        format.html { redirect_to @configuration_leave_notification, notice: 'Leave notification was successfully updated.' }
-        format.json { head :no_content }
+      if @leave_notification.update(configuration_leave_notification_params)
+        format.html { redirect_to configuration_leave_notifications_path(pagination_params), notice: t("model.update", kind: "Leave Notification") }
       else
         format.html { render action: 'edit' }
-        format.json { render json: @configuration_leave_notification.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /configuration/leave_notifications/1
-  # DELETE /configuration/leave_notifications/1.json
   def destroy
-    @configuration_leave_notification.destroy
+    @leave_notification.destroy
     respond_to do |format|
-      format.html { redirect_to configuration_leave_notifications_url }
-      format.json { head :no_content }
+      format.html { redirect_to configuration_leave_notifications_path(pagination_params), notice: t("model.destroy", kind: "Leave Notification") }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_configuration_leave_notification
-      @configuration_leave_notification = Configuration::LeaveNotification.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def configuration_leave_notification_params
-      params[:configuration_leave_notification]
-    end
+  def set_leave_notification
+    @leave_notification = LeaveNotification.find(params[:id])
+  end
+
+  def configuration_leave_notification_params
+    params[:configuration_leave_notification]
+  end
+
 end
