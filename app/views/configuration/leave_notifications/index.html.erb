@@ -1,0 +1,29 @@
+<h1>Listing Configuration Leave Notifications</h1>
+
+<%= render partial: '/shared/paginate_collection', locals: { records: @configuration_leave_notifications } %>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @configuration_leave_notifications.each do |configuration_leave_notification| %>
+      <tr>
+        <td>
+          <%= link_to edit_icon, edit_configuration_leave_notification_path(configuration_leave_notification, pagination_params) %>
+        </td>
+        <td>
+          <%= link_to delete_icon, configuration_leave_notification_path(configuration_leave_notification, pagination_params), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Leave notification', new_configuration_leave_notification_path, class: "btn" %>
