@@ -1,12 +1,12 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
-  factory :leafe, :class => 'Leave' do
-    user nil
-    leave_type nil
-    from "2014-04-24"
-    to "2014-04-24"
-    comment "MyText"
+  factory :leave, :class => 'Leave' do
+    user { User.first || create(:user) }
+    leave_type_id 1
+    from 2.days.from_now
+    to 5.days.from_now
+    comment "This is test leave"
     status 1
   end
 end
