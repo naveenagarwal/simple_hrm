@@ -124,4 +124,10 @@ module AppEnumerables
     Failed "Failed", 3, 3
   end
 
+  enum :LeaveStatus do
+    Approved "Approved", 1, 1
+    Pending "Pending", 2, 2
+    Rejected "Rejected", 3, 3
+  end
+
 end
