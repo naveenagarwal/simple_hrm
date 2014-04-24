@@ -37,6 +37,7 @@ class User < ActiveRecord::Base
   has_one     :user_work_shift
   has_one     :work_shift, through: :user_work_shift, dependent: :destroy
   has_many    :documents, as: :creator, dependent: :destroy
+  has_many    :leaves, dependent: :destroy
 
   ###############
   # Class Methods
