@@ -23,6 +23,12 @@ class Leave < ActiveRecord::Base
   validates_with MinMaxValidator,
     fields: { min: :from, max: :to, msg: "can't be before \"From\"" }
 
+  validates_with LeaveOverlapValidator
+
+  ###############
+  # Callbacks
+  ###############
+
   ###############
   # Associations
   ###############
