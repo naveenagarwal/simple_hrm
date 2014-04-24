@@ -48,6 +48,7 @@ group :development, :test do
   gem 'nifty-generators'
   gem 'mocha'
   gem 'annotate', '>=2.6.0'
+  gem 'spring'
 end
 
 # gem 'bootstrap-sass', '~> 3.1.0'
