@@ -98,8 +98,7 @@ SimpleHrm::Application.routes.draw do
 
     get "leaves/new",       to: "leaves#new", as: :new_leave
     get "leaves/:id/edit",  to: "leaves#edit", as: :edit_leave
-    put "leaves/:id",       to: "leaves#update", as: :update_leave
-    patch "leaves/:id",     to: "leaves#update"
+    match "leaves/:id",       to: "leaves#update", as: :update_leave, via: [:put, :patch]
     delete "leaves/:id",    to: "leaves#destroy", as: :destroy_leave
 
   end
