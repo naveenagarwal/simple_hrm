@@ -1,0 +1,55 @@
+<h1>Listing Leaves</h1>
+
+<%= render partial: '/shared/paginate_collection', locals: { records: @leaves } %>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Leave Type</th>
+      <th>From</th>
+      <th>To</th>
+      <th>Status</th>
+      <th>Comment</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @leaves.each do |leave| %>
+      <tr>
+
+        <td>
+          <%= leave.user.email %>
+        </td>
+        <td>
+          <%= leave.leave_type.name %>
+        </td>
+        <td>
+          <%= get_date_in_format leave.from, "%m/%d/%Y" %>
+        </td>
+        <td>
+          <%= get_date_in_format leave.to, "%m/%d/%Y" %>
+        </td>
+        <td>
+          <%= description_for AppEnumerables::LeaveStatus, leave.status %>
+        </td>
+        <td>
+          <%= get_text_with_tooltip leave.comment %>
+        </td>
+
+        <td>
+          <%= link_to edit_icon, configuration_edit_leave_path(leave, pagination_params) %>
+        </td>
+        <td>
+          <%= link_to delete_icon, configuration_destroy_leave_path(leave, pagination_params), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Leave', configuration_new_leave_path, class: "btn" %>

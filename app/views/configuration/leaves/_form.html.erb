@@ -1,0 +1,36 @@
+<%= form_for(@leave, url: url) do |f| %>
+
+  <%= render partial: "/shared/form_errors", locals: { obj: @leave, name: "Leave" } %>
+
+  <fieldset>
+    <%= f.label :user_id, required_span_with("User") %>
+    <%= f.select :user_id, User.all.collect { |u| [u.email, u.id] }, { include_blank: true }, class: "select2"  %>
+  </fieldset>
+
+  <fieldset>
+    <%= f.label :leave_type_id, required_span_with("Leave Type") %>
+    <%= f.select :leave_type_id, LeaveType.all.collect { |l| [l.name, l.id] }, { include_blank: true }, class: "select2"  %>
+  </fieldset>
+
+  <fieldset>
+    <%= f.label :from, required_span_with("From") %>
+    <%= f.text_field :from, class: "date"  %>
+  </fieldset>
+
+  <fieldset>
+    <%= f.label :to, required_span_with("To") %>
+    <%= f.text_field :to, class: "date"  %>
+  </fieldset>
+
+  <fieldset>
+    <%= f.label :comment, required_span_with("Comment") %>
+    <%= f.text_area :comment  %>
+  </fieldset>
+
+  <fieldset>
+    <div class="actions">
+      <%= f.submit nil, class: "btn btn-primary" %>
+    </div>
+  </fieldset>
+
+<% end %>

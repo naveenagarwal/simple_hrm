@@ -93,7 +93,17 @@ SimpleHrm::Application.routes.draw do
     resources :work_weeks,            except: [:show]
     resources :holidays,              except: [:show]
     resources :leave_notifications,   except: [:show]
+
+    resources :leaves,                only:   [:index, :create]
+
+    get "leaves/new",       to: "leaves#new", as: :new_leave
+    get "leaves/:id/edit",  to: "leaves#edit", as: :edit_leave
+    put "leaves/:id",       to: "leaves#update", as: :update_leave
+    patch "leaves/:id",     to: "leaves#update"
+    delete "leaves/:id",    to: "leaves#destroy", as: :destroy_leave
+
   end
+
 
   resources :subscribers,             except: [:show]
   resources :notifications,           except: [:show]
