@@ -6,5 +6,7 @@ class CreateTimesheets < ActiveRecord::Migration
 
       t.timestamps
     end
+
+    add_index :timesheets, :for_date
   end
 end
