@@ -1,4 +1,4 @@
-class TimesheetEntry < ActiveRecord::Base
+class Project < ActiveRecord::Base
   ###############
   # Includes
   ###############
@@ -18,10 +18,6 @@ class TimesheetEntry < ActiveRecord::Base
   ###############
   # Associations
   ###############
-  belongs_to :project
-  belongs_to :timesheet
-  belongs_to :project_task
-
   ###############
   # Class Methods
   ###############
