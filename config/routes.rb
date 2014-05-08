@@ -96,9 +96,9 @@ SimpleHrm::Application.routes.draw do
 
     resources :leaves,                only:   [:index, :create]
 
-    get "leaves/new",       to: "leaves#new", as: :new_leave
-    get "leaves/:id/edit",  to: "leaves#edit", as: :edit_leave
-    match "leaves/:id",       to: "leaves#update", as: :update_leave, via: [:put, :patch]
+    get "leaves/new",       to: "leaves#new",     as: :new_leave
+    get "leaves/:id/edit",  to: "leaves#edit",    as: :edit_leave
+    match "leaves/:id",     to: "leaves#update",  as: :update_leave, via: [:put, :patch]
     delete "leaves/:id",    to: "leaves#destroy", as: :destroy_leave
 
   end
@@ -114,6 +114,10 @@ SimpleHrm::Application.routes.draw do
 
   namespace :leave do
     resources :entitlements,    except: [:show]
+  end
+
+  namespace :timesheets do
+    resources :employee_timesheets
   end
 
   # Example of regular route:
