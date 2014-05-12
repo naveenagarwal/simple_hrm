@@ -141,3 +141,11 @@ span.required {
   background:#ca9875;
   color: #fff;
 }
+
+.pre-background {
+  background-color: #eee;
+}
+
+.clear-both {
+  clear: both;
+}
