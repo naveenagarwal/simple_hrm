@@ -32,6 +32,8 @@ class Timesheet < ActiveRecord::Base
       status ||= AppEnumerables::TimesheetEntryStatus::Pending.value
       period ||= Timesheet::SEVEN
 
+      status = AppEnumerables::TimesheetEntryStatus.map(&:value) if status == ALL
+
       for_date_range = period.to_i.days.ago.to_date..Date.today
 
       includes(:timesheet_entries).joins(:timesheet_entries).where(
@@ -57,6 +59,13 @@ class Timesheet < ActiveRecord::Base
 
   def rejected_entries
     timesheet_entries.rejected
+  end
+
+  def entries_by_status(entry_status)
+    status = entry_status || AppEnumerables::TimesheetEntryStatus::Pending.value
+    status = AppEnumerables::TimesheetEntryStatus.map(&:value) if status == ALL
+
+    timesheet_entries.where(status: status)
   end
 
   ###############

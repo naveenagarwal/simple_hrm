@@ -7,7 +7,7 @@ class Timesheets::EmployeeTimesheetsController < ApplicationController
 
   def show
     @employee_timesheets = paginated_records_for @employee.timesheets.get_entries(
-        status: params[:type],
+        status: params[:status],
         period: params[:period]
       )
   end

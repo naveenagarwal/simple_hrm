@@ -2,12 +2,12 @@
   Showing Timesheet for employee: <strong><%= @employee.email %></strong>
 </p>
 
+<div class="pre-background">
+  <%= render partial: "/timesheets/employee_timesheets/timsheet_filter" %>
+</div>
 
 <% if @employee_timesheets.present? %>
 
-  <div class="pre-background">
-    <%= render partial: "/timesheets/employee_timesheets/timsheet_filter" %>
-  </div>
 
   <%= form_tag(timesheets_employee_timesheet_path(@employee.id), { method: "PUT", remote: true }) do %>
 
@@ -46,7 +46,7 @@
                   </thead>
 
                   <tbody>
-                    <% timesheet.pending_entries.each do |entry| %>
+                    <% timesheet.entries_by_status(params[:status]).each do |entry| %>
                       <tr id="row-<%= entry.id %>">
                         <td>
                           <%= entry.project.name %>
