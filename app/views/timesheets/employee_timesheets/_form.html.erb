@@ -1,0 +1,12 @@
+<%= form_for(@timsheets_employee_timesheet) do |f| %>
+
+  <%= render partial: "/shared/form_errors", locals: { obj: @timsheets_employee_timesheet, name: "timsheets employee timesheet" } %>
+
+
+  <fieldset>
+    <div class="actions">
+      <%= f.submit nil, class: "btn btn-primary" %>
+    </div>
+  </fieldset>
+
+<% end %>

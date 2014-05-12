@@ -1,0 +1,64 @@
+<p>
+  Showing Timesheet for employee: <strong><%= @employee.email %></strong>
+</p>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>For Date</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @employee_timesheets.each do |timesheet| %>
+      <tr>
+      <td>
+
+        <%= link_to get_date_in_format(timesheet.for_date, "%b %d, %Y"), "javascript:void(0);", class: "btn", data: { toggle: "collapse", target: "#timesheet-entry-#{timesheet.id}" } %>
+
+        <div id="<%= "timesheet-entry-#{timesheet.id}" %>" class="panel-collapse collapse">
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th>Project</th>
+                <th>Task</th>
+                <th>Hours Spent</th>
+                <th>Description</th>
+                <th>Approve</th>
+                <th>Reject</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% timesheet.pending_entries.each do |entry| %>
+                <tr>
+                  <td>
+                    <%= entry.project.name %>
+                  </td>
+                  <td>
+                    <%= entry.project_task.name %>
+                  </td>
+                  <td>
+                    <%= entry.time_spent %>
+                  </td>
+                  <td>
+                    <%= get_text_with_tooltip entry.description %>
+                  </td>
+                  <td>
+                    <%= radio_button_tag 'status', AppEnumerables::TimesheetEntryStatus::Approved.value  %>
+                  </td>
+                  <td>
+                    <%= radio_button_tag 'status', AppEnumerables::TimesheetEntryStatus::Rejected.value  %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= render partial: '/shared/paginate_collection', locals: { records: @employee_timesheets } %>

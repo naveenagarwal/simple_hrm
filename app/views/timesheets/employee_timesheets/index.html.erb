@@ -1,0 +1,15 @@
+<h1>Timesheet</h1>
+<br>
+<div class="span3 pre-background text-center">
+  <h6>Select Employee</h6>
+
+  <%= select_tag "id", options_from_collection_for_select(@employees, "id", "email"), include_blank: true, class: "select2", id: "employee-select-for-timesheet" %>
+
+</div>
+
+<div class="clearfix"></div>
+<br>
+
+<div id="employee-timesheet" class="clear-both span11">
+
+</div>
