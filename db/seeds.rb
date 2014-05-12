@@ -1,3 +1,4 @@
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
@@ -119,3 +120,15 @@ child.create_child_with({
   { name: "Working from home", country: "United States" }
 
 ].each { |leave_type| LeaveType.create! leave_type }
+
+# Create some test projects
+[
+
+  { name: "Project 1", status: AppEnumerables::ProjectStatus::InProgress.value },
+  { name: "Project 2", status: AppEnumerables::ProjectStatus::InProgress.value },
+  { name: "Project 3", status: AppEnumerables::ProjectStatus::InProgress.value }
+
+].each { |project| Project.create! project }
+
+# Create some common project tasks
+[ "Testing", "Development", "Research & Development" ].each { |name| ProjectTask.create! name: name  }
