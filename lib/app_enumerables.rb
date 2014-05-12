@@ -130,4 +130,10 @@ module AppEnumerables
     Rejected "Rejected", 3, 3
   end
 
+  enum :TimesheetEntryStatus do
+    Approved "Approved", 1, 1
+    Pending "Pending", 2, 2
+    Rejected "Rejected", 3, 3
+  end
+
 end
