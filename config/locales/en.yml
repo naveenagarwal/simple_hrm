@@ -23,6 +23,7 @@ en:
   model:
     create: "%{kind} was successfully created."
     update: "%{kind} was successfully updated."
+    update_fail: "%{kind} can't be updated."
     destroy: "%{kind} was successfully deleted."
     destroy_fail: "%{kind} can't be deleted."
   devise:

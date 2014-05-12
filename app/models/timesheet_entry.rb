@@ -34,11 +34,28 @@ class TimesheetEntry < ActiveRecord::Base
   ###############
   # Class Methods
   ###############
+  class << self
+
+    def update_entries(entries_hash)
+      update(entries_hash.keys, entries_hash.values).reject { |entry| entry.errors.empty? }
+    end
+
+  end
 
   ###############
   # Public API
   ###############
+  def approved?
+    status == AppEnumerables::TimesheetEntryStatus::Approved.value
+  end
 
+  def pending?
+    status == AppEnumerables::TimesheetEntryStatus::Pending.value
+  end
+
+  def rejected?
+    status == AppEnumerables::TimesheetEntryStatus::Rejected.value
+  end
   ###############
   # Protected
   ###############

@@ -1,13 +1,11 @@
 class Timesheets::EmployeeTimesheetsController < ApplicationController
-  before_action :set_employee_timesheet, only: [:edit, :update, :destroy]
+  before_action :set_employee_timesheet, only: [:show, :edit, :update, :destroy]
 
   def index
     @employees = User.select("email, id")
   end
 
   def show
-    @employee = User.where(id: params[:id]).first
-
     @employee_timesheets = paginated_records_for @employee.timesheets.get_entries(
         status: params[:type],
         period: params[:period]
@@ -34,12 +32,12 @@ class Timesheets::EmployeeTimesheetsController < ApplicationController
   end
 
   def update
-    respond_to do |format|
-      if @employee_timesheet.update(timsheets_employee_timesheet_params)
-        format.html { redirect_to @employee_timesheet, notice: 'Employee timesheet was successfully updated.' }
-      else
-        format.html { render action: 'edit' }
-      end
+    @entries = @employee.timesheet_entries.update_entries(params[:timesheet_entries])
+
+    if @entries.blank?
+      set_flash_messages(type: "notice", message: t("model.update", kind: "Timesheet"))
+    else
+      set_flash_messages(type: "alert", message: t("model.update_fail", kind: "Timesheet"))
     end
   end
 
@@ -52,11 +50,11 @@ class Timesheets::EmployeeTimesheetsController < ApplicationController
 
   private
 
-  def set_timsheets_employee_timesheet
-    @employee_timesheet = Timesheet.new
+  def set_employee_timesheet
+    @employee = User.find(params[:id])
   end
 
-  def timsheets_employee_timesheet_params
+  def employee_timesheet_params
     params[:timsheets_employee_timesheet]
   end
 

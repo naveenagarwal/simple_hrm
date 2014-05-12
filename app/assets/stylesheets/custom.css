@@ -149,3 +149,7 @@ span.required {
 .clear-both {
   clear: both;
 }
+
+table#timesheet-entires tbody > tr.has-error-row > td {
+  background-color: #F60C0C;
+}

@@ -1,0 +1,13 @@
+$("#error-container").html('');
+$('tr').removeClass("has-error-row");
+
+<% if @entries.present? %>
+
+  <% @entries.each do |entry| %>
+
+    $("tr#row-<%=entry.id %>").addClass("has-error-row");
+    $("#error-container").append('<%= j render(partial: "/shared/form_errors", locals: { obj: entry, name: "" }) %>');
+
+  <% end %>
+
+<% end %>
