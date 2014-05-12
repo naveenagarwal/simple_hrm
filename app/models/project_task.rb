@@ -18,7 +18,7 @@ class ProjectTask < ActiveRecord::Base
   ###############
   # Associations
   ###############
-  belongs_to :project
+
   ###############
   # Class Methods
   ###############
