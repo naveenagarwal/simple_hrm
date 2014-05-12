@@ -136,4 +136,11 @@ module AppEnumerables
     Rejected "Rejected", 3, 3
   end
 
+  enum :ProjectStatus do
+    InProgress "In Progress", 1, 1
+    Completed "Completed", 2, 2
+    Shutdown "Shutdown", 3, 3
+    OnHold "On Hold", 4, 4
+  end
+
 end
