@@ -2,11 +2,18 @@
   Showing Timesheet for employee: <strong><%= @employee.email %></strong>
 </p>
 
-<% if @employee_timesheets.present? %>
-  <%= form_tag(timesheets_employee_timesheet_path(@employee.id), { method: "PUT", remote: true }) do %>
-    <div id="error-container">
 
+<% if @employee_timesheets.present? %>
+
+  <div class="pre-background">
+    <%= render partial: "/timesheets/employee_timesheets/timsheet_filter" %>
+  </div>
+
+  <%= form_tag(timesheets_employee_timesheet_path(@employee.id), { method: "PUT", remote: true }) do %>
+
+    <div id="error-container">
     </div>
+
     <table class="table table-bordered table-striped">
       <thead>
         <tr>
@@ -20,6 +27,9 @@
             <td>
 
               <%= link_to get_date_in_format(timesheet.for_date, "%b %d, %Y"), "javascript:void(0);", class: "btn", data: { toggle: "collapse", target: "#timesheet-entry-#{timesheet.id}" } %>
+
+              <div class="clearfix"></div>
+              <br>
 
               <div id="<%= "timesheet-entry-#{timesheet.id}" %>" class="panel-collapse collapse">
                 <table id="timesheet-entires" class="table table-bordered table-striped">
@@ -70,7 +80,7 @@
       </tbody>
     </table>
 
-    <%= submit_tag "Update", id: "submit", name: "submit", class: "btn btn-primary pull-right form_submit", disabled: false, disable_with: "Please wait..." %>
+    <%= submit_tag "Update", id: "submit", name: "submit", class: "btn btn-primary pull-right form_submit", disabled: false, data: { disable_with: "Please wait..." } %>
 
   <% end %> <!-- Form End -->
 

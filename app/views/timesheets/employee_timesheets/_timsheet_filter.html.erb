@@ -1,0 +1,36 @@
+<%= form_tag(timesheets_employee_timesheet_path(@employee.id), { remote: true, method: "GET" }) do %>
+
+  <span class="">
+    <label class="display-inline">
+      Show Timesheets which have entries status as:
+    </label>
+
+    <% current_status = params[:status] || AppEnumerables::TimesheetEntryStatus::Pending.value %>
+
+    <% AppEnumerables::TimesheetEntryStatus.each do |status| %>
+
+      <%= radio_button_tag "status", status.value, status.value == current_status.to_i %>
+
+      <%= status.description %>
+
+    <% end%>
+
+      <%= radio_button_tag "status", "all", "all" == params[:status] %>
+     All
+
+  </span>
+  <div class="clearfix"></div>
+  <br>
+
+  <span class="">
+    <label class="display-inline">
+      For last:
+    </label>
+
+    <%= select_tag("period", options_for_select([ "1", "2", "3", "4", "5", "6", "7", "15", "30" ], params[:period] || 7 )) %>
+
+  </span>
+
+  <%= submit_tag "Filter", id: "submit", name: "submit", class: "pull-right btn btn-primary", disabled: false, data: { disable_with: "Please wait..." } %>
+
+<% end %>
