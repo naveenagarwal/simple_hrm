@@ -5,6 +5,7 @@ $(document).on('page:load', function() {
   createTreeViewForOrganizarionStructure();
   showAjaxCompleteNotification();
   parentChildrenSelectCombo();
+  ajaxLoaderDisplay();
 });
 
 $(document).ready(function() {
@@ -14,6 +15,7 @@ $(document).ready(function() {
   createTreeViewForOrganizarionStructure();
   showAjaxCompleteNotification();
   parentChildrenSelectCombo();
+  ajaxLoaderDisplay();
 });
 
 var initializeDateFields = function(){
@@ -95,5 +97,13 @@ var parentChildrenSelectCombo = function(){
     }
     console.log(html);
     $("select.children-select").html(html);
+  });
+}
+
+var ajaxLoaderDisplay = function(){
+  $(document).bind("ajaxSend", function(){
+    $("#ajax-loader").show();
+  }).bind("ajaxComplete", function(){
+    $("#ajax-loader").hide();
   });
 }

@@ -157,3 +157,17 @@ table#timesheet-entires tbody > tr.has-error-row > td {
 .width-50-percent{
   width: 50%;
 }
+
+#ajax-loader {
+  width: 100%;
+  height: 100%;
+  z-index: 99999;
+  opacity: 0.3;
+  background-color: grey;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  align-self: center;
+  background: url('/assets/animated-overlay.gif') 50% 50% no-repeat rgb(249,249,249);
+  display: none;
+}
